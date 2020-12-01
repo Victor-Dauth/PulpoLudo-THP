@@ -1,0 +1,10 @@
+<h1>Voila la liste de nos super jeux :</h1>
+
+<p>
+  <%= link_to "lien pour tester Devise", static_pages_index_path %>
+</p>
+
+<% @game_sheets.each do |game_sheet| %>
+  <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+<%end%>
+
