@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
-  # Test implémentation devise
+  # Test implementation devise
   root 'static_pages#index'
-  get 'static_pages/secret'
   
   devise_for :users
 
