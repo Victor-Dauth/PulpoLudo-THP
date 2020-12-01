@@ -41,7 +41,7 @@ class GameSheet < ApplicationRecord
   
 
   def nb_players
-    self.nb_players_min + "-" + self.nb_players_max
+    "#{self.nb_players_min}-#{self.nb_players_max}"
   end
 
   private

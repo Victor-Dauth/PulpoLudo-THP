@@ -1,11 +1,15 @@
 <div class="card border-light mb-4 animate-up-5">
   <div class="row no-gutters align-items-center">
-    <div class="col-12 col-lg-6 col-xl-5" style="height: 300px;">
-      <a href="<%= game_sheet_path(game_sheet.id) %>">
-        
-        <%= image_tag game_sheet.image_url, :alt => "kitten img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-      </a>
-    </div>
+
+    <% if false %>
+      <div class="col-12 col-lg-6 col-xl-5" style="height: 300px;">
+        <a href="<%= game_sheet_path(game_sheet.id) %>">
+          
+          <%= image_tag game_sheet.image_url, :alt => "kitten img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+        </a>
+      </div>
+    <% end %>
+
     <div class="col-12 col-lg-6 col-xl-7">
       <div class="card-body">
         <a href="<%= game_sheet_path(game_sheet.id) %>">
@@ -37,7 +41,7 @@
           </div>
           <div class="col pl-0">
             <span class="text-muted font-small d-block">langage</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.language %></span>
+            <span class="h6 text-dark font-weight-bold"><%= game_sheet.languages %></span>
           </div>
           <div class="col pl-0">
             <span class="text-muted font-small d-block">date de publication</span>
