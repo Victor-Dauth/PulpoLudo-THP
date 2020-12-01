@@ -7,7 +7,7 @@ class CreateGameSheets < ActiveRecord::Migration[5.2]
       t.integer :nb_players_min,     null:false
       t.integer :playing_time,       null:false
       t.integer :age_min,            null:false
-      t.string  :language,           null:false
+      t.string  :languages,          null:false
       t.date    :publication_date,   null:false
       t.integer :difficulty,         null:false
 

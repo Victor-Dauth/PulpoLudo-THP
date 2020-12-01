@@ -1,11 +1,11 @@
 class GameSheet < ApplicationRecord
   has_many :Games
 
-  enum language: { french: "Français", english: "Anglais"}
+  enum languages: { french: "Français", english: "Anglais"}
 
   validates :title,
             presence: true,
-            uniqueness: { case_sensitive: false }
+            uniqueness: true
 
   validates :description,
             presence: true
@@ -18,19 +18,19 @@ class GameSheet < ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1}
 
-  validates :nb_players_min_inf?
+  validate :nb_players_min_inf?
 
   validates :playing_time,       
-            presence: true
+            presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1}
 
   validates :age_min,            
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1}
 
-  validates :language,           
+  validates :languages,           
             presence: true,
-            inclusion: {in: language.keys}
+            inclusion: {in: languages.keys}
 
   validates :publication_date,   
             presence: true 
