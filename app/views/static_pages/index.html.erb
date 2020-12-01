@@ -18,6 +18,10 @@
       <%= link_to "Edit email / password", edit_user_registration_path %>
     </li>
 
+    <li>
+      <%= link_to "Edit profile", edit_user_path(current_user) %>
+    </li>
+
   <% else %>
     <li>    
       <%= link_to "Sign in", new_user_session_path %>
