@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   
   validates :stock_id,
             presence: true,
-            format: {with: [0-9]{1,6}_[0-9]{1,3}}
+            #format: {with: [0-9]{1,6}_[0-9]{1,3}}
 
   validates :status,
             presence: true,
