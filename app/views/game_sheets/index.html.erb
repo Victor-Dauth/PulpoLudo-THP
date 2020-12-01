@@ -1,0 +1,6 @@
+<h1>Voila la liste de nos super jeux :</h1>
+
+<% @game_sheets.each do |game_sheet| %>
+  <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+<%end%>
+

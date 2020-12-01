@@ -39,6 +39,11 @@ class GameSheet < ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   
+
+  def nb_players
+    self.nb_players_min + "-" + self.nb_players_max
+  end
+
   private
 
   def nb_players_min_inf?
