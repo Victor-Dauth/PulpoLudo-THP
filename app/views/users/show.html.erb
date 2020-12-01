@@ -1,0 +1,10 @@
+<p>Voici ton prénom : <%= current_user.first_name %> </p>
+<p>Voici ton nom : <%= current_user.last_name %> </p>
+
+
+<h3>Avatar actuel</h3>
+<%if current_user.avatar.attached?%>
+  <%= image_tag @user.avatar, alt: 'real avatar' %>
+<%else%>
+  <%= image_tag 'unnamed.jpg', alt: 'default avatar' %>
+<% end %>
