@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   enum conditions: {like_new: "comme neuf", excellent: "excellent", fine: "correct", damaged: "abimé", incomplete: "incomplet", broken: "detruit"}
   
   validates :stock_id,
-            presence: true,
+            presence: true
             #format: {with: [0-9]{1,6}_[0-9]{1,3}}
 
   validates :status,
