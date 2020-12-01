@@ -1,4 +1,4 @@
-<h1>TEST DEVISE</h1>
+<h1>INDEX BASIQUE POUR TEST DEVISE</h1>
 
 <ul>
   <% if user_signed_in? %>
@@ -11,15 +11,15 @@
     </li>
 
     <li>
-      <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
-
-    <li>
-      <%= link_to "Edit email / password", edit_user_registration_path %>
+      <%= link_to "Edit email / password (DEVISE)", edit_user_registration_path %>
     </li>
 
     <li>
       <%= link_to "Edit profile", edit_user_path(current_user) %>
+    </li>
+
+    <li>
+      <%= link_to "My profile", user_path(current_user) %>
     </li>
 
   <% else %>

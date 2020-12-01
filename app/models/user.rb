@@ -7,4 +7,6 @@ class User < ApplicationRecord
   #validates :first_name
   #validates :last_name
 
+  has_one_attached :avatar
+
 end
