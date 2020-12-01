@@ -2,7 +2,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
   def change
     create_table :games do |t|
       t.string :stock_id,         null:false
-      t.string :status,           null:false, default:"en stock"
+      t.string :statuses,           null:false, default:"en stock"
       t.string :conditions,        null:false, default:"comme neuf"
       t.float :weight
       t.float :height
