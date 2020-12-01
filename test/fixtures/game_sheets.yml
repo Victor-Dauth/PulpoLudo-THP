@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  nb_players_max: 1
+  nb_players_min: 1
+  playing_time: 1
+  age_min: 1
+  language: MyString
+  publication_date: 2020-12-01
+  difficulty: 1
+  stock_id: MyString
+  status: MyString
+
+two:
+  title: MyString
+  description: MyText
+  nb_players_max: 1
+  nb_players_min: 1
+  playing_time: 1
+  age_min: 1
+  language: MyString
+  publication_date: 2020-12-01
+  difficulty: 1
+  stock_id: MyString
+  status: MyString
