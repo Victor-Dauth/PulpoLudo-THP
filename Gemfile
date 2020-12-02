@@ -39,6 +39,9 @@ gem 'dotenv-rails'
 # Sync with Amazon to store content in the cloud
 gem "aws-sdk-s3", require: false
 
+# Add Mailjet to manage mail in prod
+gem 'mailjet'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
