@@ -1,0 +1,347 @@
+<div class="section section-header section-image bg-tertiary overlay-primary text-white overflow-hidden pb-9" style="background-image: url(<%= asset_path "game-index-background3.jpg" =%>);">
+            <div class="container z-2">
+                <div class="row justify-content-center pt-3">
+                    <div class="col-12 text-center">
+                        <h1 class="mb-5">Trouver vos jeux</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-md pt-0">
+            <div class="container mt-n7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-light p-md-2">
+                            <div class="card-body p-4">
+                                <form autocomplete="off" method="get" action="#">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group form-group-lg mb-lg-0">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-search"></span></span>
+                                                            </div>
+                                                            <input id="search-location" type="text" class="form-control autocomplete" placeholder="Recherche par mots-clés" tabindex="1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <div class="col-12">
+                                            <div id="collapseAdvanced" class="collapse">
+                                                <div class="row">
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="input-group input-group-lg mt-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-sliders-h"></span></span>
+                                                            </div>
+                                                            <select class="custom-select" id="exampleFormControlSelect1" >
+                                                                <option>Difficulté</option>
+                                                                <option>Facile</option>
+                                                                <option>Intermédiaire</option>
+                                                                <option>Avancé</option>
+                                                                <option>Difficile</option>
+                                                                <option>Expert</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="input-group input-group-lg mt-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-birthday-cake"></span></span>
+                                                            </div>
+                                                            <select class="custom-select" id="exampleFormControlSelect2">
+                                                                <option>Âge</option>
+                                                                <option>à partir de 1 an</option>
+                                                                <option>à partir de 2 ans</option>
+                                                                <option>à partir de 3 ans</option>
+                                                                <option>à partir de 4 ans</option>
+                                                                <option>à partir de 5 ans</option>
+                                                                <option>à partir de 6 ans</option>
+                                                                <option>à partir de 7 ans</option>
+                                                                <option>à partir de 8 ans</option>
+                                                                <option>à partir de 9 ans</option>
+                                                                <option>à partir de 10 ans</option>
+                                                                <option>à partir de 11 ans</option>
+                                                                <option>à partir de 12 ans</option>
+                                                                <option>à partir de 13 ans</option>
+                                                                <option>à partir de 14 ans</option>
+                                                                <option>à partir de 15 ans</option>
+                                                                <option>à partir de 16 ans</option>
+                                                                <option>à partir de 17 ans</option>
+                                                                <option>à partir de 18 ans</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="input-group input-group-lg mt-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-users"></span></span>
+                                                            </div>
+                                                            <select class="custom-select" id="exampleFormControlSelect3">
+                                                                <option>Nombre de joueurs</option>
+                                                                <option>dès 1 personne</option>
+                                                                <option>dès 2 personnes</option>
+                                                                <option>dès 3 personnes</option>
+                                                                <option>dès 4 personnes</option>
+                                                                <option>dès 5 personnes</option>
+                                                                <option>dès 6 personnes</option>
+                                                                <option>dès 7 personnes</option>
+                                                                <option>dès 8 personnes</option>
+                                                                <option>dès 9 personnes</option>
+                                                                <option>dès 10 personnes</option>
+                                                          
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                   <div class="col-12 col-lg-4">
+                                                    <div class="input-group input-group-lg mt-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text"><span class="fas fa-users"></span></span>
+                                                        </div>
+                                                        <select class="custom-select" id="exampleFormControlSelect4">
+                                                            <option>Mécanismes</option>
+                                                            <option>action</option>
+                                                            <option>adresse</option>
+                                                            <option>ambiance</option>
+                                                            <option>casse tête</option>
+                                                            <option>cartes</option>
+                                                            <option>conquête</option>
+                                                            <option>dés</option>
+                                                            <option>énigmes</option>
+                                                            <option>...</option>
+                                                      
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                   <div class="col-12 col-lg-4">
+                                                        <div class="input-group input-group-lg mt-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-users"></span></span>
+                                                            </div>
+                                                            <select class="custom-select" id="exampleFormControlSelect3">
+                                                                <option>Editeur</option>
+                                                                <option>Axel</option>
+                                                                <option>2 minutes</option>
+                                                                <option>les autres</option>
+                                                          
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="input-group input-group-lg mt-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-users"></span></span>
+                                                            </div>
+                                                            <select class="custom-select" id="exampleFormControlSelect3">
+                                                                <option>Univers</option>
+                                                                <option>Moyen Âge</option>
+                                                                <option>Chevalier</option>
+                                                                <option>Comics & Manga</option>
+                                                          
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                     <div class="col-12 col-lg-4">
+                                                        <div class="card border-light mt-3 p-3">
+                                                            <a href="#" data-target="#amenities-2" class="accordion-panel-header w-100 d-flex align-items-center justify-content-between" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="amenities-2">
+                                                                <span class="icon-title h6 mb-0 font-weight-bold">Langues</span>
+                                                                <span class="icon"><i class="fas fa-plus"></i></span>
+                                                            </a>
+                                                            <ul id="amenities-2" class="collapse list-group list-group list-group-flush pt-2">
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                                                        <label class="form-check-label" for="defaultCheck1">
+                                                                            Français    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                                                        <label class="form-check-label" for="defaultCheck2">
+                                                                            Anglais    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>          
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="card border-light mt-3 p-3">
+                                                            <a href="#" data-target="#amenities-1" class="accordion-panel-header w-100 d-flex align-items-center justify-content-between" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="amenities-1">
+                                                                <span class="icon-title h6 mb-0 font-weight-bold">Durée d'une partie</span>
+                                                                <span class="icon"><i class="fas fa-plus"></i></span>
+                                                            </a>
+                                                            <ul id="amenities-1" class="collapse list-group list-group list-group-flush pt-2">
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                                                                        <label class="form-check-label" for="defaultCheck11">
+                                                                            Moins de 30 min     
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
+                                                                        <label class="form-check-label" for="defaultCheck12">
+                                                                            De 30 min à 1h    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
+                                                                        <label class="form-check-label" for="defaultCheck13">
+                                                                            1h à 2h   
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck14">
+                                                                        <label class="form-check-label" for="defaultCheck14">
+                                                                            2h à 3h    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck15">
+                                                                        <label class="form-check-label" for="defaultCheck15">
+                                                                            3h à 4h   
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck16">
+                                                                        <label class="form-check-label" for="defaultCheck16">
+                                                                            4h et + 
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-lg-4">
+                                                        <div class="card border-light mt-3 p-3">
+                                                            <a href="#" data-target="#category-1" class="accordion-panel-header w-100 d-flex align-items-center justify-content-between" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="category-1">
+                                                                <span class="icon-title h6 mb-0 font-weight-bold">Catégories</span>
+                                                                <span class="icon"><i class="fas fa-plus"></i></span>
+                                                            </a>
+                                                            <ul id="category-1" class="collapse list-group list-group list-group-flush pt-2">
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck17">
+                                                                        <label class="form-check-label" for="defaultCheck17">
+                                                                            Jeux de société     
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck18">
+                                                                        <label class="form-check-label" for="defaultCheck18">
+                                                                            Jeux d'enfants    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck19">
+                                                                        <label class="form-check-label" for="defaultCheck19">
+                                                                            Jeux de cartes  
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck20">
+                                                                        <label class="form-check-label" for="defaultCheck20">
+                                                                            Jeux de rôle    
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck21">
+                                                                        <label class="form-check-label" for="defaultCheck21">
+                                                                            Jeux d'histoire   
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck22">
+                                                                        <label class="form-check-label" for="defaultCheck22">
+                                                                            Jeux de figurines 
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item border-0 py-1 px-0 d-flex align-items-center justify-content-between">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck23">
+                                                                        <label class="form-check-label" for="defaultCheck23">
+                                                                            Jeux classiques 
+                                                                        </label>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+
+                                                            
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="row align-items-center">
+                                                <div class="col-6 col-lg-4 mb-3 mb-lg-0">
+                                                    <button class="btn btn-primary btn-block animate-up-2" type="submit">Rechercher un jeu</button>
+                                                </div>
+                                                <div class="col-6 col-lg-4 mb-3 mb-lg-0">
+                                                    <button class="btn btn-outline-gray btn-block animate-up-2" type="reset">Réinitialiser</button>
+                                                </div>
+                                                <div class="col-12 col-lg-4 d-flex justify-content-between align-items-center">
+                                                    <a href="#" data-target="#collapseAdvanced" class="accordion-panel-header d-block" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseAdvanced">
+                                                        <span class="icon"><span class="fas fa-plus-circle"></span></span>
+                                                        <span class="icon-title font-weight-normal text-gray ml-2 mb-0">Recherche avancée</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-lg pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-5">
+                        <div class="justify-content-between align-items-center d-none d-md-flex">
+                            <div class="mr-3">
+                                <h2 class="h6 mb-3 mb-md-0">Nombre total de jeux trouvé: <span class="font-weiht-bolder text-primary">207</span></h2>
+                            </div>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
