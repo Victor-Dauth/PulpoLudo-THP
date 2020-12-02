@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use postgresql as the database for Active Record
@@ -21,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -39,8 +37,14 @@ gem 'dotenv-rails'
 # Use Stripe to process payments
 gem 'stripe'
 
+# Use Font-awesome-rails to integrate webfonts easily into asset pipeline
 gem 'font-awesome-rails'
 
+# Sync with Amazon to store content in the cloud
+gem "aws-sdk-s3", require: false
+
+# Use Mailjet to manage mailers in prod
+gem 'mailjet'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
