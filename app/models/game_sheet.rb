@@ -1,5 +1,5 @@
 class GameSheet < ApplicationRecord
-  has_many :Games
+  has_many :games
 
   enum languages: { french: "Français", english: "Anglais"}
 

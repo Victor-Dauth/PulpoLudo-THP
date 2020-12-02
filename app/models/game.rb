@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
 
   belongs_to :game_sheet
-  belongs_to :cart, optional: trure
+  belongs_to :cart, optional: true
 
   enum statuses: {in_stock: "en stock", leased: "en location", waiting_to_be_send: "en attente d'envoi", in_transit_send: "livraison aller", in_transit_back: "livraison retour", lost: "perdu", sold: "vendu"}
   enum conditions: {like_new: "comme neuf", excellent: "excellent", fine: "correct", damaged: "abimé", incomplete: "incomplet", broken: "detruit"}
@@ -19,15 +19,19 @@ class Game < ApplicationRecord
             inclusion: {in: conditions.keys}
 
   validates :weight,
+            allow_nil: true,
             numericality: {greater_than_or_equal_to: 0}
 
   validates :height,
+            allow_nil: true,
             numericality: {greater_than_or_equal_to: 0}
 
   validates :length,
+            allow_nil: true,
             numericality: {greater_than_or_equal_to: 0}
 
   validates :width,
+            allow_nil: true,
             numericality: {greater_than_or_equal_to: 0}
 
   validates :nb_times_rent,
