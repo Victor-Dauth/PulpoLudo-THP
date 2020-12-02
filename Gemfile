@@ -36,6 +36,12 @@ gem 'devise'
 gem 'dotenv'
 gem 'dotenv-rails'
 
+# Use Stripe to process payments
+gem 'stripe'
+
+gem 'font-awesome-rails'
+
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
