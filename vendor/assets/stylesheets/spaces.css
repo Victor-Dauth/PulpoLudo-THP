@@ -35173,7 +35173,7 @@ textarea[resize="horizontal"] {
 }
 
 .form-check .form-check-label::after {
-    content: "\f00c";
+    /*content: "\f00c";*/
     font-family: 'Font Awesome 5 Free';
     top: 0px;
     text-align: center;
