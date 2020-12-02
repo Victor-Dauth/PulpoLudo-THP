@@ -1,10 +1,40 @@
-<p>Voici ton prénom : <%= current_user.first_name %> </p>
-<p>Voici ton nom : <%= current_user.last_name %> </p>
 
 
-<h3>Avatar actuel</h3>
-<%if current_user.avatar.attached?%>
-  <%= image_tag @user.avatar, alt: 'real avatar' %>
-<%else%>
-  <%= image_tag 'unnamed.jpg', alt: 'default avatar' %>
-<% end %>
+<div class="section section-lg bg-soft">
+  <div class="container">
+    <div class="row pt-5 pt-md-0">
+
+      <div class="col-12 col-md-4 d-none d-lg-block">
+        <%= render 'menu_profil' %>  
+      </div>
+
+          <!-- Partie à copier -->
+
+
+
+          <div class="col-12 col-lg-8">
+              <div class="row">
+                  <div class="col-12 col-sm mb-4">
+                     <div class="card border-light">
+                        <div class="card-body d-block d-md-flex align-items-center">
+                          <div class="icon icon-shape icon-md icon-shape-primary rounded-circle mr-3 mb-4 mb-md-0"><span class="fas fa-puzzle-piece"></span></div>
+                          <div>
+                              <span class="d-block h3 font-weight-normal">
+                                  a modifier -> mettre dans la page show des jeux
+                              </span>                              
+                              
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                            
+                </div> 
+            </div>
+       </div>
+        
+    </div>
+</div>
+          
+
+
+

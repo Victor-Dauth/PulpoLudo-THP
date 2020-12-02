@@ -12,6 +12,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="d-flex flex-column">
+
+      <div class="d-flex flex-column">
+      <%= render 'layouts/navbar' %>
+      <br><br><br><br>
+      </div>
+      
+      <div class="d-flex flex-column mb-5">
+      <%= yield %>
+      </div>
+      
+      <div class="d-flex flex-column">
+      
+      </div>
+
+    </div>
+  
   </body>
 </html>
