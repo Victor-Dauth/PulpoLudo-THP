@@ -20,4 +20,4 @@ module PulpoludoThp
   end
 end
 
-config.action_mailer.delivery_method = :mailjet_api 
+config.action_mailer.delivery_method = :mailjet 
