@@ -1,10 +1,38 @@
-<h1>Voila la liste de nos super jeux :</h1>
 
-<p>
-  <%= link_to "lien pour tester Devise", static_pages_index_path %>
-</p>
 
-<% @game_sheets.each do |game_sheet| %>
-  <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
-<%end%>
+<div class="section section-lg pt-6">
+  <div id="spaces-container" class="container">
+    <div class="row">
+      <div class="col-12">
 
+        <div class="tab-content mt-4 mt-lg-4" id="tabcontentexample-5">
+
+          <div class="tab-pane fade show active" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
+            <div class="row">
+              <!-- Card 2-->
+              <% @game_sheets.each do |game_sheet| %>
+            <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+          <%end%>
+              <!-- End of Card -->
+            </div>
+          </div>
+          <%# si on veux on poura faire des gage de navigation
+          <div class="col mt-3 d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item disabled"><a class="page-link" tabindex="-1" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+          %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,58 +1,50 @@
-<div class="card border-light mb-4 animate-up-5">
-  <div class="row no-gutters align-items-center">
 
-    <% if false %>
-      <div class="col-12 col-lg-6 col-xl-5" style="height: 300px;">
-        <a href="<%= game_sheet_path(game_sheet.id) %>">
-          
-          <%= image_tag game_sheet.image_url, :alt => "kitten img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+<div class="col-12 col-md-6 col-lg-4">
+    <!-- Card -->
+    <div class="card border-light mb-4 animate-up-5">
+        <a href="./single-space.html" class="position-relative">
+            <img src="../assets/img/image-office.jpg" class="card-img-top rounded-xl p-2" alt="themesberg office">
         </a>
-      </div>
-    <% end %>
-
-    <div class="col-12 col-lg-6 col-xl-7">
-      <div class="card-body">
-        <a href="<%= game_sheet_path(game_sheet.id) %>">
-          <h4 class="h5"><%= game_sheet.title %></h4>
-        </a>
-        <div class="d-flex my-3">
-          <span class="star fas fa-star text-warning"></span> 
-          <span class="star fas fa-star text-warning"></span> 
-          <span class="star fas fa-star text-warning"></span> 
-          <span class="star fas fa-star text-warning"></span> 
-          <span class="star fas fa-star text-warning"></span>
-          <span class="badge badge-pill badge-primary ml-2">5</span>
-        </div> 
-        <div class="d-flex my-3">
-          <%= game_sheet.description %>
+        <div class="card-body">
+            <a href="./single-space.html">
+                <h4 class="h5"><%= game_sheet.title %></h4>
+            </a>
+            <div class="d-flex my-4">
+                <i class="star fas fa-star text-warning"></i> 
+                <i class="star fas fa-star text-warning"></i> 
+                <i class="star fas fa-star text-warning"></i> 
+                <i class="star fas fa-star text-warning"></i> 
+                <i class="star fas fa-star text-warning"></i>
+                <span class="badge badge-pill badge-primary ml-2">5.0</span>
+            </div> 
+            <div class="list-group mb-3">
+                <p class="list-group-item small p-0"><%= game_sheet.description %></p>
+            </div>
         </div>
-        <div class="d-flex justify-content-between">
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">nombre de joueur</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.nb_players %></span>
-          </div>
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">temps de jeu</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.playing_time %></span>
-          </div>
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">age minimum</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.age_min %></span>
-          </div>
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">langage</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.languages %></span>
-          </div>
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">date de publication</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.publication_date %></span>
-          </div>
-          <div class="col pl-0">
-            <span class="text-muted font-small d-block">difficulter</span>
-            <span class="h6 text-dark font-weight-bold"><%= game_sheet.difficulty %></span>
-          </div>
+        <div class="card-footer bg-soft border-top">
+            <div class="d-flex justify-content-between">
+                <div class="col pl-0">
+                    <span class="text-muted font-small d-block mb-2">Joueurs</span>
+                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.nb_players %></span>
+                </div>
+                <div class="col">
+                    <span class="text-muted font-small d-block mb-2">Age</span>
+                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.age_min %> + </span>
+                </div>
+                <div class="col pr-0">
+                    <span class="text-muted font-small d-block mb-2">Difficulté</span>
+                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.difficulty %></span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+    <!-- End of Card -->
+
+    
 </div>
+            
+
+
+
+
+
