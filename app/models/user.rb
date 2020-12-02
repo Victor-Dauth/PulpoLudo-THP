@@ -7,6 +7,10 @@ class User < ApplicationRecord
   #validates :first_name
   #validates :last_name
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
+  has_many :carts, dependent: :destroy
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
