@@ -19,3 +19,5 @@ module PulpoludoThp
     # the framework and any gems in your application.
   end
 end
+
+config.action_mailer.delivery_method = :mailjet_api 
