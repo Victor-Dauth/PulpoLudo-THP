@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -29,6 +29,22 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Devise for user authentication
 gem 'devise'
+
+# Dotenv to protect sensitive API keys
+gem 'dotenv'
+gem 'dotenv-rails'
+
+# Use Stripe to process payments
+gem 'stripe'
+
+# Use Font-awesome-rails to integrate webfonts easily into asset pipeline
+gem 'font-awesome-rails'
+
+# Sync with Amazon to store content in the cloud
+gem "aws-sdk-s3", require: false
+
+# Use Mailjet to manage mailers in prod
+gem 'mailjet'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

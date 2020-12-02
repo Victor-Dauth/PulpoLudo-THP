@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery.min
 //= require bootstrap.min
 //= require headroom.min
@@ -30,7 +29,7 @@
 //= require chartist-plugin-tooltip.min
 //= require jquery.vmap.min
 //= require jquery.vmap.france
-//=
 //= require autocomplete
 //= require jquery.slideform
 // require spaces
+// require turbolinks
