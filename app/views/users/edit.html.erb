@@ -24,6 +24,17 @@
                                 <%= form_for @user, html: { class: "form-signin mt-3" } do |f| %>
                                   <h1 class="h3 mb-5 font-weight-normal text-center">Modifier mon profil</h1>
 
+                                      <div class="form-group">
+                                        <label for="gender">Je suis</label>
+                                        <select class="custom-select" id="gender">
+                                            <option disabled="disabled" selected="selected">Sélectionner une option</option>
+                                            <option value="1">une femme</option>
+                                            <option value="2">un homme</option>
+                                            <option value="3">autre</option>
+                                        </select>
+                                      </div>
+                              
+
                                   <div class="form-group">
                                     <%= f.label "Prénom", class: "mb-2" %>
                                     <%= f.text_field :first_name, class: "form-control" %>
@@ -32,6 +43,16 @@
                                   <div class="form-group">
                                     <%= f.label "Nom de famille", class: "mb-2" %>
                                     <%= f.text_field :last_name, class: "form-control" %>
+                                  </div>
+
+                                   <div class="form-group">
+                                    <%= f.label "Date de naissance", class: "mb-2" %>
+                                    <input class="form-control datepicker" placeholder="Select date" type="text" required>
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label for="phone">Numéro de téléphone</label>
+                                      <input class="form-control" id="phone" type="number" placeholder="+33">
                                   </div>
 
                                   <div class="form-group">
