@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'game_sheets#index'
   get 'static_pages/index'
   
-  resources :game_sheets, only: [:index, :show]
+  resources :game_sheets, only: [:index, :show] do
+    resources :game_pictures, only: [:create]
+  end
 
   devise_for :users
 

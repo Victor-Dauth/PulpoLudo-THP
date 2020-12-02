@@ -2,11 +2,15 @@
 <div class="col-12 col-md-6 col-lg-4">
     <!-- Card -->
     <div class="card border-light mb-4 animate-up-5">
-        <a href="./single-space.html" class="position-relative">
-            <img src="../assets/img/image-office.jpg" class="card-img-top rounded-xl p-2" alt="themesberg office">
+        <a href="<%= game_sheet_path(game_sheet.id) %>">
+            <%if game_sheet.game_picture.attached?%>
+                <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+            <%else%>
+                <p>=== Il n'y a pas encore de photo liée à ce jeu ===</p>
+            <% end %>
         </a>
         <div class="card-body">
-            <a href="./single-space.html">
+            <a href="<%= game_sheet_path(game_sheet.id) %>">
                 <h4 class="h5"><%= game_sheet.title %></h4>
             </a>
             <div class="d-flex my-4">
@@ -20,6 +24,7 @@
             <div class="list-group mb-3">
                 <p class="list-group-item small p-0"><%= game_sheet.description %></p>
             </div>
+            
         </div>
         <div class="card-footer bg-soft border-top">
             <div class="d-flex justify-content-between">

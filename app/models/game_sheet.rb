@@ -39,7 +39,7 @@ class GameSheet < ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
-  has_many_attached :game_pictures
+  has_one_attached :game_picture
 
   def nb_players
     "#{self.nb_players_min}-#{self.nb_players_max}"
