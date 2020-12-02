@@ -36,6 +36,9 @@ gem 'devise'
 gem 'dotenv'
 gem 'dotenv-rails'
 
+# Sync with Amazon to store content in the cloud
+gem "aws-sdk-s3", require: false
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
