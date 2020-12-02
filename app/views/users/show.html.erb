@@ -10,29 +10,28 @@
 
           <!-- Partie à copier -->
 
-
-
-          <div class="col-12 col-lg-8">
-              <div class="row">
-                  <div class="col-12 col-sm mb-4">
-                     <div class="card border-light">
-                        <div class="card-body d-block d-md-flex align-items-center">
-                          <div class="icon icon-shape icon-md icon-shape-primary rounded-circle mr-3 mb-4 mb-md-0"><span class="fas fa-puzzle-piece"></span></div>
-                          <div>
-                              <span class="d-block h3 font-weight-normal">
-                                  a modifier -> mettre dans la page show des jeux
-                              </span>                              
-                              
-                          </div>
-                        </div>
-                     </div>
-                  </div>
-                            
-                </div> 
+      <div class="col-12 col-lg-8">
+        <div class="row">
+          <div class="col-12 col-sm mb-4">
+            <div class="card border-light">
+              <div class="card-body d-block d-md-flex align-items-center">
+                <div class="icon icon-shape icon-md icon-shape-primary rounded-circle mr-3 mb-4 mb-md-0"><span class="fas fa-puzzle-piece"></span></div>
+                  <span class="d-block h3 font-weight-normal">
+                      a modifier -> mettre dans la page show des jeux
+                  </span>                              
+              </div>
             </div>
-       </div>
-        
+          </div>         
+        </div> 
+      </div>
+
     </div>
+
+    <div class="text-center">
+      <%= button_to "Payer un abonnement (CHECKOUT)", checkout_create_path(price: 10), class: "btn btn-primary", remote: true %>
+    </div>
+        
+  </div>
 </div>
           
 
