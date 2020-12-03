@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :subscriptions
-
+  resources :games, only: [:update]
   
 
   scope '/checkout' do
