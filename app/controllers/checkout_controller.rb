@@ -31,7 +31,6 @@ class CheckoutController < ApplicationController
 
     @paid_subscription = build_subscription
 
-    #Changement status souscription
     #Enclencher mailer (user)
   end
 
@@ -45,7 +44,7 @@ class CheckoutController < ApplicationController
 
   private
   def build_subscription
-    Subscription.create(user: current_user, status: 'actif', price: 10, start_date: DateTime.now, duration: 24)
+    Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 24)
   end
 
 end
