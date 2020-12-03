@@ -51,6 +51,18 @@
             <span class="text-muted font-small d-block">difficulter</span>
             <span class="h6 text-dark font-weight-bold"><%= game_sheet.difficulty %></span>
           </div>
+
+          <% if game_in_stock?(game_sheet)%>
+            <% if user_signed_in? %>
+              <div class="col">
+                <%= link_to "Ajouter a mon abonnement", cart_path(current_cart.id, :game_sheet_id => game_sheet.id), method: 'PUT' , class: "btn btn-primary"%>
+              </div>
+            <%else%>
+              <span class="text-muted font-small d-block">rediriger vers page d'inscription</span>
+            <% end %>
+          <% else %>
+            <span class="text-muted font-small d-block">Ce jeux n'ai plus disponible</span>
+          <% end %>
         </div>
       </div>
     </div>

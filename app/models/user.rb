@@ -7,10 +7,18 @@ class User < ApplicationRecord
   #validates :first_name
   #validates :last_name
 
+  after_create :create_cart
+
   has_one_attached :avatar, dependent: :destroy
   has_many :carts, dependent: :destroy
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  private
+
+  def create_cart
+    self.carts.create
   end
 end

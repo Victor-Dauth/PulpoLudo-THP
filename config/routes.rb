@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'static_pages/index'
   
   resources :game_sheets, only: [:index, :show]
+  resources :carts, only: [:show, :update]
 
   devise_for :users
 
