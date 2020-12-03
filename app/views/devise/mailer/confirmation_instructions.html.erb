@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<p>Bonjour et bienvenue sur PulpoLudo !</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p> Tu viens de créer un compte et nous sommes ravis de pouvoir te proposer notre vaste sélection de jeux dans la ludothèque. Juste encore un clic pour confirmer ton email :</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Valider mon inscription', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>À bientôt, <br>
+L'équipe PulpoLudo </p>
