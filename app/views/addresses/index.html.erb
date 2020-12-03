@@ -1,0 +1,25 @@
+<div class="text-center my-5">
+  <%= link_to "Ajouter une adresse", new_user_address_path(current_user), class: "btn btn-primary" %>
+</div>
+
+
+<h1> Voici la liste de tes adresses </h1>
+
+<% @addresses.each_with_index do |address, index| %>
+
+  <h3>Adresse n°<%= index + 1%> :</h3>
+  
+  <ul>
+    <li><%= address.street %></li>
+    <li><%= address.zipcode %></li>
+    <li><%= address.city %></li>
+    <li><%= address.country %></li>
+  </ul>
+
+  <div class="d-flex justify-content-around">
+    <%= link_to "Modifier cette adresse", edit_user_address_path(current_user, address), :class => "btn btn-outline-success mx-4" %>
+    <%= link_to "Supprimer cette adresse", user_address_path(current_user, address), :method => "delete", :class => "btn btn-outline-danger mx-4", :data => {:confirm => "Est-ce que vous êtes sûr de votre choix ?"} %>
+  </div>
+
+<% end %>
+
