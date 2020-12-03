@@ -1,0 +1,15 @@
+<h1> Liste de mes items :</h1>
+
+<ul>
+  <% unless @cart.games.empty? %>
+    <% @cart.games.each do |game| %>
+      <li>
+        <%= game.game_sheet.title %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>
+      Ton panier est vide
+    </li>
+  <% end %>
+</ul>
