@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   
-  #validates :first_name
+  #validates :phone_number, length: { in: 2..20 }
   #validates :last_name
 
   has_many :addresses

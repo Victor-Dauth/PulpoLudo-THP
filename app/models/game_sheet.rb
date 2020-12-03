@@ -1,7 +1,7 @@
 class GameSheet < ApplicationRecord
   has_many :games
 
-  enum languages: { french: "Français", english: "Anglais"}
+  enum language: { french: "Français", english: "Anglais"}
 
   validates :title,
             presence: true,
@@ -28,7 +28,7 @@ class GameSheet < ApplicationRecord
             presence: true,
             numericality: { only_integer: true, greater_than_or_equal_to: 1}
 
-  validates :languages,           
+  validates :language,           
             presence: true,
             inclusion: {in: languages.keys}
 
