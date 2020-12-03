@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_140511) do
     t.integer "nb_players_min", null: false
     t.integer "playing_time", null: false
     t.integer "age_min", null: false
-    t.string "languages", null: false
+    t.string "language", null: false
     t.date "publication_date", null: false
     t.integer "difficulty", null: false
     t.datetime "created_at", null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2020_12_02_140511) do
 
   create_table "games", force: :cascade do |t|
     t.string "stock_id", null: false
-    t.string "statuses", default: "en stock", null: false
-    t.string "conditions", default: "comme neuf", null: false
+    t.string "status", default: "en stock", null: false
+    t.string "condition", default: "comme neuf", null: false
     t.float "weight"
     t.float "height"
     t.float "length"

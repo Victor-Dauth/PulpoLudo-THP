@@ -3,18 +3,18 @@ class Game < ApplicationRecord
   belongs_to :game_sheet
   belongs_to :cart, optional: true
 
-  enum statuses: {in_stock: "en stock", leased: "en location", waiting_to_be_send: "en attente d'envoi", in_transit_send: "livraison aller", in_transit_back: "livraison retour", lost: "perdu", sold: "vendu"}
-  enum conditions: {like_new: "comme neuf", excellent: "excellent", fine: "correct", damaged: "abimé", incomplete: "incomplet", broken: "detruit"}
+  enum status: {in_stock: "en stock", leased: "en location", waiting_to_be_send: "en attente d'envoi", in_transit_send: "livraison aller", in_transit_back: "livraison retour", lost: "perdu", sold: "vendu"}
+  enum condition: {like_new: "comme neuf", excellent: "excellent", fine: "correct", damaged: "abimé", incomplete: "incomplet", broken: "detruit"}
   
   validates :stock_id,
-            presence: true
-            #format: {with: [0-9]{1,6}_[0-9]{1,3}}
+            presence: true,
+            format: {with: /[0-9]{1,6}_[0-9]{1,3}/}
 
-  validates :statuses,
+  validates :status,
             presence: true,
             inclusion: {in: statuses.keys}
 
-  validates :conditions,
+  validates :condition,
             presence: true,
             inclusion: {in: conditions.keys}
 
