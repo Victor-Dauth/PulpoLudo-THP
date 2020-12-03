@@ -35,9 +35,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Custom database fields
       t.string :first_name
       t.string :last_name
-      # t.string :date_of_birth
-      # t.integer :phone_number
-      # t.string :gender
+      t.date :date_of_birth    
+      t.integer :phone_number   
+      t.string :gender          
       t.string :stripe_id
 
       t.timestamps null: false
