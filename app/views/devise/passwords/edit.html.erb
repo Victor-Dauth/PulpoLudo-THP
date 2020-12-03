@@ -1,25 +1,67 @@
-<h2>Change your password</h2>
+<main>
+  <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark py-5 py-lg-0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="text-center text-md-center mb-5 mt-md-0 text-white">
+              <h1 class="mb-0 h3">Changer de mot de passe</h1>
+          </div>
+        </div>
+        <div class="col-12 d-flex align-items-center justify-content-center">
+          <div class="signin-inner mt-3 mt-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+            <!--- central white card --->
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+              <div class="field">
+                <div class="form-group">
+                  <label for="password_new">Nouveau mot de passe
+                  </label>
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> lettres minimum)</em><br />
+                  <% end %>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <span class="fas fa-unlock-alt"></span>
+                      </span>
+                    </div>
+                    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+                  </div>
+                </div>
+              </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+              <div class="field">
+                <div class="form-group">
+                  <label for="password_confirmation">Confirmer le mot de passe
+                  </label>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <span class="fas fa-user-lock"></span>
+                      </span>
+                    </div>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </div>
+                </div>
+              </div>              
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+              <div class="actions mb-4">
+                <%= f.submit "Mettre en place", class: "btn btn-lg btn-primary btn-block"%>
+              </div>
+            <% end %>
 
-<%= render "devise/shared/links" %>
+            <div class="form-group">
+              Ou 
+              <%= render "devise/shared/links" %>
+            </div>
+
+            <!--- END central white card --->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

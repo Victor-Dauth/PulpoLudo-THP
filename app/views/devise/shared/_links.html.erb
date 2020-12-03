@@ -2,7 +2,7 @@
   <%= link_to "Connexion", new_session_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>Pas encore de compte ?
   <%= link_to "S'inscrire", new_registration_path(resource_name) %><br />
 <% end %>
 
@@ -15,7 +15,7 @@
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Vous n'avez pas reçu les instructions de réiitialisation ?", new_unlock_path(resource_name) %><br />
+  <%= link_to "Pas reçu les instructions de réinitialisation ?", new_unlock_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
