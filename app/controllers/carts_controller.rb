@@ -13,14 +13,16 @@ class CartsController < ApplicationController
     @game = @game_sheet.games.in_stock.sample
 
     if @cart.games.size >= 5
-      flash[:danger] = "Tu as déjà ajouter 5 jeux a ton abonnement"
+      flash[:alert] = "Tu as déjà ajouter 5 jeux a ton abonnement"
       redirect_to root_path
     elsif @cart.already_present(@game)
-      flash[:danger] = "Tu ne peut pas louer deux exemplaire du meme jeux"
+      flash[:alert] = "Tu ne peut pas louer deux exemplaire du meme jeux"
       redirect_to root_path
     else
       @game.update(cart: current_cart)
       @game.leased!
+      flash[:notice] = "Ton jeu a bien été ajouté à ton abonnement. Pense à valider ton panier !"
+      redirect_to root_path
     end
   end
 end
