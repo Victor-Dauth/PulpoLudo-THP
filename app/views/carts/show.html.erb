@@ -5,7 +5,11 @@
     <% @cart.games.each do |game| %>
       <p>
         <%= game.game_sheet.title %>
+
       </p>
+
+        <a href="<%= game_path(game.id) %>" class="btn" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
+   
     <% end %>
   <% else %>
     <p>
