@@ -1,90 +1,72 @@
 
-<br><br><br><br>
-
-  <% unless @cart.games.empty? %>
-    <% @cart.games.each do |game| %>
-      <p>
-        <%= game.game_sheet.title %>
-
-      </p>
-
-        <a href="<%= game_path(game.id) %>" class="btn" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
-   
-    <% end %>
-  <% else %>
-    <p>
-      Ton panier est vide
-    </p>
-  <% end %>
-<
 <div class="container">
-<div class="card border-light p-4 p-md-5 position-relative">
-                            <div class="mb-6 d-flex align-items-center justify-content-center">
-                                <h2 class="h1 mb-0"><i class="fas fa-cart-arrow-down"></i> Mon panier</h2>
-                                
-                            </div>
+  <div class="card border-light p-4 p-md-5 position-relative">
+      <div class="mb-6 d-flex align-items-center justify-content-center">
+          <h2 class="h1 mb-0"><i class="fas fa-cart-arrow-down"></i> Mon panier</h2>
+      </div>
                            
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="table-responsive">
-                                        <table class="table mb-0">
-                                            <thead class="bg-light border-top">
-                                                <tr>
-                                                    <th scope="row" class="border-0 text-left">
-                                                        Image du jeu
-                                                    </th>
-                                                    <th scope="row" class="border-0">
-                                                        Nom du jeu
-                                                    </th>                                         
-                                                    <th scope="row" class="border-0">
-                                                        Quantité
-                                                    </th>
-                                                    <th scope="row" class="border-0">
-                                                        <%= button_to "supprimer du panier", item, method: :delete, data: { confirm: "Êtes-vous sûr ?" }, class: "btn btn-secondary btn-sm ml-3" %>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" class="text-left font-weight-bold h6">
-                                                        Origin License
-                                                    </th>
-                                                    <td>
-                                                        Extended License
-                                                    </td>
-                                                    <td>
-                                                        999,00
-                                                    </td>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        999,00
-                                                    </td>
-                                                </tr>
+      <div class="row">
+          <div class="col-12">
+              <div class="table-responsive align-middle">
+                <% unless @cart.games.empty? %>                              
+                  <table class="table mb-0 align-middle">
+                      <thead class="bg-light border-top">
+                          <tr>
+                              <th scope="row" class="border-0 text-left">
+                                  Image du jeu
+                              </th>
+                              <th scope="row" class="border-0">
+                                  Nom du jeu
+                              </th>                                         
+                              
+                              <th scope="row" class="border-0">
+                                
+                              </th>
+                          </tr>
+                      </thead>
+                      <% @cart.games.each do |game| %>
+                      <tbody>
+                          <tr>                                                      
+                            
+                              <td>
+                                <%if game.game_sheet.game_picture.attached?%>
+                                    <%= image_tag game.game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                                <%else%>
+                                    <img style= "height: 100px; width: auto" src="<%= asset_path( 'game-index-background4.jpg' ) %>" />
+                                <% end %>
+                              </td>
+                              <td class="align-middle"> <%= game.game_sheet.title %> </td>                          
+                              <td class="align-middle">
+                                <a href="<%= game_path(game.id) %>" class="btn btn-light" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
+                              </td>
+                            <%end%>                                                 
+                          </tr>
                                                 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="d-flex justify-content-end text-right mb-4 py-4">
-                                        <div class="mt-4">
-                                            <table class="d-flex justify-content-end table table-clear text-center">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="left">
-                                                            <strong>Frais de port</strong>
-                                                        </td>
-                                                        <td class="right">10€</td>
-                                                    </tr>
-                                                    <tr>
-                                                      <td colspan="2" class="right"> <button class="btn btn-primary">Passer commande</button></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                             </div>
-                           </div>
-                         </div>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="d-flex justify-content-end text-right mb-4 py-4">
+                  <div class="mt-4">
+                      <table class="d-flex justify-content-end table table-clear text-center">
+                          <tbody>
+                              <tr>
+                                  <td class="left">
+                                      <strong>Frais de port</strong>
+                                  </td>
+                                  <td class="right">10€</td>
+                              </tr>
+                              <tr>
+                                <td colspan="2" class="right"> <button class="btn btn-primary">Passer commande</button></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <% else %>
+                <h6 class="text-center"> Ton panier est vide </h6>
+              <%end%>
+       </div>
+     </div>
+   </div>
 </div>
       
