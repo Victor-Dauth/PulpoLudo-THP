@@ -98,6 +98,9 @@ ActiveRecord::Schema.define(version: 2020_12_02_140511) do
     t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
+    t.date "date_of_birth"
+    t.integer "phone_number"
+    t.string "gender"
     t.string "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
