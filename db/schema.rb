@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 2020_12_02_140511) do
     t.index ["game_sheet_id"], name: "index_games_on_game_sheet_id"
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "stripe_id"
+    t.string "subscription_id"
+    t.decimal "price"
+    t.boolean "active", default: false
+    t.integer "user_id"
+    t.datetime "current_period_ends_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_140511) do
     t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
+    t.string "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
