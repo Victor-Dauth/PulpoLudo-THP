@@ -11,13 +11,12 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatars, only: [:create]
     resources :addresses, except: [:show]
+    resources :subscriptions, only: [:index, :new, :create, :update]
   end
 
   resources :carts, only: [:show, :update]
 
-  resources :subscriptions
   resources :games, only: [:update]
-  
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'

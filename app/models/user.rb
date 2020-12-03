@@ -8,12 +8,12 @@ class User < ApplicationRecord
   #validates :last_name
 
   has_many :addresses
-
-  after_create :create_cart
+  has_many :carts, dependent: :destroy
+  has_many :subscriptions
 
   has_one_attached :avatar, dependent: :destroy
-  
-  has_many :carts, dependent: :destroy
+
+  after_create :create_cart
 
   def full_name
     "#{self.first_name} #{self.last_name}"

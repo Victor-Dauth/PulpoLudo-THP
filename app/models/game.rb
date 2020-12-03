@@ -35,7 +35,7 @@ class Game < ApplicationRecord
             numericality: {greater_than_or_equal_to: 0}
 
   validates :nb_times_rent,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0}
+            numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
   def new_rent
     self.nb_times_rent +=1

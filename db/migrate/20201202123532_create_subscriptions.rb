@@ -2,14 +2,11 @@ class CreateSubscriptions < ActiveRecord::Migration[5.2]
   def change
     create_table :subscriptions do |t|
       t.string :stripe_id
-      t.string :subscription_id
-      t.string :plan_id
-      t.integer :user_id
+      t.references :user, index: true, foreign_key: true
       t.string :status
-      t.decimal :price
-      t.datetime :start_date
-      t.datetime :end_date
-      t.datetime :current_period_ends_at
+      t.decimal :price, null:false
+      t.datetime :start_date, null:false
+      t.integer :duration, null:false
       t.timestamps
     end
   end
