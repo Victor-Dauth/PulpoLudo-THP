@@ -1,16 +1,29 @@
-<h1> Liste de mes items :</h1>
+<%if current_cart.send_cart?%>
 
-<ul>
-  <% unless @cart.games.empty? %>
-    <% @cart.games.each do |game| %>
+  <p>Tu as déjà commander 5 jeux. Si tu veux en recomander 5 nouveau il te faut d'abore nous renvoyer les 5 que tu as chez toi.
+  Lorsque que nous les ressevrois nous t'enverons un mails pour te signaler que tu peux en commnder 5 nouveaux. </p>
+<% else %>
+
+  <h1> Liste de mes items :</h1>
+
+  <ul>
+    <% unless @cart.games.empty? %>
+      <% @cart.games.each do |game| %>
+        <li>
+          <%= game.game_sheet.title %>
+          <a href="<%= game_path(game.id) %>" class="btn" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
+        </li>
+      <% end %>
+    <% else %>
       <li>
-        <%= game.game_sheet.title %>
-        <a href="<%= game_path(game.id) %>" class="btn" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
+        Ton panier est vide
       </li>
     <% end %>
-  <% else %>
-    <li>
-      Ton panier est vide
-    </li>
+  </ul>
+
+  <% if @cart.full_cart?%>
+
+    <%= link_to "Commander ses 5 jeux", user_orders_path(current_user), method: 'post' , :class => "btn btn-outline-success mx-4" %>
+
   <% end %>
-</ul>
+<% end %>

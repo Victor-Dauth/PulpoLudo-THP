@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatars, only: [:create]
     resources :addresses, except: [:show]
+    resources :orders, only: [:index, :create] do
+      resources :shippings, only: [:show, :update]
+    end
   end
 
   resources :carts, only: [:show, :update]
