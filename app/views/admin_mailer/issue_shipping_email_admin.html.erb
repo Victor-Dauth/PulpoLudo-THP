@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+    <h1>Alert, shipping échouer!</h1>
+
+    <p>
+      L'utilisateur : <%= @user.full_name%> à rencontrer en problème lors de sa validation de commande. <br>
+      Prendre contacte avec lui pour de plus emple information.
+    </p>
+
+    <p>
+      Voici les information de ses shippings :
+    </p>
+
+    <h3> shipping_send</h3>
+
+    <ul>
+        <li>
+          shipping id : <%= @shipping_send.id%>
+        </li>
+        <li>
+          order id : <%= @shipping_send.order.id%>
+        </li>
+        <li>
+          price : <%= @shipping_send.price%>
+        </li>
+        <li>
+          provider : <%= @shipping_send.provider%>
+        </li>
+        <li>
+          trakcing_number : <%= @shipping_send.trakcing_number%>
+        </li>
+        <li>
+          send_at : <%= @shipping_send.send_at%>
+        </li>
+        <li>
+          status : <%= @shipping_send.status%>
+        </li>
+    </ul>
+
+        <h3> shipping_back</h3>
+
+    <ul>
+        <li>
+          shipping id : <%= @shipping_back.id%>
+        </li>
+        <li>
+          order id : <%= @shipping_back.order.id%>
+        </li>
+        <li>
+          price : <%= @shipping_back.price%>
+        </li>
+        <li>
+          provider : <%= @shipping_back.provider%>
+        </li>
+        <li>
+          trakcing_number : <%= @shipping_back.trakcing_number%>
+        </li>
+        <li>
+          send_at : <%= @shipping_back.send_at%>
+        </li>
+        <li>
+          status : <%= @shipping_back.status%>
+        </li>
+    </ul>
+  </body>
+</html>
