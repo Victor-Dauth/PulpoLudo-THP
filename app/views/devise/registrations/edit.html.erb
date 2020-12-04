@@ -10,14 +10,16 @@
 
           <div class="col-12 col-lg-8">
               <div class="row">
-                  <div class="d-flex col-12 col-sm mb-4 justify-items-center">
+                  <div class="col-12 col-sm mb-4 justify-items-center">
                      <div class="card border-light">
                         <div class="card-body d-block d-md-flex align-items-center">
                           
                           <div>
                             <div class="container my-3", style="max-width:400px">
 
-                            <h2>Modifier mes informations</h2>
+                            <span class="d-block h3 font-weight-normal">
+                              Modifier mes informations
+                            </span> 
 
                             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin mt-5", method: :put }) do |f| %>
                               <%= render "devise/shared/error_messages", resource: resource %>

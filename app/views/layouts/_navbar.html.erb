@@ -33,9 +33,11 @@
   <div class="link_personal_profile mr-2 btn btn-md align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= link_to user_path(current_user.id)  do %>
       <%if current_user.avatar.attached?%>
+      
         <span class="mr-2"><%= image_tag(current_user.avatar, :alt => 'real avatar', class:'rounded-circle avatar-navbar') %></span>
-      <%else%>
-        <span class="mr-2"><%= image_tag('unnamed.jpg', :alt => 'default avatar', class:'rounded-circle avatar-navbar') %></span>
+      
+      <%else%>      
+        <span class="mr-2"><%= image_tag('unnamed.jpg', :alt => 'default avatar', class:'rounded-circle avatar-navbar') %></span>      
       <% end %>
       <span><strong><%= current_user.first_name %></strong></span>
     <% end %>
