@@ -1,3 +1,4 @@
+
 <nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-transparent navbar-theme-primary">
 
   
@@ -9,6 +10,8 @@
       
 
      <div class="d-lg-block @@cta_button_classes">
+
+
       <% if user_signed_in? %>
         <% if current_user.carts %>
           <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
