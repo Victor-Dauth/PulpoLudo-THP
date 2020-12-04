@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_12_03_110043) do
     t.integer "nb_players_min", null: false
     t.integer "playing_time", null: false
     t.integer "age_min", null: false
-    t.string "language", null: false
+    t.string "languages", null: false
     t.date "publication_date", null: false
     t.integer "difficulty", null: false
     t.datetime "created_at", null: false
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_110043) do
 
   create_table "games", force: :cascade do |t|
     t.string "stock_id", null: false
-    t.string "status", default: "en stock", null: false
-    t.string "condition", default: "comme neuf", null: false
+    t.string "statuses", default: "en stock", null: false
+    t.string "conditions", default: "comme neuf", null: false
     t.float "weight"
     t.float "height"
     t.float "length"
@@ -109,9 +109,6 @@ ActiveRecord::Schema.define(version: 2020_12_03_110043) do
     t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
-    t.date "date_of_birth"
-    t.integer "phone_number"
-    t.string "gender"
     t.string "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

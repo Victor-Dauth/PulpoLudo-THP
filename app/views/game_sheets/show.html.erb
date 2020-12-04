@@ -2,8 +2,12 @@
 
 <%= render 'game_sheet_card_1', game_sheet: @game_sheet %>
 
+
+
+<!---
 <h3>Changer l'image de couverture du jeu ?</h3>
-<%= form_tag game_sheet_game_pictures_path(@game_sheet), multipart: true do %>
-  <%= file_field_tag :game_picture %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
+<%= form_tag game_sheet_game_pictures_path(@game_sheet), #multipart: true do %>
+  <%= file_field_tag #:game_picture %>
+  <%= submit_tag #"mettre à jour" %>
+<% #end %>
+--->
