@@ -44,4 +44,4 @@ GameSheet.create(title: "The Mind", description: "Avec The Mind, constituez une 
   Game.create(game_sheet: gs, stock_id: "#{gs.id}_#{n}")
 end
 
-user = User.create(email: 'pulpoludo@yopmail.com', first_name: 'pulpo', last_name: 'ludo', password: 'mdp123')
+user = User.create(email: 'pulpoludo@yopmail.com', first_name: 'Pulpo', last_name: 'Ludo', password: 'mdp123')

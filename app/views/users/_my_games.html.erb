@@ -1,65 +1,84 @@
-<div class="card card-body bg-white border-light p-0 p-md-4">
-                                    <div class="card-header border-bottom p-3">
-                                        <h3 class="h5">Order History</h3>
-                                        <p class="small pr-lg-10">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.</p>
-                                    </div>
-                                    <div class="card-body px-0 pt-0">
-                                        <ul class="list-group">
-                                            <li class="list-group-item border-bottom">
-                                                <div class="row align-items-center">
-                                                    <div class="col">                       
-                                                        <h3 class="h6 mb-1">
-                                                            <a href="./invoice.html">Invoice #120345</a>
-                                                        </h3>
-                                                        <!-- Text -->
-                                                        <small class="text-gray-700">
-                                                            Billed August 21, 2019
-                                                        </small>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <button class="btn btn-xs btn-outline-dark">
-                                                            Pay now
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item border-bottom">
-                                                <div class="row align-items-center">
-                                                    <div class="col">                       
-                                                        <h3 class="h6 mb-1">
-                                                            <a href="./invoice.html">Invoice #120344</a>
-                                                        </h3>
-                                                        <!-- Text -->
-                                                        <small class="text-gray-700">
-                                                            Billed July 21, 2019
-                                                        </small>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <span class="badge badge-pill badge-success">
-                                                            <span class="text-uppercase font-weight-bold">Paid</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item border-bottom">
-                                                <div class="row align-items-center">
-                                                    <div class="col">                       
-                                                        <h3 class="h6 mb-1">
-                                                            <a href="./invoice.html">Invoice #120343</a>
-                                                        </h3>
-                                                        <!-- Text -->
-                                                        <small class="text-gray-700">
-                                                            Billed June 21, 2019
-                                                        </small>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <span class="badge badge-pill badge-success">
-                                                            <span class="text-uppercase font-weight-bold">Paid</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+<div class=" p-0 p-md-4">
+        <div class="card-header border-bottom p-3">                                        
+            <p class="small pr-lg-10">Voici les jeux que tu as chez toi :</p>
+        </div>
+        <div class="card-body px-0 pt-0">
+            <ul class="list-group">
+                <li class="list-group-item border-bottom">
+                    <div class="col-auto row align-items-center">
+                        <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= asset_path( 'game-index-background2.jpg' ) %>);">                                                        
+                        </div>
+                        <div class="col">                       
+                            <h3 class="h6 mb-1">
+                                <a href="./invoice.html">Jeu n°1</a>
+                            </h3>                                                        
+                            <small class="text-gray-700">
+                                Chez moi depuis le 21 Août 2020
+                            </small>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="list-group-item border-bottom">
+                    <div class="col-auto row align-items-center">
+                        <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= asset_path( 'game-index-background.jpg' ) %>);">                                                        
+                        </div>
+                        <div class="col">                       
+                            <h3 class="h6 mb-1">
+                                <a href="./invoice.html">Jeu n°2</a>
+                            </h3>
+                            <small class="text-gray-700">
+                                Chez moi depuis le 21 Août 2020
+                            </small>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item border-bottom">
+                    <div class="col-auto row align-items-center">
+                        <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= asset_path( 'game-index-background.jpg' ) %>);">                                                        
+                        </div>
+                        <div class="col">                       
+                            <h3 class="h6 mb-1">
+                                <a href="./invoice.html">Jeu n°3</a>
+                            </h3>
+                            <small class="text-gray-700">
+                                Chez moi depuis le 21 Août 2020
+                            </small>
+                        </div>
+                       
+                    </div>
+                </li>
+                <li class="list-group-item border-bottom">
+                    <div class="col-auto row align-items-center">
+                        <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= asset_path( 'game-index-background.jpg' ) %>);">                                                        
+                        </div>
+                        <div class="col">                       
+                            <h3 class="h6 mb-1">
+                                <a href="./invoice.html">Jeu n°4</a>
+                            </h3>
+                            <small class="text-gray-700">
+                                Chez moi depuis le 21 Août 2020
+                            </small>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="list-group-item border-bottom">
+                    <div class="col-auto row align-items-center">
+                        <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= asset_path( 'game-index-background.jpg' ) %>);">                                                        
+                        </div>
+                        <div class="col">                       
+                            <h3 class="h6 mb-1">
+                                <a href="./invoice.html">Jeu n°5</a>
+                            </h3>                                                        
+                            <small class="text-gray-700">
+                                Chez moi depuis le 21 Août 2020
+                            </small>
+                        </div>                        
+                    </div>
+                </li>
+            </ul>            
+        </div>
+        <button class="ml-3 col-auto btn btn-primary">Retourner mes jeux</button>
+    </div>
+</div>
