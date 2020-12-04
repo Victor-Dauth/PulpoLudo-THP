@@ -2,75 +2,66 @@
   <div class="container">
     <div class="row pt-5 pt-md-0">
 
+      <!-- Profile menu with recurring paths -->
+
       <div class="col-12 col-md-4 d-none d-lg-block">
-        <%= render 'shared/menu_profil' %>  
+        <%= render 'shared/menu_profil' %>
       </div>
 
-          <!-- Partie à copier -->
+      <!-- Customized form for user signin edition -->
 
-          <div class="col-12 col-lg-8">
-              <div class="row">
-                  <div class="d-flex col-12 col-sm mb-4 justify-items-center">
-                     <div class="card border-light">
-                        <div class="card-body d-block d-md-flex align-items-center">
-                          
-                          <div>
-                            <div class="container my-3", style="max-width:400px">
+      <div class="col-12 col-lg-8">
+              
+        <div class="card border-light p-2">
 
-                            <h2>Modifier mes informations</h2>
+          <div class="card-body p-2">
 
-                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin mt-5", method: :put }) do |f| %>
-                              <%= render "devise/shared/error_messages", resource: resource %>
-                              
-                              <div class="form-group mb-3">
-                                <%= f.label :email, "Email" %><br />
-                                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                              </div>
+            <h3 class="my-3 font-weight-normal text-center">Modifier mes informations de connexion</h3>
 
-                              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                              <% end %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin mt-5", method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              
+              <div class="form-group mb-3">
+                <%= f.label :email, "Email" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
 
-                              <div class="form-group">
-                                <%= f.label :password, "Nouveau mot de passe" %> <i><small>(Laisser vide si vous ne souhaitez pas le changer)</small></i>
-                                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-                                <% if @minimum_password_length %>
-                                  <%= @minimum_password_length %> caractères minimum
-                                <% end %>
-                              </div>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
 
-                              <div class="form-group">
-                                <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %><br />
-                                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-                              </div>
+              <div class="form-group">
+                <%= f.label :password, "Nouveau mot de passe" %> <i><small>(Laisser vide si vous ne souhaitez pas le changer)</small></i>
+                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                <% if @minimum_password_length %>
+                  <%= @minimum_password_length %> caractères minimum
+                <% end %>
+              </div>
 
-                              <div class="form-group">
-                                <%= f.label :current_password, "Mot de passe actuel" %> <i><small>(Nous avons besoin de votre mot de passe actuel pour confirmer les modifications)</small></i>
-                                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-                              </div>
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Confirmation du nouveau mot de passe" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+              </div>
 
-                              <div class="actions mb-4">
-                                <%= f.submit "Mettre à jour", class: "btn btn-lg btn-primary btn-block" %>
-                              </div>
-                            <% end %>
+              <div class="form-group">
+                <%= f.label :current_password, "Mot de passe actuel" %> <i><small>(Nous avons besoin de votre mot de passe actuel pour confirmer les modifications)</small></i>
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+              </div>
 
-                            <span class="d-block h5 font-weight-normal mb-3 mt-4">
-                                   Vous voulez nous quitter ? 
-                              </span>  
-                              <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr?" }, class: "btn btn-lg btn-danger btn-block", method: :delete %></p>
+              <div class="actions mb-4">
+                <%= f.submit "Mettre à jour", class: "btn btn-lg btn-primary btn-block" %>
+              </div>
+            <% end %>
 
-                            </div>
+            <span class="d-block h5 font-weight-normal mb-3 mt-4">
+              Vous voulez nous quitter ? 
+            </span>  
+            
+            <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, class: "btn btn-lg btn-danger btn-block", method: :delete %></p>
 
-                            </div>
-                        </div>
-                     </div>
-                                              
-
-                  </div>
-                            
-                </div> 
-            </div>
-       </div>
-        
+          </div>
+        </div>
+      </div>
     </div>
+  </div>                           
 </div>
