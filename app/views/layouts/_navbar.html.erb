@@ -1,43 +1,20 @@
-<nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg py-lg-3 px-lg-6 navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand @@logo_classes" href="<%= root_path %>" >
-      <%= image_tag('logo/NAVBAR/logo-entier-couleur-recentré.png') %>
-    </a>
-    <div class="navbar-collapse collapse" id="navbar_global" style="">
-      <div class="navbar-collapse-header">
-        <div class="row">
-          <div class="col-6 collapse-brand">
-            <a href="<%= root_path %>">
-              <%= image_tag('', alt: 'Logo Impact') %>
-            </a>
-          </div>
-          <div class="col-6 collapse-close">
-            <%# il faut trouver comment ajouter le simbole coix mais ça marche %>
-            <a href="#" role="button" class="fas fa-times collapsed" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
-          </div>
-        </div>
-      </div>
-      <ul class="navbar-nav navbar-nav-hover justify-content-center">
-        <%# quand on aura des admin
-        <li class="nav-item">
-          <a href="#"class="nav-link">
-            <span class="nav-link-inner-text mr-1">Ajoute une photo</span>
-            <i class="fas fa-angle-down nav-link-arrow"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#"class="nav-link">
-            <span class="nav-link-inner-text mr-1">Dashboard Admin</span>
-            <i class="fas fa-angle-down nav-link-arrow"></i>
-          </a>
-        </li>
-        %>
-      </ul>
+
+<nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-transparent navbar-theme-primary">
+
+  
+    <div class="mr-auto">
+      <a class="@@logo_classes" href="<%= root_path %>" >
+        <%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', class: "logo-navbar" %>
+      </a>
     </div>
-    <div class="d-none d-lg-block @@cta_button_classes">
+      
+
+     <div class="d-lg-block @@cta_button_classes">
+
+
       <% if user_signed_in? %>
         <% if current_user.carts %>
-          <a href="<%= cart_path(current_cart.id)%>" class="btn btn-md btn-secondary animate-up-2"><i class="fas fa-shopping-bag mr-2"></i>Mon panier</a>
+          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
         <%end%>
       <% else %>
         <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
@@ -49,10 +26,7 @@
       <% end %>
 
     </div>
-    <div class="d-flex d-lg-none align-items-center">
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    </div>
-  </div>
+ 
 
   <% if user_signed_in? %>
 

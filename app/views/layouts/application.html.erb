@@ -15,24 +15,26 @@
     <script src="https://js.stripe.com/v3/"></script>
   </head>
 
-  <body>
-    <div class="d-flex flex-column">
-
-      <div class="d-flex flex-column">
-        <%= render 'layouts/navbar' %>
-        <br><br><br><br>
-        <%= render 'layouts/flash' %>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <div class="navbar-expand-md">
+        
       </div>
-      
+    </header>
+    <main>  
       <div class="d-flex flex-column mb-5">
+        <%= render 'layouts/navbar' %>
+        <%= render 'layouts/flash' %>
         <%= yield %>
+        
       </div>
-      
+     </main>
+     
+     <footer> 
       <div class="d-flex flex-column">
-      
+        <%= render 'layouts/footer' %>
       </div>
-
-    </div>
+    </footer>
   
   </body>
 </html>
