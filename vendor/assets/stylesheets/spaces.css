@@ -31628,7 +31628,10 @@ button.section-github:focus {
 .avatar-group .avatar + .avatar {
     margin-left: -1rem;
 }
-
+.avatar-navbar {
+    width: 60px;
+    height: auto;
+}
 /**
  * = Badges
  */
