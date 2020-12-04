@@ -30809,6 +30809,11 @@ button.section-github:focus {
     position: relative;
 }
 
+.footer-icon {
+    color: white; 
+    width: 30px;
+}
+
 .footer h3, .footer h5, .footer .h3, .footer .h5 {
     font-size: 1.15rem;
     margin-bottom: 1.25rem;
