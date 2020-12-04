@@ -6,7 +6,8 @@
             <%if game_sheet.game_picture.attached?%>
                 <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
             <%else%>
-                <p>=== Il n'y a pas encore de photo liée à ce jeu ===</p>
+                
+                <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" />
             <% end %>
         </a>
         <div class="card-body">
