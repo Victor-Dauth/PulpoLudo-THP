@@ -19,6 +19,13 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def already_subscribed?
+    self.subscriptions.each do |subscription|
+      return true if subscription.active?
+    end
+    return false
+  end
+
   private
 
   def create_cart

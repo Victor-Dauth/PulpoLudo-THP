@@ -26,9 +26,6 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
-
-    build_subscription
-
     @paid_subscription = build_subscription
 
     #Enclencher mailer (user)
@@ -44,7 +41,7 @@ class CheckoutController < ApplicationController
 
   private
   def build_subscription
-    Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 24)
+    Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 1)
   end
 
 end
