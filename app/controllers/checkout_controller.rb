@@ -27,7 +27,6 @@ class CheckoutController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
     @paid_subscription = build_subscription
-
     #Enclencher mailer (user)
   end
 

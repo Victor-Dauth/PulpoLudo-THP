@@ -7,10 +7,10 @@ class User < ApplicationRecord
   #validates :phone_number, length: { in: 2..20 }
   #validates :last_name
 
-  has_many :addresses
+  has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
-  has_many :subscriptions
-
+  has_many :subscriptions, dependent: :destroy
+  
   has_one_attached :avatar, dependent: :destroy
 
   after_create :create_cart
