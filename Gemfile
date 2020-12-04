@@ -41,10 +41,13 @@ gem 'stripe'
 gem 'font-awesome-rails'
 
 # Sync with Amazon to store content in the cloud
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 
 # Use Mailjet to manage mailers in prod
 gem 'mailjet'
+
+# Use Active_link_to to improve UX on menus
+gem 'active_link_to'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

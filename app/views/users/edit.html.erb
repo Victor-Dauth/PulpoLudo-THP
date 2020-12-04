@@ -5,7 +5,7 @@
     <div class="row pt-5 pt-md-0">
 
       <div class="col-12 col-md-4 d-none d-lg-block">
-        <%= render 'menu_profil' %>  
+        <%= render 'shared/menu_profil' %>  
       </div>
 
           <!-- Partie à copier -->
@@ -13,8 +13,8 @@
 
 
           <div class="col-12 col-lg-8">
-              <div class="row">
-                  <div class="d-flex col-12 col-sm mb-4 justify-items-center">
+              <div class="row ">
+                  <div class="col-12 col-sm mb-4 ">
                      <div class="card border-light">
                         <div class="card-body d-block d-md-flex align-items-center">
                           
@@ -25,8 +25,7 @@
                                   <h1 class="h3 mb-5 font-weight-normal text-center">Modifier mon profil</h1>
 
                                       <div class="form-group">
-                                        <%= f.label "Genre", class: "mb-2" %>
-                                      
+                                        <%= f.label "Genre", class: "mb-2" %>                                     
                                         
                                         <%= f.select :gender, [['femme', 'femme'], ['homme', 'homme'], ['autre', 'autre']], {}, class: 'form-control' %>
                                         
