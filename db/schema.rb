@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_110043) do
+ActiveRecord::Schema.define(version: 2020_12_04_094712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,12 +86,47 @@ ActiveRecord::Schema.define(version: 2020_12_03_110043) do
     t.index ["game_sheet_id"], name: "index_games_on_game_sheet_id"
   end
 
+  create_table "order_lines", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_order_lines_on_game_id"
+    t.index ["order_id"], name: "index_order_lines_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.decimal "price", null: false
+    t.string "provider", null: false
+    t.string "trakcing_number"
+    t.datetime "send_at"
+    t.string "status", default: "en attente d'envoi", null: false
+    t.float "total_weight"
+    t.float "total_height"
+    t.float "total_lenght"
+    t.float "total_width"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_shippings_on_order_id"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string "stripe_id"
     t.string "subscription_id"
-    t.decimal "price"
-    t.boolean "active", default: false
+    t.string "plan_id"
     t.integer "user_id"
+    t.string "status"
+    t.decimal "price"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "current_period_ends_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -123,4 +158,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_110043) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
   add_foreign_key "games", "carts"
+  add_foreign_key "order_lines", "games"
+  add_foreign_key "order_lines", "orders"
+  add_foreign_key "orders", "users"
+  add_foreign_key "shippings", "orders"
 end

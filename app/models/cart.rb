@@ -14,4 +14,8 @@ class Cart < ApplicationRecord
     end
     return false
   end
+
+  def full_cart?
+    self.games.size >= 5
+  end
 end
