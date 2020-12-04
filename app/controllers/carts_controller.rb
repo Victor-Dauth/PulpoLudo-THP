@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
   
   include CurrentCart
+  before_action :authenticate_user!
+  before_action :is_my_cart?, only: [:show]
 
   def show
     @cart = Cart.find(params[:id])
@@ -13,10 +15,10 @@ class CartsController < ApplicationController
     @game = @game_sheet.games.in_stock.sample
 
     if @cart.games.size >= 5
-      flash[:alert] = "Tu as déjà ajouter 5 jeux a ton abonnement"
+      flash[:alert] = "Tu as déjà ajouté 5 jeux à ton abonnement"
       redirect_to root_path
     elsif @cart.already_present(@game)
-      flash[:alert] = "Tu ne peut pas louer deux exemplaire du meme jeux"
+      flash[:alert] = "Tu ne peux pas louer deux exemplaires du même jeu"
       redirect_to root_path
     else
       @game.update(cart: current_cart)
@@ -25,4 +27,12 @@ class CartsController < ApplicationController
       redirect_to root_path
     end
   end
+
+   def is_my_cart?
+    if Cart.find(params[:id]).user_id != current_user.id
+      flash[:warning] = "Ah bon on va sur les paniers des autres pour vérifier que le controller est sécure 😁 ?"
+      redirect_to root_path
+    end
+  end
+
 end
