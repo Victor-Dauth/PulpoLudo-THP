@@ -8,6 +8,7 @@ class User < ApplicationRecord
   #validates :last_name
 
   has_many :addresses
+  has_many :orders, dependent: :destroy
 
   after_create :create_cart
 
