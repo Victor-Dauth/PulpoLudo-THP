@@ -2,7 +2,7 @@ class Cart < ApplicationRecord
   belongs_to :user
   has_many :games, dependent: :nullify
 
-  enum statuses: {current_cart:"panier actuel"}
+  enum statuses: {current_cart:"panier actuel", send_cart:"panier en location", issus:"probleme"}
 
   validates :statuses,
     presence: true,
@@ -13,5 +13,9 @@ class Cart < ApplicationRecord
       return true if game.game_sheet.id == game_to_test.game_sheet.id
     end
     return false
+  end
+
+  def full_cart?
+    self.games.size >= 5
   end
 end

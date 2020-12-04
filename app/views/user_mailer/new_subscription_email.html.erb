@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+    <h1>Salut <%= @user.full_name %> !</h1>
+
+    <p>
+      Nous somme heureux de te compter parmis nos abonnés. J'espère que cette abonnement te permetra de découvrir plein de nouvelle expérience ludique !!!
+    </p>
+
+    <p>
+      Pour rappelle :
+    </p>
+    <ul>
+      <li>
+        Tu vas maintenant pouvoir commander 5 jeux sur notre site
+      </li>
+      <li>
+        Tu peut a tous momant, lorsque que tu pense avoir suffisament projet de ses 5 jeux, nous les renvoyer pour en commander 5 autre.
+      </li>
+      <li>
+        Ton abonnement prend fin le <%= @subscription.%>
+      </li>
+    </ul>
+
+    <p> Bonne journée,<p>
+    <p> L'équipe de PulpoLudo !<p>
+  </body>
+</html>

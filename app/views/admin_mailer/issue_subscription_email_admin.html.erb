@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+    <h1>Alert, shipping échouer!</h1>
+
+    <p>
+      L'utilisateur : <%= @user.full_name%> à rencontrer en problème lors de sa validation de commande. <br>
+      Prendre contacte avec lui pour de plus emple information.
+    </p>
+
+    <p>
+      Voici les information de son abonnement :
+    </p>
+
+    <ul>
+        <li>
+          subscription id : <%= @subscription.id%>
+        </li>
+        <li>
+          user id : <%= @subscription.user.id%>
+        </li>
+        <li>
+          a finir
+        </li>
+    </ul>
+  </body>
+</html>

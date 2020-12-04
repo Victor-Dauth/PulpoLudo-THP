@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  provider: MyString
+  trakcing_number: MyString
+  send_at: 2020-12-04 10:47:12
+  status: MyString
+  total_weight: 1.5
+  total_height: 1.5
+  total_lenght: 1.5
+  total_width: 1.5
+
+two:
+  price: 9.99
+  provider: MyString
+  trakcing_number: MyString
+  send_at: 2020-12-04 10:47:12
+  status: MyString
+  total_weight: 1.5
+  total_height: 1.5
+  total_lenght: 1.5
+  total_width: 1.5

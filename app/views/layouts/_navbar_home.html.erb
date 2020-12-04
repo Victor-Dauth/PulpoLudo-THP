@@ -1,10 +1,10 @@
 
-<nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg headroom py-lg-2 px-lg-6 navbar-dark  navbar-theme-primary border-bottom" style="box-shadow: 0 0.5rem 1rem rgba(13, 27, 72, 0.15)">
+<nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-transparent navbar-theme-primary">
 
   
     <div class="mr-auto">
       <a class="@@logo_classes" href="<%= root_path %>" >
-        <%= image_tag 'logo/NAVBAR/logo-entier-couleur-recentre.png', class: "logo-navbar" %>
+        <%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', class: "logo-navbar" %>
       </a>
     </div>
       
@@ -14,7 +14,7 @@
 
       <% if user_signed_in? %>
         <% if current_user.carts %>
-          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: var(--primary)" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
+          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
         <%end%>
       <% else %>
         <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
@@ -30,14 +30,12 @@
 
   <% if user_signed_in? %>
 
-  <div class="link_personal_profile mr-2 btn btn-md align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="link_personal_profile mr-2 btn d-inline-flex btn-md align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= link_to user_path(current_user.id)  do %>
       <%if current_user.avatar.attached?%>
-      
-        <span class="mr-2"><%= image_tag(current_user.avatar, :alt => 'real avatar', class:'rounded-circle avatar-navbar') %></span>
-      
-      <%else%>      
-        <span class="mr-2"><%= image_tag('unnamed.jpg', :alt => 'default avatar', class:'rounded-circle avatar-navbar') %></span>      
+        <span class="mr-2"><%= image_tag(current_user.avatar, :alt => 'real avatar', class:'rounded-circle', style: 'height:32px;width:32px') %></span>
+      <%else%>
+        <span class="mr-2"><%= image_tag('unnamed.jpg', :alt => 'default avatar', class:'rounded-circle', style: 'height:32px;width:32px') %></span>
       <% end %>
       <span><strong><%= current_user.first_name %></strong></span>
     <% end %>

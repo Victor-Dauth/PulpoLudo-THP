@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+    <h1>Alert, order échouer!</h1>
+
+    <p>
+      L'utilisateur : <%= @user.full_name%> à rencontrer en problème lors de sa validation de commande. <br>
+      Prendre contacte avec lui pour de plus emple information.
+    </p>
+
+    <p>
+      Voici les information de sont order :
+    </p>
+
+    <ul>
+        <li>
+          user id : <%= @order.user.id%>
+        </li>
+        <li>
+          Liste des jeux :
+          <% @order.games.each do |game|%>
+            <li>
+              game id : <%= game.id%>
+            </li>
+          <% end %>
+        </li>
+        <li>
+          Liste de shipping créer :
+          <% @order.shippings.each do |shipping|%>
+            <li>
+              shippings id : <%= shipping.id%>
+            </li>
+          <% end %>
+        </li>
+    </ul>
+  </body>
+</html>

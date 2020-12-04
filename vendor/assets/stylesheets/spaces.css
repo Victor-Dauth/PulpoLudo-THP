@@ -31608,6 +31608,7 @@ button.section-github:focus {
 .avatar + .avatar-content {
     display: inline-block;
     margin-left: .75rem;
+    
 }
 
 .avatar-link img {
@@ -31628,7 +31629,10 @@ button.section-github:focus {
 .avatar-group .avatar + .avatar {
     margin-left: -1rem;
 }
-
+.avatar-navbar {
+    width: 60px;
+    height: auto;
+}
 /**
  * = Badges
  */
@@ -36001,6 +36005,10 @@ textarea[resize="horizontal"] {
 
 .image-xs {
     height: 2.5rem;
+}
+
+.image-cover {
+    background-size: cover;
 }
 
 .img-thumbnail {

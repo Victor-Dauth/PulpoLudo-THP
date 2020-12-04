@@ -14,8 +14,8 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @game = @game_sheet.games.in_stock.sample
 
-    if @cart.games.size >= 5
-      flash[:alert] = "Tu as déjà ajouté 5 jeux à ton abonnement"
+    if @cart.full_cart?
+      flash[:alert] = "Tu as déjà ajouter 5 jeux a ton abonnement"
       redirect_to root_path
     elsif @cart.already_present(@game)
       flash[:alert] = "Tu ne peux pas louer deux exemplaires du même jeu"

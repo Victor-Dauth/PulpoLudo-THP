@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+    <h1>Salut <%= @user.full_name %> !</h1>
+
+    <p>
+      Tu vas ressevoir d'ici quelque jours les jeux que tu as commandé :
+    </p>
+
+    <ul>
+      <% @order.games.each do |game|%>
+        <li>
+          <%= game.game_sheet.title%>
+        </li>
+      <% end %>
+    </ul>
+
+    <p> N'hésite pas a nous les renvoyé pour en commander d'autres lorque tu aura fini de jouer avec ! <p>
+  </body>
+</html>
