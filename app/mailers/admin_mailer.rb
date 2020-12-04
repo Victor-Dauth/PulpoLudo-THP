@@ -6,7 +6,7 @@ class AdminMailer < ApplicationMailer
     @order = order
     @user = order.user
 
-    mail(to: admin_pulpoludo@yopmail.com, subject: "Echec d'order!")
+    mail(to: "admin_pulpoludo@yopmail.com", subject: "Echec d'order!")
   end
 
   def issue_shipping_email_admin(shipping_send, shipping_back, user)
@@ -15,7 +15,7 @@ class AdminMailer < ApplicationMailer
     @shipping_back = shipping_back
     @user = user
 
-    mail(to: admin_pulpoludo@yopmail.com, subject: "Echec de shipping!")
+    mail(to: "admin_pulpoludo@yopmail.com", subject: "Echec de shipping!")
   end
 
   def issue_subscription_email_admin(subscription)
@@ -23,6 +23,6 @@ class AdminMailer < ApplicationMailer
     @subscription = subscription
     @user = subscription.user
 
-    mail(to: admin_pulpoludo@yopmail.com, subject: "Echec de subscription!")
+    mail(to: "admin_pulpoludo@yopmail.com", subject: "Echec de subscription!")
   end
 end
