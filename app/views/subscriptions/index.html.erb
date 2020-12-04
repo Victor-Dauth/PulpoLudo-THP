@@ -5,7 +5,7 @@
       <!-- Profile menu with recurring paths -->
 
       <div class="col-12 col-md-4 d-none d-lg-block">
-        <%= render 'shared/menu_profil' %>
+        <%= render "shared/menu_profil" %>
       </div>
 
       <!-- Customized form for user info edition -->
@@ -17,9 +17,12 @@
           <div class="card-body p-2">
 
             <% unless current_user.already_subscribed? %>
-
-              <%= button_to "Payer un abonnement (CHECKOUT)", checkout_create_path(price: 10), class: "btn btn-lg btn-primary btn-block", remote: true %>
-
+              <div class="text-center my-1">
+                <%= image_tag "cta/subscription_banner.jpg", class: "my-2 rounded", style: "max-height:300px" %>
+                <h4 class="my-2 font-weight-normal">Profitez de 5 jeux de société à tout instant.</h4>
+                <p class="my-2">Sans publicité ni engagement. À 9,99 € par mois.</p>
+                <%= button_to "Démarrez votre abonnement →", checkout_create_path(price: 10), class: "btn btn-primary my-2", remote: true %>
+              </div>
             <% else %>
 
               <h1> Voici ton abonnement en cours </h1>
