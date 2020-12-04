@@ -5,7 +5,7 @@ class CreateShippings < ActiveRecord::Migration[5.2]
       t.string :provider,          null:false
       t.string :trakcing_number
       t.datetime :send_at
-      t.string :status,            null:false, default: waiting_to_be_send
+      t.string :status,            null:false, default: "en attente d'envoi"
       t.float :total_weight
       t.float :total_height
       t.float :total_lenght

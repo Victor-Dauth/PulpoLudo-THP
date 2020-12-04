@@ -8,31 +8,38 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
-    <%= favicon_link_tag asset_path('logo/FAVICON/favicon-logo-court-couleur-recentré-32x32.png') %>
+    <%= favicon_link_tag asset_path('logo/FAVICON/favicon-logo-court-couleur-recentré.png') %>
 
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 
     <script src="https://js.stripe.com/v3/"></script>
   </head>
 
-  <body>
-    <div class="d-flex flex-column">
-
-      <div class="d-flex flex-column">
-        <%= render 'layouts/navbar' %>
-        <br><br><br><br>
-        <%= render 'layouts/flash' %>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <div class="navbar-expand-md">
+        
       </div>
-      
+    </header>
+    <main>  
       <div class="d-flex flex-column mb-5">
-        <%= yield %>
-      </div>
-      
-      <div class="d-flex flex-column">
-      
-      </div>
+        <% if content_for? :nav %>
+          <%= content_for :nav %>
+        <% else %>
+          <%= render 'layouts/navbar' %>
+        <% end %>
 
-    </div>
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+        
+      </div>
+     </main>
+     
+     <footer> 
+      <div class="d-flex flex-column">
+        <%= render 'layouts/footer' %>
+      </div>
+    </footer>
   
   </body>
 </html>

@@ -14,13 +14,12 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create] do
       resources :shippings, only: [:show, :update]
     end
+    resources :subscriptions, only: [:index, :new, :create, :update]
   end
 
   resources :carts, only: [:show, :update]
 
-  resources :subscriptions
   resources :games, only: [:update]
-  
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'

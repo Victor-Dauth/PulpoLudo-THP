@@ -20,15 +20,27 @@ class CheckoutController < ApplicationController
     respond_to do |format|
       format.js # renders create.js.erb
     end
+
   end
 
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+    @paid_subscription = build_subscription
+    #Enclencher mailer (user)
   end
 
   def cancel
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+
+    #Changement status souscription
+    #Enclencher mailer (admin, user)
   end
+
+  private
+  def build_subscription
+    Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 1)
+  end
+
 end
