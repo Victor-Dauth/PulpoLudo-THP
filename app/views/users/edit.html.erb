@@ -14,11 +14,12 @@
               
         <div class="card border-light p-2">
 
-          <div class="card-body p-2">      
-            <%= form_for @user, html: { class: "form-signin mt-3" } do |f| %>
-              
-              <h1 class="h3 mb-5 font-weight-normal text-center">Modifier mon profil</h1>
+          <div class="card-body p-2">
+          
+            <h3 class="my-5 font-weight-normal text-center">Modifier mon profil</h3>
 
+            <%= form_for @user do |f| %>
+      
               <div class="form-group">
                 <%= f.label "Genre", class: "mb-2" %>                                     
                 <%= f.select :gender, ['Femme', 'Homme', 'Autre'], {}, class: 'form-control' %>

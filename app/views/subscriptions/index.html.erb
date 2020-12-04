@@ -2,28 +2,41 @@
   <div class="container">
     <div class="row pt-5 pt-md-0">
 
+      <!-- Profile menu with recurring paths -->
+
       <div class="col-12 col-md-4 d-none d-lg-block">
-        <%= render 'shared/menu_profil' %>  
+        <%= render 'shared/menu_profil' %>
       </div>
 
+      <!-- Customized form for user info edition -->
+
+      <div class="col-12 col-lg-8">
+              
+        <div class="card border-light p-2">
+
+          <div class="card-body p-2">
+
+            <% unless current_user.already_subscribed? %>
+
+              <%= button_to "Payer un abonnement (CHECKOUT)", checkout_create_path(price: 10), class: "btn btn-lg btn-primary btn-block", remote: true %>
+
+            <% else %>
+
+              <h1> Voici ton abonnement en cours </h1>
+
+              <% @subscriptions.active.each_with_index do |subscription, index| %>
+                <ul>
+                  <li>Paiement réalisé :<%= subscription.price %> €.</li>
+                  <li><%= subscription.start_date %>.</li>
+                  <li><%= subscription.duration %> mois.</li>
+                  <li><%= subscription.end_date %>.</li>
+                </ul>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-
-<% unless current_user.already_subscribed? %>
-  <div class="text-center my-5">
-    <%= button_to "Payer un abonnement (CHECKOUT)", checkout_create_path(price: 10), class: "btn btn-primary", remote: true %>
-  </div>
-<% else %>
-  <h1> Voici ton abonnement en cours </h1>
-
-  <% @subscriptions.active.each_with_index do |subscription, index| %>
-    <ul>
-      <li>Paiement réalisé :<%= subscription.price %> €.</li>
-      <li><%= subscription.start_date %>.</li>
-      <li><%= subscription.duration %> mois.</li>
-      <li><%= subscription.end_date %>.</li>
-    </ul>
-  <% end %>
-<% end %>
