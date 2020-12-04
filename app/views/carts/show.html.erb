@@ -7,7 +7,8 @@
     <div class="row">
       <div class="col-12">
         <%if @cart.send_cart?%>
-          <h6 class="text-center"> Tu as déjà commander 5 jeux. Si tu veux en recomander 5 nouveau il te faut d'abore nous renvoyer les 5 que tu as chez toi.Lorsque que nous les ressevrois nous t'enverons un mails pour te signaler que tu peux en commnder 5 nouveaux. </h6>
+          <h6 class="text-center"> Tu as déjà commander 5 jeux. Si tu veux en recomander 5 nouveau il te faut d'abore nous renvoyer les 5 que tu as chez toi. <br>
+          Lorsque que nous les ressevrois nous t'enverons un mails pour te signaler que tu peux en commnder 5 nouveaux. </h6>
         <% else %>
           <% unless @cart.games.empty? %>  
             <div class="table-responsive align-middle">                            
@@ -59,7 +60,9 @@
                         <td class="right">10€</td>
                       </tr>
                       <tr>
-                        <td colspan="2" class="right"> <button class="btn btn-primary">Passer commande</button></td>
+                        <td colspan="2" class="right"> 
+                          <%= link_to "Passer commande", user_orders_path(current_user), method: 'post' , :class => "btn btn-primary" %>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
