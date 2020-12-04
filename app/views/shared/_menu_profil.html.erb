@@ -1,0 +1,70 @@
+<!-- Navigation related to user profile -->
+
+    <div class="card border-light p-2">
+
+        <div class="card-body p-2">
+            
+            <div class="profile-thumbnail small-thumbnail mx-auto">
+                <%if current_user.avatar.attached?%>
+                  <%= image_tag @user.avatar, alt: 'real avatar', class: "card-img-top rounded-circle border-white", alt: "photo-de-profil" %>
+                <%else%>
+                  <%= image_tag 'unnamed.jpg', alt: 'default avatar', class: "card-img-top rounded-circle border-white", alt: "photo-de-profil" %>
+                <% end %>
+            </div>
+            
+            <h2 class="h5 font-weight-normal text-center mt-3 mb-0"><%= current_user.first_name %> <%= current_user.last_name %> </h2>
+            
+            <div class="list-group dashboard-menu list-group-sm mt-4">
+
+                <%= active_link_to user_path(current_user), class: "d-flex list-group-item list-group-item-action", active: :exclusive do %>
+                    Mes jeux
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %>
+                   
+                <%= active_link_to edit_user_path(current_user), class: "d-flex list-group-item list-group-item-action" do %>
+                    Mon profil
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %>
+                
+                <%= active_link_to edit_user_registration_path(current_user), class: "d-flex list-group-item list-group-item-action" do %>
+                    Mes informations de connexion
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %>
+          
+                <%= active_link_to user_addresses_path(current_user), class: "d-flex list-group-item list-group-item-action" do %>
+                    Mes adresses
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %>
+                
+                <%= active_link_to user_subscriptions_path(current_user), class: "d-flex list-group-item list-group-item-action" do %>
+                    Gérer mon abonnement
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %>                
+
+                <%= active_link_to destroy_user_session_path, method: :delete, class: "d-flex list-group-item list-group-item-action" do %>
+                    Se déconnecter
+                    <span class="icon icon-xs ml-auto">
+                    <span class="fas fa-chevron-right">
+                    </span>
+                    </span>
+                <% end %> 
+                    
+            </div>
+        </div>
+    </div>
+      
