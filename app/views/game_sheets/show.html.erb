@@ -1,9 +1,137 @@
-<h1 class="my-5">GameSheets#show</h1>
+<main>
+<div class="section section-lg pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                
+                <div class="tab-content mt-5 mb-3" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                        <div class="row mb-5">
+                            <div class="col-12">                                      <img class="rounded" src="https://picsum.photos/600" > 
+                                                                         
 
-<%= render 'game_sheet_card_1', game_sheet: @game_sheet %>
+                            </div>
+                        </div>
 
-<h3>Changer l'image de couverture du jeu ?</h3>
-<%= form_tag game_sheet_game_pictures_path(@game_sheet), multipart: true do %>
-  <%= file_field_tag :game_picture %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            <aside class="col-12 col-lg-4 mt-3 mt-lg-0 mb-5 pt-6">
+               <h2><%= @game_sheet.title %></h2>
+
+                <p class="mt-5"> <%= @game_sheet.description %></p>
+                <div class="d-flex my-4">
+                    <span class="star fas fa-star text-warning"></span> 
+                    <span class="star fas fa-star text-warning"></span> 
+                    <span class="star fas fa-star text-warning"></span> 
+                    <span class="star fas fa-star text-warning"></span> 
+                    <span class="star fas fa-star text-warning"></span>
+                    <span class="badge badge-pill badge-primary ml-2">5.0</span>
+              	</div> 
+                    
+                <div class="card bg-soft border-light mt-5">
+
+                  	<div class="d-flex justify-content-between">
+                        <div class="col pl-0">
+                          <span class="text-muted font-small d-block mb-2">Nombre de joueurs</span>
+                          <span class="h5 text-dark font-weight-bold"><%= @game_sheet.nb_players %></span>
+                        </div>
+
+                        <div class="col pl-0">
+                          <span class="text-muted font-small d-block mb-2">à partir de</span>
+                          <span class="h5 text-dark font-weight-bold"><%= @game_sheet.age_min %> ans</span>
+                        </div>
+
+                        <div class="col pl-0">
+                          <span class="text-muted font-small d-block mb-2">Difficulté</span>
+                          <span class="h5 text-dark font-weight-bold"><%= @game_sheet.difficulty %></span>
+                        </div>
+
+                        
+
+            		</div>
+
+            		<% if user_signed_in? %>
+		                <div>
+		                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => @game_sheet.id), method: 'PUT' , class: "btn btn-primary mt-5"%>
+		                </div>
+	             	<%else%>
+	                	<span class="text-muted font-small d-block">rediriger vers page d'inscription</span>
+	             	<% end %>
+        		</div>
+            </aside>
+
+
+
+
+        </div>
+    </div>
+</div>
+</main>
+
+
+<section class="section bg-soft">
+	<div class="container">
+	    <div class="row">
+	        <div class="col-12">
+	            <h4 class="mb-5 font-weight-bold">Jeux que tu pourrais aimer aussi</h4>
+	        </div>
+
+	            <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
+	            <div class="row">
+	              	<!-- Cards-->
+
+	              	<% @game_sheets_rand.each do |game_sheet| %>
+
+                  	<div class="col-12 col-sm-6 col-lg-4">
+                      	<div class="card border-light mb-4 animate-up-5">
+                        	<a href="<%= game_sheets_path(@game_sheets) %>" class="position-relative">
+                        		<img class="rounded" src="https://picsum.photos/600" > 
+                    		</a>
+
+                        <div class="card-body">
+                          	<a href="<%= game_sheets_path(@game_sheets) %>">
+                            	<h4 class="h5"><%= game_sheet.title %></h4>
+                          	</a>
+	                        <div class="d-flex my-4">
+	                            <span class="star fas fa-star text-warning"></span> 
+	                            <span class="star fas fa-star text-warning"></span> 
+	                            <span class="star fas fa-star text-warning"></span> 
+	                            <span class="star fas fa-star text-warning"></span> 
+	                            <span class="star fas fa-star text-warning"></span>
+	                            <span class="badge badge-pill badge-primary ml-2">5.0</span>
+	                        </div> 
+                          
+                        </div>
+                       
+                      </div>
+                    </div>
+
+                    <% end %>
+
+	              <!-- End of Card -->
+	            </div>
+	          
+	          </div>
+
+	    </div>
+	</div>
+</section>
+
+<div class="section section-lg pt-5">
+    <div class="container">
+        <div class="row">
+
+			<h3>ESPACE ADMIN - Changer l'image de couverture du jeu ?</h3>
+
+			<%= form_tag game_sheet_game_pictures_path(@game_sheet), multipart: true do %>
+			  <%= file_field_tag :game_picture %>
+			  <%= submit_tag "mettre à jour" %>
+			<% end %>
+
+		</div>
+	</div>
+</div>
