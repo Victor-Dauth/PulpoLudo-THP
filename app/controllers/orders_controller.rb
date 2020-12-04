@@ -21,22 +21,22 @@ class OrdersController < ApplicationController
         flash[:notice] = "Vos jeux vous ont bien étés envoyés."
         redirect_to current_user
       else
-        failure_new_shipping(@order, @shipping_send, @shipping_back)
+        failure_new_shipping_email(@order, @shipping_send, @shipping_back)
       end
     else
-      failure_new_order(@order)
+      failure_new_order_email(@order)
     end
   end
 
   private
 
-  def failure_new_order(order)
+  def failure_new_order_email(order)
     UserMailer.issue_order_email(order).deliver_now
     AdminMailer.issue_order_email_admin(order).deliver_now
 
   end
 
-  def failure_new_shipping(order, shipping_send, shipping_back)
+  def failure_new_shipping_email(order, shipping_send, shipping_back)
     user = order.user
 
     UserMailer.issue_order_email(order).deliver_now

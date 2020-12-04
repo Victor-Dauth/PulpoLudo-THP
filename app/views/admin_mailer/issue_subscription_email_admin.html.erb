@@ -24,7 +24,25 @@
           user id : <%= @subscription.user.id%>
         </li>
         <li>
-          a finir
+          stripe id : <%= @subscription.stripe_id%>
+        </li>
+        <li>
+          status de l'abonnement : <%= @subscription.status%>
+        </li>
+        <li>
+          prix de l'abonnement : <%= @subscription.price%>
+        </li>
+        <li>
+          début de l'abonnement : <%= @subscription.start_date%>
+        </li>
+        <li>
+          durer de l'abonnement : <%= @subscription.duration%>
+        </li>
+        <li>
+          created_at : <%= @subscription.created_at%>
+        </li>
+        <li>
+          updated_at : <%= @subscription.updated_at%>
         </li>
     </ul>
   </body>

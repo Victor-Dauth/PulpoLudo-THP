@@ -26,16 +26,17 @@ class CheckoutController < ApplicationController
   def success
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+    
     @paid_subscription = build_subscription
-    #Enclencher mailer (user)
+    new_subscription_email(@paid_subscription)
   end
 
   def cancel
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
-    #Changement status souscription
-    #Enclencher mailer (admin, user)
+    @not_paid_subscription = build_subscription_error
+    failure_subscription_email(@not_paid_subscription)
   end
 
   private
@@ -43,4 +44,18 @@ class CheckoutController < ApplicationController
     Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 1)
   end
 
+  def build_subscription_error
+    Subscription.create(user: current_user, status: "en attente", price: 10, start_date: Time.now, duration: 1)
+  end
+
+  def failure_subscription_email(subscription)
+
+    UserMailer.issue_subscription_email(subscription).deliver_now
+    AdminMailer.issue_subscription_email_admin(subscription).deliver_now
+  end
+
+  def new_subscription_email(subscription)
+
+    UserMailer.new_subscription_email(subscription).deliver_now
+  end
 end
