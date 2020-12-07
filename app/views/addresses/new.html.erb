@@ -1,32 +1,51 @@
-<div class="container my-5", style="max-width:400px">
-      
-  <%= form_for [ @user, @address ], html: { class: "form-signin mt-3" } do |f| %>
-    <h1 class="h3 mb-5 font-weight-normal text-center">Ajouter mon adresse</h1>                 
+<div class="section section-lg bg-soft">
+  <div class="container">
+    <div class="row pt-5 pt-md-0">
 
-    <div class="form-group">
-      <%= f.label "Rue", class: "mb-2" %>
-      <%= f.text_field :street, class: "form-control" %>
+      <!-- Profile menu with recurring paths -->
+
+      <div class="col-12 col-md-4 d-none d-lg-block">
+        <%= render "shared/menu_profil" %>
+      </div>
+
+      <!-- Customized part with form to add address -->
+
+      <div class="col-12 col-lg-8">
+        <div class="card border-light p-2">
+          <div class="card-body p-2">
+
+            <%= form_for [ @user, @address ], html: { class: "form-signin mt-3" } do |f| %>
+              <h1 class="h3 mb-5 font-weight-normal text-center">Ajouter mon adresse</h1>                 
+
+              <div class="form-group">
+                <%= f.label "Rue", class: "mb-2" %>
+                <%= f.text_field :street, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label "Code postal", class: "mb-2" %>
+                <%= f.text_field :zipcode, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label "Ville", class: "mb-2" %>
+                <%= f.text_field :city, class: "form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label "Pays", class: "mb-2" %>
+                <%= f.text_field :country, class: "form-control" %>
+              </div>
+
+              <div class="actions mt-5">
+                <%= f.submit "Valider", class: "btn btn-lg btn-primary btn-block" %>
+              </div>
+
+            <% end %>
+
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="form-group">
-      <%= f.label "Code postal", class: "mb-2" %>
-      <%= f.text_field :zipcode, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Ville", class: "mb-2" %>
-      <%= f.text_field :city, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label "Pays", class: "mb-2" %>
-      <%= f.text_field :country, class: "form-control" %>
-    </div>
-
-    <div class="actions mt-5">
-      <%= f.submit "Valider", class: "btn btn-lg btn-primary btn-block" %>
-    </div>
-
-  <% end %>
-
+  </div>
 </div> 
