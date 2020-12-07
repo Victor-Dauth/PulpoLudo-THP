@@ -1,4 +1,8 @@
 class AddressesController < ApplicationController
+
+  before_action :authenticate_user!
+  before_action :good_user?
+  
   def index
     @user = current_user
     @addresses = @user.addresses
@@ -49,6 +53,11 @@ class AddressesController < ApplicationController
   private
   def post_params
     post_params = params.require(:address).permit(:street, :zipcode, :city, :country)
+  end
+
+  def good_user?
+    user_id = params[:user_id]
+    check_user(user_id)
   end
   
 end
