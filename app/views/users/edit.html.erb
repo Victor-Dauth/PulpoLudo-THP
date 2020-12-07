@@ -16,7 +16,7 @@
 
           <div class="card-body p-2">
           
-            <h3 class="my-5 font-weight-normal text-center">Modifier mon profil</h3>
+            <h3 class="my-5 font-weight-normal text-center">Éditer mon profil</h3>
 
             <%= form_for @user do |f| %>
       
@@ -50,8 +50,8 @@
                 <%= f.file_field :avatar, class: "form-control overflow-hidden" %>
               </div>
 
-              <div class="actions mt-5">
-                <%= f.submit "Modifier", class: "btn btn-lg btn-primary btn-block" %>
+              <div class="actions mt-5 mb-3">
+                <%= f.submit "Mettre à jour", class: "btn btn-lg btn-primary btn-block" %>
               </div>
 
             <% end %>

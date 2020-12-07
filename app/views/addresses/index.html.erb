@@ -23,11 +23,11 @@
             
             <% else %>
 
-              <h1> Voici la liste de tes adresses :</h1>
+              <h3> Voici la liste de tes adresses :</h3>
 
               <% @addresses.each_with_index do |address, index| %>
 
-                <h3>Adresse n°<%= index + 1%> :</h3>
+                <h5>Adresse n°<%= index + 1%> :</h5>
                 
                 <ul>
                   <li><%= address.street %></li>
@@ -37,11 +37,14 @@
                 </ul>
 
                 <div class="d-flex justify-content-around">
-                  <%= link_to "Modifier cette adresse", edit_user_address_path(current_user, address), :class => "btn btn-outline-success mx-4" %>
-                  <%= link_to "Supprimer cette adresse", user_address_path(current_user, address), :method => "delete", :class => "btn btn-outline-danger mx-4", :data => {:confirm => "Est-ce que vous êtes sûr de votre choix ?"} %>
+                  <%= link_to "Modifier cette adresse", edit_user_address_path(current_user, address), :class => "btn btn-outline-success btn-sm" %>
+                  <%= link_to "Supprimer cette adresse", user_address_path(current_user, address), :method => "delete", :class => "btn btn-outline-danger btn-sm", :data => {:confirm => "Est-ce que vous êtes sûr de votre choix ?"} %>
                 </div>
 
               <% end %>
+
+              <%= active_link_to "Ajouter une nouvelle adresse →", new_user_address_path(current_user), class: "btn btn-primary my-2" %>
+
             <% end %>
           </div>
         </div>
