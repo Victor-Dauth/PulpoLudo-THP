@@ -1,4 +1,7 @@
 class GameSheetsController < ApplicationController
+
+  before_action :authenticate_user!, only: [:show]
+  
   def index
     @game_sheets = GameSheet.all
   end

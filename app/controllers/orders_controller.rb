@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+  before_action :authenticate_user!
+  before_action :good_user?
+  
+  
   def index
   end
 
@@ -41,5 +46,10 @@ class OrdersController < ApplicationController
 
     UserMailer.issue_order_email(order).deliver_now
     AdminMailer.issue_shipping_email_admin(shipping_send, shipping_back, user).deliver_now
+  end
+
+  def good_user?
+    user_id = params[:user_id]
+    check_user(user_id)
   end
 end
