@@ -7,15 +7,19 @@ class OrdersController < ApplicationController
   def index
   end
 
+  def show
+    @order = current_order
+  end
+
   def create
 
-    @order = Order.new(user: current_user)
+    @order = Order.new(user: current_user, status: "bien arrivé")
     @order.games = current_cart.games
     
     if @order.save
-      @shipping_send = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "bien arrivé", order: @order, trakcing_number: "????")
+      @shipping_send = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "livraison aller", order: @order, trakcing_number: "????")
 
-      @shipping_back = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "en attente d'envoi retour", order: @order, trakcing_number: "????")
+      @shipping_back = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "livraison retour", order: @order, trakcing_number: "????")
 
       if @shipping_send.save && @shipping_back.save
 
