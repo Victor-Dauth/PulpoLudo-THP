@@ -8,7 +8,7 @@
         <%= render "shared/menu_profil" %>
       </div>
 
-      <!-- Customized form for user info edition -->
+      <!-- Customized part with user info regarding subscription -->
 
       <div class="col-12 col-lg-8">
               
@@ -25,15 +25,13 @@
               </div>
             <% else %>
 
-              <h1> Voici ton abonnement en cours </h1>
+              <h3 class="my-4 font-weight-normal text-center">Voici ton abonnement en cours :</h3>
 
               <% @subscriptions.active.each_with_index do |subscription, index| %>
-                <ul>
-                  <li>Paiement réalisé :<%= subscription.price %> €.</li>
-                  <li><%= subscription.start_date %>.</li>
-                  <li><%= subscription.duration %> mois.</li>
-                  <li><%= subscription.end_date %>.</li>
-                </ul>
+                <p class="py-0 my-0">Paiement réalisé :<%= subscription.price %> €.</p>
+                <p class="py-0 my-0">Début de l'abonnement :<%= subscription.start_date %>.</p>
+                <p class="py-0 my-0">Durée de l'abonnement :<%= subscription.duration %> mois.</p>
+                <p class="py-0 my-0">Fin de l'abonnement :<%= subscription.end_date %>.</p>
               <% end %>
             <% end %>
           </div>

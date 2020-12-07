@@ -1,8 +1,9 @@
 class CartsController < ApplicationController
-  
+
   include CurrentCart
   before_action :authenticate_user!
-  before_action :is_my_cart?, only: [:show]
+  before_action :good_user?
+  before_action :subscripted?, only: [:update]
 
   def show
     @cart = Cart.find(params[:id])
@@ -28,11 +29,18 @@ class CartsController < ApplicationController
     end
   end
 
-   def is_my_cart?
-    if Cart.find(params[:id]).user_id != current_user.id
-      flash[:warning] = "Ah bon on va sur les paniers des autres pour vérifier que le controller est sécure 😁 ?"
-      redirect_to root_path
-    end
+  private
+
+  def good_user?
+    user_id = Cart.find(params[:id]).user_id
+    check_user(user_id)
   end
 
+  def subscripted?
+    @user = Cart.find(params[:id]).user
+    if @user.subscriptions.active.size == 0
+      flash[:notice] = "Pour pouvoir ajouter un jeux à ton panier tu dois être abonnée"
+      redirect_to user_subscriptions_path(@user)
+    end
+  end
 end

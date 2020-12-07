@@ -1,4 +1,7 @@
 class CheckoutController < ApplicationController
+
+  before_action :authenticate_user!
+  
   def create
     @user = current_user
     @price = 10
@@ -40,6 +43,7 @@ class CheckoutController < ApplicationController
   end
 
   private
+  
   def build_subscription
     Subscription.create(user: current_user, status: 'actif', price: 10, start_date: Time.now, duration: 1)
   end

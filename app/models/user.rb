@@ -26,9 +26,23 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
+  def already_completed_profile?
+    if (self.first_name != nil) && (self.last_name != nil) && (self.date_of_birth != nil) && (self.phone_number != nil) && (self.gender != nil)
+      return true
+    end
+    return false
+  end
+
   def already_subscribed?
     self.subscriptions.each do |subscription|
       return true if subscription.active?
+    end
+    return false
+  end
+
+  def already_has_an_address?
+    self.addresses.each do |address|
+      return true if address != nil
     end
     return false
   end

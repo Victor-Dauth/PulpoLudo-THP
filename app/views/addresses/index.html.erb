@@ -2,37 +2,54 @@
   <div class="container">
     <div class="row pt-5 pt-md-0">
 
+      <!-- Profile menu with recurring paths -->
+
       <div class="col-12 col-md-4 d-none d-lg-block">
-      <%= render 'shared/menu_profil' %>  
+        <%= render "shared/menu_profil" %>
       </div>
 
+      <!-- Customized part with user info regarding address -->
+
+      <div class="col-12 col-lg-8">
+        <div class="card border-light p-2">
+          <div class="card-body p-2">
+
+            <% unless current_user.already_has_an_address? %>
+              <div class="text-center my-1">
+                <%= image_tag "cta/subscription_banner.jpg", class: "my-2 rounded", style: "max-height:300px" %>
+                <h4 class="my-2 font-weight-normal">Enregistrez une adresse postale pour recevoir vos 5 jeux de société chez vous.</h4>
+                <%= active_link_to "Ajouter une adresse →", new_user_address_path(current_user), class: "btn btn-primary my-2" %>
+              </div>
+            
+            <% else %>
+
+              <h3 class="my-4 font-weight-normal text-center"> Voici la liste de tes adresses :</h3>
+
+              <% @addresses.each_with_index do |address, index| %>
+
+                <h5>Adresse n°<%= index + 1%> :</h5>
+                  <p class="py-0 my-0"><%= address.street %></p>
+                  <p class="py-0 my-0"><%= address.zipcode %> <%= address.city %></p>
+                  <p class="py-0 my-0"><%= address.country %></p>
+
+                <div class="d-flex">
+                  <%= link_to "Modifier cette adresse", edit_user_address_path(current_user, address), :class => "btn btn-outline-success btn-sm mr-2" %>
+                  <%= link_to "Supprimer cette adresse", user_address_path(current_user, address), :method => "delete", :class => "btn btn-outline-danger btn-sm ml-2", :data => {:confirm => "Est-ce que vous êtes sûr de votre choix ?"} %>
+                </div>
+
+                <hr>
+
+              <% end %>
+
+
+              <div class="text-center">
+                <%= active_link_to "Ajouter une nouvelle adresse →", new_user_address_path(current_user), class: "btn btn-primary my-3" %>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-<div class="text-center my-5">
-  <%= link_to "Ajouter une adresse", new_user_address_path(current_user), class: "btn btn-primary" %>
-</div>
-
-
-<h1> Voici la liste de tes adresses </h1>
-
-<% @addresses.each_with_index do |address, index| %>
-
-  <h3>Adresse n°<%= index + 1%> :</h3>
-  
-  <ul>
-    <li><%= address.street %></li>
-    <li><%= address.zipcode %></li>
-    <li><%= address.city %></li>
-    <li><%= address.country %></li>
-  </ul>
-
-  <div class="d-flex justify-content-around">
-    <%= link_to "Modifier cette adresse", edit_user_address_path(current_user, address), :class => "btn btn-outline-success mx-4" %>
-    <%= link_to "Supprimer cette adresse", user_address_path(current_user, address), :method => "delete", :class => "btn btn-outline-danger mx-4", :data => {:confirm => "Est-ce que vous êtes sûr de votre choix ?"} %>
-  </div>
-
-<% end %>
-
