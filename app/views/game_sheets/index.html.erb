@@ -3,6 +3,10 @@
 
 <%= render 'filtre' %>
 
+<% if user_signed_in? %>
+  <%= render 'shared/cta_profile_completion' %>
+<% end %>
+
 <div class="section section-lg pt-">
   <div id="spaces-container" class="container">
     <div class="row">
