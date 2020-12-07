@@ -28,10 +28,10 @@
               <h3 class="my-4 font-weight-normal text-center">Voici ton abonnement en cours :</h3>
 
               <% @subscriptions.active.each_with_index do |subscription, index| %>
-                <p class="py-0 my-0">Paiement réalisé :<%= subscription.price %> €.</p>
-                <p class="py-0 my-0">Début de l'abonnement :<%= subscription.start_date %>.</p>
-                <p class="py-0 my-0">Durée de l'abonnement :<%= subscription.duration %> mois.</p>
-                <p class="py-0 my-0">Fin de l'abonnement :<%= subscription.end_date %>.</p>
+                <p class="py-0 my-0">Paiement réalisé : <%= subscription.price %> €.</p>
+                <p class="py-0 my-0">Début de l'abonnement : <%= subscription.clean_start_date %>.</p>
+                <p class="py-0 my-0">Durée de l'abonnement : <%= subscription.duration %> mois.</p>
+                <p class="py-0 my-0">Fin de l'abonnement : <%= subscription.clean_end_date %>.</p>
               <% end %>
             <% end %>
           </div>
