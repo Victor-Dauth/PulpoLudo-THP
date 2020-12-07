@@ -16,12 +16,16 @@ class Subscription < ApplicationRecord
     presence: true,
     numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
+  def end_date
+    self.start_date + duration.month
+  end
+
   def clean_start_date
-    self.start_date.strftime("le %d %B %Y, à %Hh%M %z")
+    self.start_date.strftime("le %d %m %Y, à %Hh%M")
   end
 
   def clean_end_date
-    (self.start_date + duration.month).strftime("le %d %B %Y, à %Hh%M %z")
+    (self.start_date + duration.month).strftime("le %d %m %Y, à %Hh%M")
   end
 
 end
