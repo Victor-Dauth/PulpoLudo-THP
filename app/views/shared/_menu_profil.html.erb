@@ -6,7 +6,7 @@
             
             <div class="profile-thumbnail small-thumbnail mx-auto">
                 <%if current_user.avatar.attached?%>
-                  <%= image_tag @user.avatar, alt: 'real avatar', class: "card-img-top rounded-circle border-white", alt: "photo-de-profil" %>
+                  <%= image_tag @user.thumbnail, class: "card-img-top rounded-circle border-white", alt: "photo-de-profil" %>
                 <%else%>
                   <%= image_tag 'unnamed.jpg', alt: 'default avatar', class: "card-img-top rounded-circle border-white", alt: "photo-de-profil" %>
                 <% end %>

@@ -34,7 +34,7 @@
     <%= link_to user_path(current_user.id)  do %>
       <%if current_user.avatar.attached?%>
       
-        <span class="mr-2"><%= image_tag(current_user.avatar, :alt => 'real avatar', class:'rounded-circle avatar-navbar') %></span>
+        <span class="mr-2"><%= image_tag(current_user.thumbnail, :alt => 'real avatar', class:'rounded-circle avatar-navbar') %></span>
       
       <%else%>      
         <span class="mr-2"><%= image_tag('unnamed.jpg', :alt => 'default avatar', class:'rounded-circle avatar-navbar') %></span>      

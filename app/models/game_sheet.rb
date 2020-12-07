@@ -41,6 +41,16 @@ class GameSheet < ApplicationRecord
 
   has_one_attached :game_picture
 
+  has_many :tags_for_game_sheets
+  has_many :editors,    through: :tags_for_game_sheets
+  has_many :artists,    through: :tags_for_game_sheets
+  has_many :authors,    through: :tags_for_game_sheets
+  has_many :categories, through: :tags_for_game_sheets
+  has_many :mechanisms, through: :tags_for_game_sheets
+  has_many :themes,     through: :tags_for_game_sheets
+
+
+
   def nb_players
     "#{self.nb_players_min}-#{self.nb_players_max}"
   end

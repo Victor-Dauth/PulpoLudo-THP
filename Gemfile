@@ -65,6 +65,8 @@ gem 'bootstrap-sass'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.9'
+gem "mini_magick",'~> 4.8'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -80,6 +82,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Letter_opener to test mailers in development environment
   gem "letter_opener"
+  gem 'rails-erd'
 end
 
 group :test do
