@@ -1,9 +1,9 @@
 class TagsForGameSheet < ApplicationRecord
-	belongs_to :game_sheet
-	belongs_to :artist
-	belongs_to :author
-	belongs_to :category
-	belongs_to :editor
-	belongs_to :mechanism
-	belongs_to :theme
+	belongs_to :game_sheet, optional: true
+	belongs_to :artist, optional: true
+	belongs_to :author, optional: true
+	belongs_to :category, optional: true
+	belongs_to :editor, optional: true
+	belongs_to :mechanism, optional: true
+	belongs_to :theme, optional: true
 end

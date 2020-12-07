@@ -163,8 +163,22 @@ ActiveRecord::Schema.define(version: 2020_12_07_100433) do
   end
 
   create_table "tags_for_game_sheets", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "theme_id"
+    t.bigint "mechanism_id"
+    t.bigint "category_id"
+    t.bigint "artist_id"
+    t.bigint "editor_id"
+    t.bigint "game_sheet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_tags_for_game_sheets_on_artist_id"
+    t.index ["author_id"], name: "index_tags_for_game_sheets_on_author_id"
+    t.index ["category_id"], name: "index_tags_for_game_sheets_on_category_id"
+    t.index ["editor_id"], name: "index_tags_for_game_sheets_on_editor_id"
+    t.index ["game_sheet_id"], name: "index_tags_for_game_sheets_on_game_sheet_id"
+    t.index ["mechanism_id"], name: "index_tags_for_game_sheets_on_mechanism_id"
+    t.index ["theme_id"], name: "index_tags_for_game_sheets_on_theme_id"
   end
 
   create_table "themes", force: :cascade do |t|
