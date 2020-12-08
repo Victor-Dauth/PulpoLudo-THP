@@ -39,7 +39,6 @@ class OrdersController < ApplicationController
   end
 
   def update
-
     @order = Order.find(params[:id])
     @cart = User.find(params[:user_id]).cart
   end
@@ -49,7 +48,6 @@ class OrdersController < ApplicationController
   def failure_new_order_email(order)
     UserMailer.issue_order_email(order).deliver_now
     AdminMailer.issue_order_email_admin(order).deliver_now
-
   end
 
   def failure_new_shipping_email(order, shipping_send, shipping_back)
@@ -64,7 +62,6 @@ class OrdersController < ApplicationController
     check_user(user_id)
   end
 
-  def (order, cart)
-
-  end
+  #def (order, cart)
+  #end
 end
