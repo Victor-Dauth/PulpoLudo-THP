@@ -1,0 +1,28 @@
+<div class=" p-0 p-md-4">
+  <div class="card-body px-0 pt-0">
+    <%= link_to "Retourner mes jeux", user_order_path(current_user, order), method: 'PATCH' , :class => "ml-3 col-auto btn btn-primary my-auto" %>
+  </div>
+  <div class="card-header border-bottom p-3">
+    <p class="small pr-lg-10">Voici les jeux que tu as chez toi :</p>
+  </div>
+  <div class="card-body px-0 pt-0">
+    <ul class="list-group">
+      <% order.games.each do |game|%>
+        <li class="list-group-item border-bottom">
+          <div class="col-auto row align-items-center">
+            <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= game.game_sheet.game_picture%>);">
+            </div>
+            <div class="col">
+              <h3 class="h6 mb-1">
+                <a href="./invoice.html"><%= game.game_sheet.title%></a>
+              </h3>
+              <small class="text-gray-700">
+                Chez moi depuis le <%= game.updated_at%>
+              </small>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

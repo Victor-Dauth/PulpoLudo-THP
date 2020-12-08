@@ -5,17 +5,22 @@ class OrdersController < ApplicationController
   
   
   def index
+    @orders = current_user.orders.finished
+  end
+
+  def show
+    @order = current_order
   end
 
   def create
 
-    @order = Order.new(user: current_user)
+    @order = Order.new(user: current_user, status: "bien arrivé")
     @order.games = current_cart.games
     
     if @order.save
-      @shipping_send = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "bien arrivé", order: @order, trakcing_number: "????")
+      @shipping_send = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "livraison aller", order: @order, trakcing_number: "????")
 
-      @shipping_back = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "en attente d'envoi retour", order: @order, trakcing_number: "????")
+      @shipping_back = Shipping.new(price: 0, provider: "Mondial Relay", send_at: Time.new, status: "livraison retour", order: @order, trakcing_number: "????")
 
       if @shipping_send.save && @shipping_back.save
 
@@ -31,6 +36,12 @@ class OrdersController < ApplicationController
     else
       failure_new_order_email(@order)
     end
+  end
+
+  def update
+
+    @order = Order.find(params[:id])
+    @cart = User.find(params[:user_id]).cart
   end
 
   private
@@ -51,5 +62,9 @@ class OrdersController < ApplicationController
   def good_user?
     user_id = params[:user_id]
     check_user(user_id)
+  end
+
+  def (order, cart)
+
   end
 end
