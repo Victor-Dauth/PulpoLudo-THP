@@ -21,11 +21,11 @@ class Subscription < ApplicationRecord
   end
 
   def clean_start_date
-    self.start_date.strftime("le %d %m %Y, à %Hh%M")
+    self.start_date.strftime("%d/%m/%Y")
   end
 
   def clean_end_date
-    (self.start_date + duration.month).strftime("le %d %m %Y, à %Hh%M")
+    (self.start_date + duration.month).strftime("%d/%m/%Y")
   end
 
 end
