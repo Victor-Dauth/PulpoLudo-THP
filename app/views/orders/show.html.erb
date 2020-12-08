@@ -44,7 +44,7 @@
                       Commande bien livré
                     </span>
                   </div>
-                  <%= render 'my_games', games: current_order.games %>
+                  <%= render 'my_games', order: current_order %>
                 <% elsif current_order.status == "waiting_to_be_back" || current_order.status == "in_transit_back" %>
                   <div class="icon icon-shape icon-md icon-shape-primary rounded-circle mr-3 mb-4 mb-md-0">
                     <span class="fas fa-puzzle-piece"></span>

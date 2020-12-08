@@ -41,9 +41,7 @@ class OrdersController < ApplicationController
   def update
 
     @order = Order.find(params[:id])
-    @user = User.find(params[:user_id])
-
-    
+    @cart = User.find(params[:user_id]).cart
   end
 
   private
@@ -64,5 +62,9 @@ class OrdersController < ApplicationController
   def good_user?
     user_id = params[:user_id]
     check_user(user_id)
+  end
+
+  def (order, cart)
+
   end
 end

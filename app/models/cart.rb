@@ -2,9 +2,9 @@ class Cart < ApplicationRecord
   belongs_to :user
   has_many :games, dependent: :nullify
 
-  enum statuses: {current_cart:"panier actuel", send_cart:"panier en location", issus:"probleme"}
+  enum status: {current_cart:"panier actuel", send_cart:"panier en location", issus:"probleme"}
 
-  validates :statuses,
+  validates :status,
     presence: true,
     inclusion: {in: statuses.keys}
 

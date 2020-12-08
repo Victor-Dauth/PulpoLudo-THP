@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
   end
 
   create_table "carts", force: :cascade do |t|
-    t.string "statuses", default: "panier actuel", null: false
+    t.string "status", default: "panier actuel", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
