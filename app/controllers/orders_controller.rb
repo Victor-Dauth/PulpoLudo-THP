@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   
   
   def index
+    @orders = current_user.orders.finished
   end
 
   def show
@@ -35,6 +36,14 @@ class OrdersController < ApplicationController
     else
       failure_new_order_email(@order)
     end
+  end
+
+  def update
+
+    @order = Order.find(params[:id])
+    @user = User.find(params[:user_id])
+
+    
   end
 
   private

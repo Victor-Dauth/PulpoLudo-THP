@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string "status", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -107,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
     t.string "provider", null: false
     t.string "trakcing_number"
     t.datetime "send_at"
-    t.string "status", default: "en attente d'envoi", null: false
+    t.string "status", null: false
     t.float "total_weight"
     t.float "total_height"
     t.float "total_lenght"
