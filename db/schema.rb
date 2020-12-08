@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_094712) do
+ActiveRecord::Schema.define(version: 2020_12_07_100433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,38 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "artists", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "carts", force: :cascade do |t|
     t.string "status", default: "panier actuel", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "editors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "game_sheets", force: :cascade do |t|
@@ -84,6 +110,12 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
     t.bigint "cart_id"
     t.index ["cart_id"], name: "index_games_on_cart_id"
     t.index ["game_sheet_id"], name: "index_games_on_game_sheet_id"
+  end
+
+  create_table "mechanisms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_lines", force: :cascade do |t|
@@ -129,6 +161,31 @@ ActiveRecord::Schema.define(version: 2020_12_04_094712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "tags_for_game_sheets", force: :cascade do |t|
+    t.bigint "author_id"
+    t.bigint "theme_id"
+    t.bigint "mechanism_id"
+    t.bigint "category_id"
+    t.bigint "artist_id"
+    t.bigint "editor_id"
+    t.bigint "game_sheet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_tags_for_game_sheets_on_artist_id"
+    t.index ["author_id"], name: "index_tags_for_game_sheets_on_author_id"
+    t.index ["category_id"], name: "index_tags_for_game_sheets_on_category_id"
+    t.index ["editor_id"], name: "index_tags_for_game_sheets_on_editor_id"
+    t.index ["game_sheet_id"], name: "index_tags_for_game_sheets_on_game_sheet_id"
+    t.index ["mechanism_id"], name: "index_tags_for_game_sheets_on_mechanism_id"
+    t.index ["theme_id"], name: "index_tags_for_game_sheets_on_theme_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -18,22 +18,24 @@
 
             <% unless current_user.already_subscribed? %>
               <div class="text-center my-1">
+<<<<<<< HEAD
                 <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
+=======
+                <%= image_tag "illustrations/easy-transaction.png", class: "my-2 rounded", style: "max-height:300px" %>
+>>>>>>> develop
                 <h4 class="my-2 font-weight-normal">Profitez de 5 jeux de société à tout instant.</h4>
                 <p class="my-2">Sans publicité ni engagement. À 9,99 € par mois.</p>
                 <%= button_to "Démarrez votre abonnement →", checkout_create_path(price: 10), class: "btn btn-primary my-2", remote: true %>
               </div>
             <% else %>
 
-              <h2> Voici ton abonnement en cours </h2>
+              <h3 class="my-4 font-weight-normal text-center">Voici ton abonnement en cours :</h3>
 
               <% @subscriptions.active.each_with_index do |subscription, index| %>
-                <ul>
-                  <li>Paiement réalisé :<%= subscription.price %> €.</li>
-                  <li>Début de l'abonnement :<%= subscription.start_date %>.</li>
-                  <li>Durée de l'abonnement :<%= subscription.duration %> mois.</li>
-                  <li>Fin de l'abonnement :<%= subscription.end_date %>.</li>
-                </ul>
+                <p class="py-0 my-0">Paiement réalisé : <%= subscription.price %> €.</p>
+                <p class="py-0 my-0">Début de l'abonnement : <%= subscription.clean_start_date %>.</p>
+                <p class="py-0 my-0">Durée de l'abonnement : <%= subscription.duration %> mois.</p>
+                <p class="py-0 my-0">Fin de l'abonnement : <%= subscription.clean_end_date %>.</p>
               <% end %>
             <% end %>
           </div>

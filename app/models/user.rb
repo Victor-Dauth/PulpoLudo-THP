@@ -8,6 +8,7 @@ class User < ApplicationRecord
   #validates :last_name
 
 
+
   has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
@@ -16,6 +17,10 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :destroy
 
   after_create :create_cart
+
+  def thumbnail
+    return self.avatar.variant(resize: '300x300!').processed 
+  end
 
   def full_name
     "#{self.first_name} #{self.last_name}"
@@ -47,4 +52,6 @@ class User < ApplicationRecord
   def create_cart
     self.carts.create
   end
+
+
 end

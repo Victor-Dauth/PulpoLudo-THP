@@ -23,13 +23,14 @@
     </header>
     <main>  
       <div class="d-flex flex-column mb-5">
+
         <% if content_for? :nav %>
           <%= content_for :nav %>
         <% else %>
           <%= render 'layouts/navbar' %>
         <% end %>
-
         <%= render 'layouts/flash' %>
+       
         <%= yield %>
         
       </div>
