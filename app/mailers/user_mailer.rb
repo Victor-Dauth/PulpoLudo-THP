@@ -9,6 +9,14 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Tes jeux arrive bientot!")
   end
 
+  def finish_order_email(order)
+
+    @order = order
+    @user = @order.user
+
+    mail(to: @user.email, subject: "Nous avons bien reçu tes jeux!")
+  end
+
   def new_subscription_email(subscription)
 
     @subscription = subscription

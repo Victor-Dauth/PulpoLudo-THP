@@ -5,6 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 .env
+erd.pdf
 
 # Ignore bundler config.
 /.bundle

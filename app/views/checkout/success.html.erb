@@ -1,7 +1,0 @@
-<div class="container text-center my-5">
-  <h1>Succès</h1>
-  <p>Nous avons bien reçu votre paiement de <%= number_to_currency(@payment_intent.amount_received / 100.0, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>.</p>
-  <p>Le statut de votre paiement est : <%= @payment_intent.status %>.</p>
-  <p>Le statut de votre abonnement est : <%= @paid_subscription.status %>.</p>
-  <%= link_to "Revenir sur mon profil", user_path(current_user), class: "btn btn-primary" %>
-</div>

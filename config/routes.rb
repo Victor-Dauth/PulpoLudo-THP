@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :avatars, only: [:create]
     resources :addresses, except: [:show]
-    resources :orders, only: [:index, :create] do
+    resources :orders, only: [:index, :show, :create, :update] do
       resources :shippings, only: [:show, :update]
     end
     resources :subscriptions, only: [:index, :new, :create, :update]
@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   resources :games, only: [:update]
 
-  #resources :landing_pages, only: [:show]
   get 'static_pages/landing'
   
 
@@ -37,6 +36,13 @@ Rails.application.routes.draw do
     post 'create', to: 'checkout#create', as: 'checkout_create'
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
     get 'success', to: 'checkout#success', as: 'checkout_success'
+
+  namespace :stripe do
+    resources :checkouts
+    get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
+    get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
+    post 'checkout/webhook', to: "checkouts#webhook", as: 'checkouts_webhook'
+
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

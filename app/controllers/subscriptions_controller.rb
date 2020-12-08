@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   
   before_action :authenticate_user!
   before_action :good_user?
-    #ecrire un before action update uniquement accécilble a l'admin(probablement plutot metre update dans un namespace admin)
+    #ecrire un before action update uniquement accessible a l'admin(probablement plutot metre update dans un namespace admin)
   
   def index
     @user = User.find(params[:user_id])
@@ -21,10 +21,6 @@ class SubscriptionsController < ApplicationController
   end
 
   private
-  
-  def post_params
-    post_params = params.require(:subscription).permit(:price)
-  end
 
   def good_user?
     user_id = params[:user_id]
