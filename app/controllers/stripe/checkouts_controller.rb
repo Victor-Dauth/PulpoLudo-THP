@@ -27,6 +27,7 @@ class Stripe::CheckoutsController < ApplicationController
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @customer = Stripe::Customer.retrieve(@session.customer)
     @stripe_subscription = Stripe::Subscription.retrieve(@session.subscription)
+
     subscriber = User.find_by(id: @session.client_reference_id)
 
     #Build the real subscription after a successful payment with the relevant references
@@ -37,6 +38,9 @@ class Stripe::CheckoutsController < ApplicationController
 
     #Launch confirmation email process
     new_subscription_email(@paid_subscription)
+
+    #Provide an invoice directly to the customer
+    @invoice = Stripe::Invoice.list(limit: 3, customer: @customer.id).first.invoice_pdf
   end
 
   def cancel
