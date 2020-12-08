@@ -4,6 +4,9 @@ class Stripe::CheckoutsController < ApplicationController
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       mode: 'subscription',
+      subscription_data: {
+            items: [{ subscription: params[:subscription] }],
+        },
       line_items: [{
         # For metered billing, do not pass quantity
         quantity: 1,
@@ -20,7 +23,19 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def success
-    @paid_subscription = build_subscription
+    #Retrieve the relevant info following a successful Checkout session
+    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
+    @customer = Stripe::Customer.retrieve(@session.customer)
+    @stripe_subscription = Stripe::Subscription.retrieve(@session.subscription)
+    subscriber = User.find_by(id: @session.client_reference_id)
+
+    #Build the real subscription after a successful payment with the relevant references
+    @paid_subscription = build_subscription(@stripe_subscription, subscriber)
+
+    #Update Stripe ID on the User side
+    subscriber.update!(stripe_id: @customer.id)
+
+    #Launch confirmation email process
     new_subscription_email(@paid_subscription)
   end
 
@@ -31,8 +46,8 @@ class Stripe::CheckoutsController < ApplicationController
 
   private
   
-  def build_subscription
-    Subscription.create(user: current_user, status: 'actif', price: 9.99, start_date: Time.now, duration: 1)
+  def build_subscription(stripe_subscription, subscriber)
+    Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now, duration: 1)
   end
 
   def build_subscription_error
