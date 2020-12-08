@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CheckoutControllerTest < ActionDispatch::IntegrationTest
+class Stripe::CheckoutsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

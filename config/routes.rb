@@ -21,10 +21,11 @@ Rails.application.routes.draw do
 
   resources :games, only: [:update]
 
-  scope '/checkout' do
-    post 'create', to: 'checkout#create', as: 'checkout_create'
-    get 'success', to: 'checkout#success', as: 'checkout_success'
-    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  namespace :stripe do
+    resources :checkouts
+    get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
+    get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
+    post 'checkout/webhook', to: "checkouts#webhook", as: 'checkouts_webhook'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
