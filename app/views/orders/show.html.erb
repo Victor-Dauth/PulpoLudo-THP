@@ -27,7 +27,7 @@
                       Vous pouvez commander 5 nouveau jeux
                     </span>
                   </div>
-                  <%= active_link_to "Louer de nouveaux jeux", root_pah, class: "btn btn-primary my-2" %>
+                  <%= active_link_to "Louer de nouveaux jeux", root_path, class: "btn btn-primary my-2" %>
                 <% elsif current_order.status == "waiting_to_be_send" || current_order.status == "in_transit_send" %>
                   <div class="icon icon-shape icon-md icon-shape-primary rounded-circle mr-3 mb-4 mb-md-0">
                     <span class="fas fa-puzzle-piece"></span>

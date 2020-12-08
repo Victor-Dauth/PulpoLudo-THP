@@ -5,7 +5,7 @@ class Game < ApplicationRecord
   has_many :order_lines, dependent: :nullify
   has_many :orders, through: :order_lines, dependent: :nullify
 
-  enum status: {in_stock: "en stock", leased: "en location", waiting_to_be_send: "en attente d'envoi", in_transit_send: "livraison aller", in_transit_back: "livraison retour", lost: "perdu", sold: "vendu"}
+  enum status: {in_stock: "en stock", leased: "en location", lost: "perdu", sold: "vendu"}
   enum condition: {like_new: "comme neuf", excellent: "excellent", fine: "correct", damaged: "abimé", incomplete: "incomplet", broken: "detruit"}
   
   validates :stock_id,

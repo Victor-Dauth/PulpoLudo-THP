@@ -18,11 +18,7 @@
 
             <% unless current_user.already_subscribed? %>
               <div class="text-center my-1">
-<<<<<<< HEAD
-                <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
-=======
                 <%= image_tag "illustrations/easy-transaction.png", class: "my-2 rounded", style: "max-height:300px" %>
->>>>>>> develop
                 <h4 class="my-2 font-weight-normal">Profitez de 5 jeux de société à tout instant.</h4>
                 <p class="my-2">Sans publicité ni engagement. À 9,99 € par mois.</p>
                 <%= button_to "Démarrez votre abonnement →", checkout_create_path(price: 10), class: "btn btn-primary my-2", remote: true %>

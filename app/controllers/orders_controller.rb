@@ -41,7 +41,13 @@ class OrdersController < ApplicationController
   def update
 
     @order = Order.find(params[:id])
-    @cart = User.find(params[:user_id]).cart
+    @cart = User.find(params[:user_id]).carts.last
+
+    remove_all_game(@cart)
+    @cart.current_cart!
+    @order.finished!
+
+    finish_order_email(@order)
   end
 
   private
@@ -59,12 +65,19 @@ class OrdersController < ApplicationController
     AdminMailer.issue_shipping_email_admin(shipping_send, shipping_back, user).deliver_now
   end
 
+  def finish_order_email(order)
+    UserMailer.finish_order_email(order).deliver_now
+  end
+
   def good_user?
     user_id = params[:user_id]
     check_user(user_id)
   end
 
-  def (order, cart)
-
+  def remove_all_game(cart)
+    cart.games.each do |game|
+      game.in_stock!
+    end
+    cart.games.delete_all
   end
 end

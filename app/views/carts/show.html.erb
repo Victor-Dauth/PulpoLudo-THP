@@ -9,6 +9,7 @@
         <%if @cart.send_cart?%>
           <h6 class="text-center"> Tu as déjà commander 5 jeux. Si tu veux en recomander 5 nouveau il te faut d'abore nous renvoyer les 5 que tu as chez toi. <br>
           Lorsque que nous les ressevrois nous t'enverons un mails pour te signaler que tu peux en commnder 5 nouveaux. </h6>
+          <%= link_to "Ma commande acutel", user_order_path(current_user, current_order), :class => "ml-3 col-auto btn btn-primary my-auto" %>
         <% else %>
           <% unless @cart.games.empty? %>  
             <div class="table-responsive align-middle">                            
