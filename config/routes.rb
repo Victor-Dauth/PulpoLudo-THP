@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   
-  root to: 'game_sheets#index'
+
+  
+  authenticated :user do
+    root 'game_sheets#index'
+    end
+    root 'static_pages#landing'
+
+
   
   resources :game_sheets, only: [:index, :show] do
     resources :game_pictures, only: [:create]
@@ -20,6 +27,11 @@ Rails.application.routes.draw do
   resources :carts, only: [:show, :update]
 
   resources :games, only: [:update]
+
+  #resources :landing_pages, only: [:show]
+  get 'static_pages/landing'
+  
+
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'

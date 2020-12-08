@@ -1,0 +1,81 @@
+
+.bubble-right {
+  // layout
+  position: relative;
+  max-width: 30em;
+
+  // looks
+  background-color: #fff;
+  padding: 1.125em 1.5em;
+  font-size: 1.25em;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+}
+
+.bubble-right::before {
+  // layout
+  content: '';
+  position: absolute;
+  width: 20;
+  height: 20;
+  bottom: -12px;
+  left: 1.5em; // offset should move with padding of parent
+  border: .75rem solid transparent;
+  border-top: none;
+  transform: rotate(180deg);
+
+  // looks
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}
+
+
+.bubble-left {
+  // layout
+  position: relative;
+  max-width: 30em;
+  
+  // looks
+  background-color: #fff;
+  padding: 1.125em 1.5em;
+  font-size: 1.25em;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+}
+
+.bubble-left::before {
+  // layout
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -12px;
+  right: 1.5em; // offset should move with padding of parent
+  border: .75rem solid transparent;
+  border-top: none;
+  transform: rotate(180deg);
+
+  // looks
+  border-bottom-color: #fff;
+  filter: drop-shadow(0 -0.0625rem 0.0625rem rgba(0, 0, 0, .1));
+}
+
+.bubble-description {
+  font-size: 20px;
+}
+
+.fa-times-circle {
+  color : red;
+}
+
+.fa-check-circle {
+  color : green;
+}
+
+.card-pros-cons {
+  height : 500px;
+}
+
+.card-founder {
+  height : 400px;
+}
