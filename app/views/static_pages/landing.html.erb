@@ -1,0 +1,595 @@
+<% content_for :nav, render('layouts/navbar_home') %>
+
+
+
+<section class="section-header pb-lg-11  section-image bg-tertiary overlay-primary text-white overflow-hidden pb-9" style="background-image: url(<%= asset_path "game-index-background.jpg" =%>);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-5 text-center">
+                <div><%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', style: "height: 180px" %></br></div>
+                <p class="mt-4" style="font-size: 20px">Ton coach en jeux de société</p></br>
+                <a href="#why" class= "btn btn-outline-white animate-up-2 btn-lg mt-3 mr-3" >Ça m'intéresse !</a>
+                <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-light btn-lg mt-3 ml-3", method: "GET" %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Video -->
+<section class="section section-lg line-bottom-light">
+    <div class="container mt-n8 mt-md-n9 mt-lg-n12 z-2">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center" style="height: 500px">                     
+                    <%= video_tag "video-landing.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, :height => "100%", :style => "border-radius: 10px;" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pourquoi pulpo ludo -->
+
+<section class="section section-lg bg-soft pb-4">
+    <div class="container">
+        <div class="row justify-content-center mb-lg-3">
+            <div class="col-12 col-md-8 text-left text-sm-center mb-5">
+                <h2 id = "why" class="h1">Pourquoi Pulpo Ludo ?</h2>                
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-between mb-6 text-justify" >
+            <div class="col-md-6 col-lg-7">
+                <p class="bubble-left"> Je passe à côté de trop de jeux</p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+               <div class="card mb-2 bg-soft">
+                  <div class="card-body p-0">
+                     <div class="d-flex">                                                          
+                           <p class= "bubble-description">C’est une frustration partagée. </br> Pour y remédier, nous mettons à ta disposition une <strong>large ludothèque</strong> de jeux de société modernes en location. Tu pourras tester beaucoup plus de jeux, dont les <strong>dernières nouveautés.</strong></p>
+                     </div>
+                  </div>
+               </div>                  
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-between text-justify mb-6">
+            <div class="col-md-6 col-lg-4 order-lg-1">
+                <div class="card mb-2 bg-soft">
+                    <div class="card-body p-0">
+                        <div class="d-flex">                                
+                            <p class= "bubble-description">Avec <strong>plus de 1000 jeux de société</strong> qui sortent chaque année en France c’est normal... C’est pour cela que nous voulons t’aider en te conseillant les jeux spécialement adaptés à <strong>tes envies</strong> !</p>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-7 mb-5 order-lg-2">
+                <p class="bubble-right">Il y a trop de jeux qui sortent, je n’arrive pas à suivre…</p>
+
+            </div>
+        </div>
+
+        <div class="row align-items-center justify-content-between mb-6 text-justify">
+            <div class="col-md-6 col-lg-7">
+               <p class="bubble-left">De toute façon c’est trop cher et je n’ai pas la place...</p>
+            </div>
+            <div class="col-md-6 col-lg-4">                                            
+               <div class="card mb-2 bg-soft">
+                  <div class="card-body p-0">
+                     <div class="d-flex">
+                        <div>                                   
+                           <p class= "bubble-description">On s’est dit ça aussi lorsque notre salon est devenu plus rempli que la boutique du coin ! </br> Notre abonnement mensuel te permettra de <strong>maîtriser ton budget</strong>. Tu posséderas 5 jeux en permanence chez toi pour varier les plaisirs ludiques.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>                  
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Avec ou sans pulpo ludo -->  
+
+<section class="section section-lg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 text-left text-sm-center mb-3">
+            <h2 id = "why" class="h1">Que des avantages !</h2>                
+        </div>
+    </div>
+    <div class="row mb-lg-2 mt-3 justify-content-center">
+    
+    <div class="col-12 col-md-6 col-lg-4">
+
+        <!-- Pricing Card -->
+        <div class="pricing-card">
+            <div class="card border-light p-1 p-lg-2 p-xl-4 card-pros-cons">
+                <!-- Header -->
+                <header class="card-header border-bottom bg-white text-center">
+                    <h2 class="h3 font-weight-normal text-gray mb-4">Sans Pulpo Ludo</h2>
+                </header>
+                <!-- End Header -->
+                <!-- Content -->
+                <div class="card-body">                    
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-times-circle times-red"></span>
+                        </div>
+                        <p>Mon budget jeu peut vite exploser !</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-times-circle times-red"></span>
+                        </div>
+                        <p>J’ai peur de passer à côté d’un coup de coeur.</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-times-circle times-red"></span>
+                        </div>
+                        <p>Je ne sais jamais quel jeu acheter, il y a trop de choix !</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-times-circle times-red"></span>
+                        </div>
+                        <p>Je ne sais plus où mettre les jeux chez moi, ça déborde !</p>
+                    </div>                    
+                </div>
+                <!-- End Content -->
+            </div>
+        </div>
+        <!-- End of Pricing Card -->
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+        <!-- Pricing Card -->
+        <div class="pricing-card">
+            <div class="card border-light p-1 p-lg-2 p-xl-4 card-pros-cons">
+                <!-- Header -->
+                <header class="card-header border-bottom bg-white text-center">
+                    <h2 class="h3 font-weight-normal text-gray mb-4">Avec Pulpo Ludo</h2>
+                </header>
+                <!-- End Header -->
+                <!-- Content -->
+                <div class="card-body mb-3 ">
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-check-circle check-green"></span>
+                        </div>
+                        <p>J’ai un budget maîtrisé</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-check-circle check-green"></span>
+                        </div>
+                        <p>J’ai enfin la possibilité de tester mes jeux avant de les acheter</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-check-circle check-green"></span>
+                        </div>
+                        <p>Je suis suivi par une équipe de passionnés qui me conseille selon mon profil et mes envies</p>
+                    </div>
+                    <div class="d-flex">
+                        <div class="icon-md icon-secondary lh-180 mr-3">
+                            <span class="fas fa-check-circle check-green"></span>
+                        </div>
+                        <p>Je peux choisir mes jeux parmi une vaste ludothèque régulièrement mise à jour</p>
+                    </div>
+                  </div>
+                <!-- End Content -->
+                <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-primary mt-3 my-2", method: "GET" %>
+            </div>
+        </div>
+        <!-- End of Pricing Card -->        
+    </div>
+</div>
+</section>
+
+<section class="section section-lg bg-soft line-bottom-light">
+                <div class="container">
+                    <div class="row justify-content-center ">
+                        <div class="col-12 col-lg-8 text-center">
+                            <h1 class="display-3 mb-4">Comment ça marche ?</h1>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <!--Accordion-->
+                            <div class="accordion" id="accordionExample1">
+                                <div class="card card-sm card-body border-light mb-0">
+                                    <a href="#panel-1" data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1"><span class="h6 mb-0 font-weight-bold">Accède à une vaste ludothèque de jeux de société</span> <span class="icon"><span class="fas fa-plus"></span></span></a>
+                                    <div class="collapse" id="panel-1">
+                                        <div class="pt-3">
+                                            <p class="mb-0">Souscrire à notre abonnement mensuel te permettra d’accéder à notre vaste ludothèque de jeux de société régulièrement mise à jour avec les dernières nouveautés.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body border-light mb-0">
+                                    <a href="#panel-2" data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2"><span class="h6 mb-0 font-weight-bold">Découvre de nouvelles expériences ludiques</span> <span class="icon"><span class="fas fa-plus"></span></span></a>
+                                    <div class="collapse" id="panel-2">
+                                        <div class="pt-3">
+                                            <p class="mb-0">Pour t’aider dans tes choix de jeux, notre équipe de passionnés te conseillera chaque mois une liste de jeux spécialement adaptée à ton profil.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body border-light mb-0">
+                                    <a href="#panel-3" data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3"><span class="h6 mb-0 font-weight-bold">Reçois tes jeux où tu veux, quand tu veux</span> <span class="icon"><span class="fas fa-plus"></span></span></a>
+                                    <div class="collapse" id="panel-3">
+                                        <div class="pt-3">
+                                            <p class="mb-0">Nous t'enverrons les 5 jeux que tu as choisi directement chez toi ou en point relais.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body border-light mb-0">
+                                    <a href="#panel-4" data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-4"><span class="h6 mb-0 font-weight-bold">Fais-les découvrir à tous tes amis</span> <span class="icon"><span class="fas fa-plus"></span></span></a>
+                                    <div class="collapse" id="panel-4">
+                                        <div class="pt-3">
+                                            <p class="mb-0">Une fois les jeux reçus tu peux en profiter aussi longtemps que tu le souhaites.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-sm card-body border-light mb-0">
+                                    <a href="#panel-5" data-target="#panel-5" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-5"><span class="h6 mb-0 font-weight-bold">Retournes-les pour pouvoir en commander 5 nouveaux</span> <span class="icon"><span class="fas fa-plus"></span></span></a>
+                                    <div class="collapse" id="panel-5">
+                                        <div class="pt-3">
+                                            <p class="mb-0">Quand tu en as envie, renvoies-les nous pour en recevoir contre 5 nouveaux.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Accordion-->
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+<section class="section-header bg-soft pb-7">
+            <div class="container">
+                <div class="row justify-content-center mb-6">
+                    <div class="col-12 col-lg-10 text-center">
+                        <h1 class="display-2 mb-3">Notre abonnement</h1>
+                        <p class="lead px-lg-7">Découvrez tout ce que PulpoLudo a à vous offrir </p>
+                    </div>
+                </div>
+
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <!-- Pricing Card -->
+                        <div class="pricing-card">
+                            <div class="card border-light p-1 p-lg-2 p-xl-4">
+                                <!-- Header -->
+                                <header class="card-header border-bottom bg-white text-center">
+                                    <span class="d-block">
+                                        <span class="display-1 text-primary font-weight-bold">
+                                            0<span class=" font-medium">€</span>
+                                    </span>
+                                    <span class="font-small">/ mois</span>
+                                    </span>
+                                </header>
+                                <!-- End Header -->
+                                <!-- Content -->
+                                <div class="card-body">
+                                    <h3 class="h6 font-weight-normal text-dark mb-4">En m'inscrivant à PulpoLudo:</h3>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux voir la liste des jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux compléter mon profil joueur</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux donner mon avis sur chaque jeu </p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je reçois un mail personnalisé en début de mois me conseillant 5 jeux</p>
+                                    </div>
+                                    
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-outline-primary btn-block mt-4", method: "GET" %>
+                                </div>
+                                <!-- End Content -->
+                            </div>
+                        </div>
+                        <!-- End of Pricing Card -->
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <!-- Pricing Card -->
+                        <div class="pricing-card">
+                            <div class="card border-light p-1 p-lg-2 p-xl-4">
+                                <!-- Header -->
+                                <header class="card-header border-bottom bg-white text-center">
+                                    <span class="d-block">
+                                        <span class="display-1 text-primary font-weight-bold">
+                                            9,99<span class=" font-medium">€</span>
+                                    </span>
+                                    <span class="font-small">/ mois</span>
+                                    </span>
+                                </header>
+                                <!-- End Header -->
+                                <!-- Content -->
+                                <div class="card-body">
+                                    <h3 class="h6 font-weight-normal text-dark mb-4">En m'abonnant à PulpoLudo:</h3>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux voir la liste des jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux compléter mon profil de joueur</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux donner mon avis sur chaque jeu</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je reçois un mail personnalisé en début de mois me conseillant 5 jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux louer 5 jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux les garder autant de temps que je veux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux les échanger quand je veux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>J’ai accès à un coach de jeu</p>
+                                    </div>
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-outline-primary btn-block mt-4", method: "GET" %>
+                                </div>
+                                <!-- End Content -->
+                            </div>
+                           
+                        </div>
+                        <!-- End of Pricing Card -->
+                    </div>
+                     <div class="col-md-2">
+                            </div>
+                </div>
+            
+        </section>
+
+
+<section class="section-header bg-primary pb-9 pb-md-11 mb-4 mb-lg-6 text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8 text-center">
+                        <h1 class="display-2 mb-3">Nos motivations</h1>
+                        <p class="lead">La démocratisation du jeu de société est quelque chose qui nous tient beaucoup à coeur ainsi car elle permet aux gens de se réunir autour d’un jeu physique, réunir tout le monde autour d'une table de jeu. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section section-lg pt-0">
+            <div class="container mt-n8 mt-lg-n10 z-2">
+                <div class="row mt-7">
+                    <div class="col-12 col-md-6 col-lg-6 mb-7">
+                        <div class="card border-light text-center card-founder">
+                            <div class="profile-thumbnail mx-auto mt-n6">
+                                <%= image_tag('unnamed.jpg', :alt => 'avatar', class:'rounded-circle card-img-top border-0') %>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h4 card-title mb-2">Justin</h2>
+                                <span class="card-subtitle text-gray font-weight-normal">Co-Founder</span>
+                                <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0">
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="facebook social link" class="icon-facebook mr-3">
+                                            <span class="fas fa-envelope"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="twitter social link" class="icon-twitter mr-3">
+                                            <span class="fab fa-linkedin"></span>
+                                        </a>
+                                    </li>                                    
+                                </ul>
+                                <p class="card-text m-4 text-justify">Toujours partant pour une journée ludique autour d’un gros jeu de stratégie ! Les différentes stratégies de Scythe ou de Terraforming Mars n’ont plus de secret pour moi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mb-7">
+                        <div class="card border-light text-center card-founder">
+                            <div class="profile-thumbnail mx-auto mt-n6">
+                                <%= image_tag('unnamed.jpg', :alt => 'avatar', class:'rounded-circle card-img-top border-0') %>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h4 card-title mb-2">Victor Dautheville</h2>
+                                <span class="card-subtitle text-gray font-weight-normal">Web Developer</span>
+                                <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0">
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="facebook social link" class="icon-facebook mr-3">
+                                            <span class="fas fa-envelope"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="twitter social link" class="icon-twitter mr-3">
+                                            <span class="fab fa-linkedin"></span>
+                                        </a>
+                                    </li>                                    
+                                </ul>
+                                <p class="card-text m-4 text-justify">Grand adepte des jeux narratif et d’enquête. Je ne refuse jamais une soirée jeux de société entre amis autour d’une bonne bière.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mb-0">
+                        <div class="card border-light text-center card-founder">
+                            <div class="profile-thumbnail mx-auto mt-n6">
+                                <%= image_tag('unnamed.jpg', :alt => 'avatar', class:'rounded-circle card-img-top border-0') %>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h4 card-title mb-2">Pierre Guiraud</h2>
+                                <span class="card-subtitle text-gray font-weight-normal">Marketing</span>
+                                <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0">
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="facebook social link" class="icon-facebook mr-3">
+                                            <span class="fas fa-envelope"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="twitter social link" class="icon-twitter mr-3">
+                                            <span class="fab fa-linkedin"></span>
+                                        </a>
+                                    </li>                                    
+                                </ul>
+                                <p class="card-text m-4 text-justify">Tester beaucoup de jeux pour n’en acheter que les pépites, tel est mon credo. Je sais que j’ai fait le bon choix quand je vois mes amis les découvrir avec plaisir !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 mb-0">
+                        <div class="card border-light text-center card-founder">
+                            <div class="profile-thumbnail mx-auto mt-n6">
+                                <%= image_tag('unnamed.jpg', :alt => 'avatar', class:'rounded-circle card-img-top border-0') %>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="h4 card-title mb-2">Pierre Lejeune</h2>
+                                <span class="card-subtitle text-gray font-weight-normal">Web Developer</span>
+                                <ul class="list-unstyled d-flex justify-content-center mt-3 mb-0">
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="facebook social link" class="icon-facebook mr-3">
+                                            <span class="fas fa-envelope"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank" aria-label="twitter social link" class="icon-twitter mr-3">
+                                            <span class="fab fa-linkedin"></span>
+                                        </a>
+                                    </li>                                    
+                                </ul>
+                                <p class="card-text m-4 text-justify">S’il y a des cartes, des ressources, des points à compter (mais pas trop), j’adore ! Particulièrement fan de Deck-Building, de jeux autour de la Fantasy et de jeux à moteur. Et c’est moi qui explique les règles !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-lg bg-soft">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <!-- Contact Card -->
+                        <div class="card border-0 p-2 p-md-3">
+                            <div class="card-body px-0">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 text-center">
+                                        <!-- Visit Box -->
+                                        <div class="icon-box mb-4">
+                                            <div class="icon icon-dark mb-4">
+                                                <a href="https://www.facebook.com/Pulpoludo"><i style="color: var(--primary)" class="fab fa-facebook"></i></a>
+                                            </div>
+                                            </br>
+                                            <a href="https://www.facebook.com/Pulpoludo" class="h5 icon-box-title">Suivez-nous</a>
+                                            
+                                        </div>
+                                        <!-- End of Visit Box -->
+                                    </div>
+                                    
+                                    <div class="col-sm-6 col-md-6 text-center">
+                                        <!-- Email Box -->
+                                        <div class="icon-box mb-4">
+                                            <div class="icon icon-dark mb-4">
+                                                <a href="mailto:pulpoludo@yopmail.com"><i style="color: var(--primary)" class="far fa-paper-plane"></i></a>
+                                            </div> </br>                                           
+                                             <a href="mailto:pulpoludo@yopmail.com" class="h6 icon-box-title">pulpoludo@yopmail.com</a>
+                                        </div>
+
+                                        <!-- End of Email Box -->
+                                    </div>
+
+                                    <div class="col-sm-12 text-center mt-3"> 
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-secondary my-2", method: "GET" %>
+                                        
+                                    </div>
+
+                                    
+                                </div>
+                                <!-- <div class="row justify-content-center mt-4 mt-lg-5">
+                                    <div class="col-12"> -->
+                                        <!-- Email Card -->
+                                    <!--     <div class="card border-0 p-0 p-md-5">
+                                            <div class="card-header text-center p-0 pb-5">
+                                                <h4>Tu ne veux rien rater de notre actualité?</h4>
+                                                <p>Laisse nous ton email !</p>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <form action="#" method="post">    -->                        
+                                                    <!-- Form -->
+                                                   <!--  <div class="form-group">                              
+                                                        <div class="input-group mb-4">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="far fa-envelope"></span></span>
+                                                            </div>
+                                                            <input class="form-control" id="email" placeholder="example@email.com" type="email" aria-label="contact email input">
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-block rounded btn-light">Envoyer</button>
+                                                </form>
+                                            </div> -->
+                                        <!-- </div> -->
+                                        <!-- Phone Card -->
+                                        <!-- <div class="card border-0 p-0 p-md-5">
+                                            <div class="card-header text-center p-0 pb-5">
+                                                <h4>Participation au pré lancement</h4>
+                                                <p>Si tu veux faire partie du pré lancement de notre application au printemps 2021, laisse nous ton numéro de téléphone et nous te recontacterons pour en discuter très prochainement.</p>
+                                            </div>
+                                            <div class="card-body p-0">
+                                                <form action="#" method="post">  -->                         
+                                                    <!-- Form -->
+                                                   <!--  <div class="form-group">                              
+                                                        <div class="input-group mb-4">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><span class="fas fa-phone-alt"></span></span>
+                                                            </div>
+                                                            <input class="form-control" id="phone" placeholder="+33" type="number" aria-label="contact email input">
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-block rounded btn-light">Envoyer</button> -->
+                                                <!-- </form> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- End of Contact Card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+

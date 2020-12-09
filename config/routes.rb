@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
-  root to: 'game_sheets#index'
+  root 'static_pages#landing'
+
+  authenticated :user do
+    root 'game_sheets#index'
+  end
   
   resources :game_sheets, only: [:index, :show] do
     resources :game_pictures, only: [:create]
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
 
   resources :games, only: [:update]
 
+  get 'static_pages/landing'
+
   namespace :stripe do
     resources :checkouts
     get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
@@ -28,5 +34,4 @@ Rails.application.routes.draw do
     post 'checkout/webhook', to: 'checkouts#webhook'
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
