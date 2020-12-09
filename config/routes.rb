@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create, :update] do
       resources :shippings, only: [:show, :update]
     end
-    resources :subscriptions, except: [:index]
+    resources :subscriptions, except: [:show]
   end
 
   resources :game_sheets, only: [:index, :show] do
