@@ -11,7 +11,7 @@ class Stripe::CheckoutsController < ApplicationController
       line_items: [{
         # For metered billing, do not pass quantity
         quantity: 1,
-        price: 'price_1Hw5RvEQZs48DBmEskR4JIa3',
+        price: ENV['STRIPE_SUB_PRODUCT'],
       }],
       customer: current_user.stripe_id,
       client_reference_id: current_user.id,
