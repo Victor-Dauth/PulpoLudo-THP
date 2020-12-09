@@ -41,8 +41,10 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def success
-    flash[:success] = "You subscribed to our plan!"
-    redirect_to root_path
+    #TO DO - Pass the retrieved elements of webhook method ; redirection to user profile for now
+    @user = current_user
+    redirect_to(user_path(@user))
+    flash[:success] = "Bien joué ! Tu as souscrit à ton abonnement PulpoLudo 🎉"
   end
 
   def cancel
@@ -55,22 +57,29 @@ class Stripe::CheckoutsController < ApplicationController
   def webhook_checkout_session_completed(event)
     #Retrieve the relevant info following a successful Checkout session
     object = event['data']['object']
-    customer = Stripe::Customer.retrieve(object['customer'])
-    stripe_subscription = Stripe::Subscription.retrieve(object['subscription'])
+    @customer = Stripe::Customer.retrieve(object['customer'])
+    @stripe_subscription = Stripe::Subscription.retrieve(object['subscription'])
     subscriber = User.find_by(id: object['client_reference_id'])
 
     #Build a subscription in DB after a successful payment with the relevant references
-    @paid_subscription = build_subscription(stripe_subscription, subscriber)
+    @paid_subscription = build_subscription(@stripe_subscription, subscriber)
 
     #Update Stripe ID on the User side
     subscriber.update!(stripe_id: customer.id)
     
     #Launch confirmation email process
     new_subscription_email(@paid_subscription)
+
+    #Provide an invoice directly to the customer
+    @invoice = Stripe::Invoice.list(limit: 3, customer: @customer.id).first.invoice_pdf
   end
 
   def build_subscription(stripe_subscription, subscriber)
     Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now)
+  end
+
+  def new_subscription_email(subscription)
+    UserMailer.new_subscription_email(subscription).deliver_now
   end
 
   def build_subscription_error
@@ -80,10 +89,6 @@ class Stripe::CheckoutsController < ApplicationController
   def failure_subscription_email(subscription)
     UserMailer.issue_subscription_email(subscription).deliver_now
     AdminMailer.issue_subscription_email_admin(subscription).deliver_now
-  end
-
-  def new_subscription_email(subscription)
-    UserMailer.new_subscription_email(subscription).deliver_now
   end
   
 end
