@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   include CurrentCart
   before_action :authenticate_user!
   before_action :good_user?
-  before_action :subscribed?, only: [:update]
+  before_action :subscribed?
 
   def show
     @cart = Cart.find(params[:id])
