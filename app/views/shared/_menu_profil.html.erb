@@ -1,5 +1,5 @@
 <!-- Navigation related to user profile -->
-
+<div class="col-12 col-md-4 d-none d-lg-block">
     <div class="card border-light p-2">
 
         <div class="card-body p-2">
@@ -85,4 +85,96 @@
             </div>
         </div>
     </div>
-      
+</div>
+
+<div class="col-12 d-lg-none">
+    <div class="card bg-white border-light mb-4 mb-lg-5">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-10 d-flex">
+                    
+                    <%= active_link_to user_path(current_user), class: "list-group-item list-group-item-action border-0", active: :exclusive do %>
+                    Général
+                <% end %>
+                   
+                <%= active_link_to edit_user_path(current_user), class: "list-group-item list-group-item-action border-0 " do %>
+                    Profil
+                <% end %>
+                
+                <%= active_link_to edit_user_registration_path(current_user), class: "list-group-item list-group-item-action border-0 " do %>
+                    Informations
+                <% end %>
+          
+                <%= active_link_to user_addresses_path(current_user), class: "list-group-item list-group-item-action border-0 " do %>
+                    Adresses
+                <% end %>
+                </div>
+                <div class="col-2 d-flex justify-content-center">
+                    <div class="btn-group dropleft dropdown">
+                        <div class="btn btn-link dropdown-toggle dropdown-toggle-split mr-2 m-0 p-0" type="button" data-toggle="dropdown" id="dropdownProfil" aria-haspopup="true" aria-expanded="false">
+                            <span class="icon icon-sm">
+                                <span class="fas fa-ellipsis-h icon-secondary fa-lg"></span>
+                            </span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownProfil">
+
+                        <div class="dropdown-item">
+
+                            <%= active_link_to edit_user_registration_path(current_user), class: "list-group-item list-group-item-action d-sm-none border-0 " do %>
+                                Informations
+                            <% end %>
+
+                        </div>
+
+                        <div class="dropdown-item">
+          
+                            <%= active_link_to user_addresses_path(current_user), class: "list-group-item list-group-item-action d-md-none border-0" do %>
+                                Adresses
+                            <% end %>
+
+                        </div>
+
+                        <div class="dropdown-item">
+                            
+                            <%= active_link_to user_subscriptions_path(current_user), class: "list-group-item list-group-item-action d-sm-none border-0 " do %>
+                                Gérer mon abonnement
+                            <% end %>
+                         </div>
+                         <div class="dropdown-item">
+                        
+                            <% if current_order != nil %>
+                                <%= active_link_to user_order_path(current_user, current_order), class: "list-group-item list-group-item-action d-md-none border-0",  active: :exclusive do %>
+                                Ma commande en cours
+                                <% end %>
+                            <% end %>
+
+                        </div>
+                        <div class="dropdown-item">
+                        
+                            <%= active_link_to user_orders_path(current_user), class: "list-group-item list-group-item-action border-0", active: :exclusive do %>
+                                 Mes anciennes commandes
+                            <% end %>
+                        </div>
+
+                        <div class="dropdown-item">
+
+                        
+                            <%= active_link_to destroy_user_session_path, method: :delete, class: "list-group-item list-group-item-action border-0" do %>
+                                Se déconnecter
+                             <% end %> 
+                        </div>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
