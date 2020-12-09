@@ -9,7 +9,7 @@ class CheckoutController < ApplicationController
         line_items: [{
           # For metered billing, do not pass quantity
           quantity: 1,
-          price: 'price_1Hw2XoL1Cw86LE2tOtVVb7TL',
+          price: 'price_1Hw5RvEQZs48DBmEskR4JIa3',
         }],
       success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: checkout_cancel_url
