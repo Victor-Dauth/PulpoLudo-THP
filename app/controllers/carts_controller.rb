@@ -16,7 +16,7 @@ class CartsController < ApplicationController
     @game = @game_sheet.games.in_stock.sample
 
     if @cart.full_cart?
-      flash[:alert] = "Tu as déjà ajouter 5 jeux a ton abonnement"
+      flash[:alert] = "Tu as déjà ajouté 5 jeux à ton abonnement"
       redirect_to root_path
     elsif @cart.already_present(@game)
       flash[:alert] = "Tu ne peux pas louer deux exemplaires du même jeu"
@@ -39,7 +39,7 @@ class CartsController < ApplicationController
   def subscripted?
     @user = Cart.find(params[:id]).user
     if @user.subscriptions.active.size == 0
-      flash[:notice] = "Pour pouvoir ajouter un jeux à ton panier tu dois être abonnée"
+      flash[:notice] = "Pour pouvoir ajouter un jeu à ton panier tu dois être abonné"
       redirect_to user_subscriptions_path(@user)
     end
   end

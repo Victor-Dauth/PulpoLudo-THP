@@ -1,45 +1,78 @@
 <% content_for :nav, render('layouts/navbar_home') %>
 
+<div class="section section-header section-image bg-tertiary overlay-primary text-white overflow-hidden pb-9" style="background-image: url(<%= asset_path "banner/game-index-background.jpg" =%>);">
+      <div class="container z-2">
+          <div class="row justify-content-center pt-3">
+              <div class="col-12 text-center">
+                  <h1 class="mb-5">Trouver vos jeux</h1>
+              </div>
+          </div>
+      </div>
+</div>
 
-<%= render 'filtre' %>
 
-<% if user_signed_in? %>
-  <%= render 'shared/cta_profile_completion(main_index)' %>
+
+
+<% unless current_user.already_subscribed? %>
+        <div class="section section-md pt-0">
+            <div class="container mt-n7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-light p-md-2">
+                            <%= render 'shared/cta_profile_completion(main_index)' %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+          <%= render 'filtre' %>
+        </div>
+  <%else %>
+    <div class="section section-md pt-0">
+          <div class="container mt-n7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-light p-md-2">
+                        
+                            <%= render 'filtre' %>
+                        </div>
+                    </div>
+                </div>
+          </div>
+      </div>
+
 <% end %>
 
-<div class="section section-lg pt-">
-  <div id="spaces-container" class="container">
+
+
+
+<div class="section">
+  <div class="container">
+
     <div class="row">
-      <div class="col-12">
 
-        <div class="tab-content mt-4 mt-lg-4" id="tabcontentexample-5">
-
-          <div class="tab-pane fade show active" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
-            <div class="row">
-              <!-- Card 2-->
-              <% @game_sheets.each do |game_sheet| %>
-                <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
-              <%end%>
-              <!-- End of Card -->
-            </div>
-          </div>
-
-
-          <div class="col mt-3 d-flex justify-content-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item disabled"><a class="page-link" tabindex="-1" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+        <div class="row">
+          <!-- Card 2-->
+          <% @game_sheets.each do |game_sheet| %>
+            <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+          <%end%>
+          <!-- End of Card -->
         </div>
+
+        <!-- <div class="col mt-3 d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" tabindex="-1" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div> -->
       </div>
-    </div>
-  </div>
+</div>
 </div>

@@ -11,9 +11,7 @@
     <% unless current_user.already_subscribed? %>
       <div class="col-12 col-sm-6 col-md-4 text-center mb-4 mb-md-0 px-lg-4">
         <%= image_tag "illustrations/easy-transaction.png", class: "my-2", style: "max-height:200px" %>
-        <%= button_to checkout_create_path, class: "btn btn-primary my-2", remote: true do %>
-          Démarrer mon abonnement →
-        <% end %>
+        <%= link_to "Démarrez votre abonnement →", new_stripe_checkout_path, class: "btn btn-primary my-2", remote: true %>
       </div>
     <% end %>
 

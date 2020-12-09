@@ -1,0 +1,44 @@
+<div class="section section-lg bg-soft">
+  <div class="container">
+    <div class="row pt-5 pt-md-0">
+
+      <!-- Profile menu with recurring paths -->
+
+      <div class="col-12 col-md-4 d-none d-lg-block">
+        <%= render "shared/menu_profil" %>
+      </div>
+
+      <!-- Customized part with user info regarding subscription -->
+
+      <div class="col-12 col-lg-8">
+              
+        <div class="card border-light p-2">
+
+          <div class="card-body p-2">
+
+            <% unless current_user.already_subscribed? %>
+              <div class="text-center my-1">
+                <%= image_tag "illustrations/easy-transaction.png", class: "my-2 rounded", style: "max-height:300px" %>
+                <h4 class="my-2 font-weight-normal">Profitez de 5 jeux de société à tout instant.</h4>
+                <p class="my-2">Sans publicité ni engagement. À 9,99 € par mois.</p>
+                <%= link_to "Démarrez votre abonnement →", new_stripe_checkout_path, class: "btn btn-primary my-2", remote: true %>
+              </div>
+
+            <% else %>
+              <div class="text-center my-1">
+                <h4 class="my-4 font-weight-normal">Voici ton abonnement en cours :</h4>
+                <p>Paiement réalisé : <%= @subscription.price %> €.</p>
+                <p>Début de l'abonnement : <%= @subscription.clean_start_date %>.</p>
+                <p>Statut de l'abonnement : <%= @subscription.status %>.</p>
+                <p>Votre ID Stripe de référence est : <%= @user.stripe_id %>.</p>
+                <p>L'ID Stripe de votre abonnement est : <%= @subscription.stripe_id %>.</p>
+              </div>
+
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
