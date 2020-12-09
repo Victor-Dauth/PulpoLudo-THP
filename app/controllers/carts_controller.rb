@@ -3,20 +3,19 @@ class CartsController < ApplicationController
   include CurrentCart
   before_action :authenticate_user!
   before_action :good_user?
-  before_action :subscripted?, only: [:update]
+  before_action :subscribed?, only: [:update]
 
   def show
     @cart = Cart.find(params[:id])
   end
 
   def update
-
     @game_sheet = GameSheet.find(params[:game_sheet_id])
     @cart = Cart.find(params[:id])
     @game = @game_sheet.games.in_stock.sample
 
     if @cart.full_cart?
-      flash[:alert] = "Tu as déjà ajouter 5 jeux a ton abonnement"
+      flash[:alert] = "Tu as déjà ajouté 5 jeux à ton abonnement"
       redirect_to root_path
     elsif @cart.already_present(@game)
       flash[:alert] = "Tu ne peux pas louer deux exemplaires du même jeu"
@@ -36,11 +35,12 @@ class CartsController < ApplicationController
     check_user(user_id)
   end
 
-  def subscripted?
+  def subscribed?
     @user = Cart.find(params[:id]).user
-    if @user.subscriptions.active.size == 0
-      flash[:notice] = "Pour pouvoir ajouter un jeux à ton panier tu dois être abonnée"
-      redirect_to user_subscriptions_path(@user)
+    unless @user.already_subscribed?
+      flash[:notice] = "Pour pouvoir ajouter un jeu à ton panier tu dois être abonné"
+      redirect_to user_subscription_path(@user)
     end
   end
+
 end

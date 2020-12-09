@@ -1,0 +1,84 @@
+<div class="card-body">
+  <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline collapsed" role="grid" aria-describedby="example1_info">
+
+          <thead>
+            <tr role="row">
+              <% n=0 %>
+              <% column_names.each do |key|%>
+                <% if n == 0 %>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="<%= key %>: activate to sort column descending">
+                    <%= key %>
+                  </th>
+                <% else %>
+                  <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="<%= key %>: activate to sort column ascending" style="display: none;">
+                    <%= key %>
+                  </th>
+                <% end %>
+                <% n += 1%>
+              <% end %>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% items.each_with_index do |item, index|%>
+              <% if index.odd? %>
+                <tr role="row" class="odd">
+                  <% m = 0%>
+                  <% column_names.each do |key|%>
+                    <% if m == 1%>
+                      <td class="dtr-control sorting_1" tabindex="0">
+                        <%= item.send(key) %>
+                      </td>
+                    <% else %>
+                      <td style="display: none;">
+                        <%= item.send(key) %>
+                      </td>
+                    <% end %>
+                    <% m += 1 %>
+                  <% end %>
+                </tr>
+              <% else %>
+                <tr role="row" class="even">
+                  <% m = 0%>
+                  <% column_names.each do |key|%>
+                    <% if m == 1%>
+                      <td class="dtr-control sorting_1" tabindex="0">
+                        <%= item.send(key) %>
+                      </td>
+                    <% else %>
+                      <td style="display: none;">
+                        <%= item.send(key) %>
+                      </td>
+                    <% end %>
+                    <% m += 1 %>
+                  <% end %>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <% l = 0 %>
+              <% column_names.each do |key|%>
+                <% if l == 0%>
+                  <th th rowspan="1" colspan="1">
+                    <%= key %>
+                  </th>
+                <%else%>
+                  <th rowspan="1" colspan="1" style="display: none;">
+                    <%= key %>
+                  </th>
+                <%end%>
+                <% l += 1 %>
+              <% end %>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

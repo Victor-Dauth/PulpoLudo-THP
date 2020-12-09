@@ -1,0 +1,11 @@
+<div class="section section-lg bg-soft">
+  <div class="container pt-5 text-center">
+    <h1>Succès</h1>
+    <p>Nous avons bien reçu votre paiement de <%= @paid_subscription.price %> €.</p>
+    <p>Le statut de votre abonnement est : <%= @paid_subscription.status %>.</p>
+    <p>Votre ID Stripe de référence est : <%= @customer.id %>.</p>
+    <p>L'ID Stripe de votre abonnement est : <%= @stripe_subscription.id %>.</p>
+    <p>Voici le lien de votre facture : <%= @invoice %>.</p>
+    <%= link_to "Revenir sur mon profil", user_path(current_user), class: "btn btn-primary" %>
+  </div>
+</div>

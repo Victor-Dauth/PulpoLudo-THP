@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   
-  root to: 'game_sheets#index'
-  
-  resources :game_sheets, only: [:index, :show] do
-    resources :game_pictures, only: [:create]
-  end
+  get 'static_pages/landing'
 
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'game_sheets#index'
+    end
+    unauthenticated do
+      root 'static_pages#landing'
+    end
+  end
 
   resources :users do
     resources :avatars, only: [:create]
@@ -14,18 +19,32 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create, :update] do
       resources :shippings, only: [:show, :update]
     end
-    resources :subscriptions, only: [:index, :new, :create, :update]
+    resources :subscriptions, except: [:index]
+  end
+
+  resources :game_sheets, only: [:index, :show] do
+    resources :game_pictures, only: [:create]
+  end
+
+  namespace :admin do
+    root to: 'admins#index'
+    resources :games, only: [:index, :create, :update, :destroy]
+    resources :game_sheets, only: [:index, :create, :update, :destroy]
+    resources :users, only: [:index, :create, :update, :destroy]
   end
 
   resources :carts, only: [:show, :update]
 
   resources :games, only: [:update]
 
-  scope '/checkout' do
-    post 'create', to: 'checkout#create', as: 'checkout_create'
-    get 'success', to: 'checkout#success', as: 'checkout_success'
-    get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
+  namespace :stripe do
+    resources :checkouts
+    get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
+    get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
+    post 'checkout/webhook', to: 'checkouts#webhook'
+    resources :checkoutorders
+    get 'checkoutorder/success', to: 'checkoutorders#success', as: 'checkoutorders_success'
+    get 'checkoutorder/cancel', to: 'checkoutorders#cancel', as: 'checkoutorders_cancel'
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

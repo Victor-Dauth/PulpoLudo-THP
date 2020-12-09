@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
           game.leased!
         end
         current_cart.send_cart!
-        flash[:notice] = "Vos jeux vous ont bien étés envoyés."
+        flash[:notice] = "Vos jeux vous ont bien été envoyés."
         redirect_to current_user
       else
         failure_new_shipping_email(@order, @shipping_send, @shipping_back)

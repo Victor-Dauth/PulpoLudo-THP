@@ -1,16 +1,18 @@
 
-<div class="col-12 col-md-6 col-lg-4">
+
+<div class="col-12 col-md-6 col-lg-4 d-flex">
+    <div class="card-group d-flex">
+  
     <!-- Card -->
     <div class="card border-light mb-4 animate-up-5">
         <a href="<%= game_sheet_path(game_sheet.id) %>">
             <%if game_sheet.game_picture.attached?%>
                 <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
             <%else%>
-                
-                <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" />
+                <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
             <% end %>
         </a>
-        <div class="card-body">
+        <div class="card-body flex-fill">
             <a href="<%= game_sheet_path(game_sheet.id) %>">
                 <h4 class="h5"><%= game_sheet.title %></h4>
             </a>
@@ -34,7 +36,7 @@
                     <span class="h5 text-dark font-weight-bold"><%= game_sheet.nb_players %></span>
                 </div>
                 <div class="col">
-                    <span class="text-muted font-small d-block mb-2">Age</span>
+                    <span class="text-muted font-small d-block mb-2">Âge</span>
                     <span class="h5 text-dark font-weight-bold"><%= game_sheet.age_min %> + </span>
                 </div>
                 <div class="col pr-0">
@@ -44,11 +46,10 @@
             </div>
             <% if game_in_stock?(game_sheet)%>
               <% if user_signed_in? %>
-                <div class="col">
-                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => game_sheet.id), method: 'PUT' , class: "btn btn-outline-gray animate-up-2 mt-3"%>
-                </div>
-              <%else%>
-                <span class="text-muted font-small d-block">rediriger vers page d'inscription</span>
+                
+                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => game_sheet.id), method: 'PUT' , class: "btn btn-outline-gray animate-up-2 mt-3 btn-block"%>
+
+              
               <% end %>
             <% else %>
               <span class="text-muted font-small d-block">Ce jeu n'est plus disponible</span>
@@ -57,5 +58,8 @@
     </div>
     <!-- End of Card -->
 
-    
+    </div>
 </div>
+
+
+
