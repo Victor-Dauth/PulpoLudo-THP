@@ -65,7 +65,7 @@ class Stripe::CheckoutsController < ApplicationController
     @paid_subscription = build_subscription(@stripe_subscription, subscriber)
 
     #Update Stripe ID on the User side
-    subscriber.update!(stripe_id: customer.id)
+    subscriber.update!(stripe_id: @customer.id)
     
     #Launch confirmation email process
     new_subscription_email(@paid_subscription)
