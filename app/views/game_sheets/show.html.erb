@@ -7,14 +7,14 @@
                     <div class="col-12 text-center">
                       <!--- ((pourrait être utile plus tard pour savoir où on est sur l'appli))
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-transparent justify-content-center mb-4">
-                                <li class="breadcrumb-item text-secondary"><a href="../index.html">Home</a></li>
-                                <li class="breadcrumb-item text-secondary"><a href="./all-spaces.html">United States</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">L'atelier Vancouver Coworking</li>
-                            </ol>
+                          <ol class="breadcrumb breadcrumb-transparent justify-content-center mb-4">
+                            <li class="breadcrumb-item text-secondary"><a href="../index.html">Home</a></li>
+                            <li class="breadcrumb-item text-secondary"><a href="./all-spaces.html">United States</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">L'atelier Vancouver Coworking</li>
+                          </ol>
                         </nav>
                       -->
-                        <h1 class="mb-4"><%= @game_sheet.title %></h1>
+                      <h1 class="mb-4"><%= @game_sheet.title %></h1>
                     </div>
                 </div>
             </div>
@@ -28,13 +28,13 @@
                             <div class="nav nav-tabs flex-column flex-md-row border-light mb-3" id="nav-tab"
                                 role="tablist">
                                 <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                    role="tab" aria-controls="nav-about" aria-selected="true"><span class="far fa-address-card mr-2"></span>à propos</a>
+                                    role="tab" aria-controls="nav-about" aria-selected="true"><span class="fas fa-eye mr-2"></span>à propos</a>
                                 <!--<a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video"
                                     role="tab" aria-controls="nav-video" aria-selected="false"><span class="far fa-play-circle mr-2"></span>vidéo</a>-->
                                 <a class="nav-item nav-link" id="nav-amenities-tab" data-toggle="tab" href="#nav-amenities"
                                     role="tab" aria-controls="nav-amenities" aria-selected="false"><span class="fas fa-cubes mr-2"></span>détails</a>
                                 <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews"
-                                    role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="far fa-star mr-2"></span>avis</a>
+                                    role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="fas fa-star mr-2"></span>avis</a>
                             </div>
                         </nav>
                         <!-- About Tab -->
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                             <!-- End of About Tab -->
-                            <!-- Video Tab -->
+                            <!-- Video Tab (provided videos shall be added in the future) -->
                             <!-- <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
                                 <div class="video-poster overlay-dark position-relative rounded">
                                     <a data-fancybox href="https://vimeo.com/40842620">
@@ -179,172 +179,54 @@
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Basic</h2>
+                                            <h2 class="h5">Éditeur</h2>
                                             <ul class="list-unstyled mb-0">
                                                 <li class="d-flex py-1">
                                                     <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
+                                                        <span class="fas fa-circle mr-2"></span>
                                                     </span>
-                                                    <span>High-Speed WiFi</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Air Conditioning</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Heating</span>
+                                                    <span><%= @game_sheet.editors %></span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Seating</h2>
+                                            <h2 class="h5">Auteur</h2>
                                             <ul class="list-unstyled mb-0">
                                                 <li class="d-flex py-1">
                                                     <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
+                                                        <span class="fas fa-circle mr-2"></span>
                                                     </span>
-                                                    <span>Standing Desks</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Ergonomic Chairs</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Beanbags</span>
+                                                    <span><%= @game_sheet.authors %></span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Community</h2>
+                                            <h2 class="h5">Thèmes</h2>
                                             <ul class="list-unstyled mb-0">
                                                 <li class="d-flex py-1">
                                                     <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
+                                                        <span class="fas fa-circle mr-2"></span>
                                                     </span>
-                                                    <span>Events</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Community Lunches</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Workshops</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Community Drinks</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Facebook Group for Members</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Mentorship Programs</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Pitching events</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Accelerator programs</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Toastmasters</span>
+                                                    <span><%= @game_sheet.themes %></span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Facilities</h2>
+                                            <h2 class="h5">Méchanique</h2>
                                             <ul class="list-unstyled mb-0">
                                                 <li class="d-flex py-1">
                                                     <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
+                                                        <span class="fas fa-circle mr-2"></span>
                                                     </span>
-                                                    <span>Kitchen</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Skype Room</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Nearby Restaurants</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Makerspace</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Personal Lockers</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Phone Booth</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Event Space For Rent</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Nearby Airbnb</span>
-                                                </li>
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-check-circle mr-2"></span>
-                                                    </span>
-                                                    <span>Onsite Airbnb</span>
+
+                                                    <span><%= @game_sheet.mechanisms %></span>
+
                                                 </li>
                                             </ul>
                                         </div>
