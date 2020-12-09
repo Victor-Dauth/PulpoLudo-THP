@@ -8,7 +8,8 @@
             <div class="col-12 col-md-5 text-center">
                 <div><%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', style: "height: 180px" %></br></div>
                 <p class="mt-4" style="font-size: 20px">Ton coach en jeux de société</p></br>
-                <a href="#why" class="btn btn-light btn-lg btn-block mt-3" style="font-size: 20px">Ça m'intéresse !</a>
+                <a href="#why" class= "btn btn-outline-white animate-up-2 btn-lg mt-3 mr-3" >Ça m'intéresse !</a>
+                <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-light btn-lg mt-3 ml-3", method: "GET" %>
             </div>
         </div>
     </div>
@@ -108,25 +109,25 @@
                 <div class="card-body">                    
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-times-circle"></span>
+                            <span class="fas fa-times-circle times-red"></span>
                         </div>
                         <p>Mon budget jeu peut vite exploser !</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-times-circle"></span>
+                            <span class="fas fa-times-circle times-red"></span>
                         </div>
                         <p>J’ai peur de passer à côté d’un coup de coeur.</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-times-circle"></span>
+                            <span class="fas fa-times-circle times-red"></span>
                         </div>
                         <p>Je ne sais jamais quel jeu acheter, il y a trop de choix !</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-times-circle"></span>
+                            <span class="fas fa-times-circle times-red"></span>
                         </div>
                         <p>Je ne sais plus où mettre les jeux chez moi, ça déborde !</p>
                     </div>                    
@@ -146,34 +147,34 @@
                 </header>
                 <!-- End Header -->
                 <!-- Content -->
-                <div class="card-body">
+                <div class="card-body mb-3 ">
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-check-circle"></span>
+                            <span class="fas fa-check-circle check-green"></span>
                         </div>
                         <p>J’ai un budget maîtrisé</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-check-circle"></span>
+                            <span class="fas fa-check-circle check-green"></span>
                         </div>
                         <p>J’ai enfin la possibilité de tester mes jeux avant de les acheter</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-check-circle"></span>
+                            <span class="fas fa-check-circle check-green"></span>
                         </div>
                         <p>Je suis suivi par une équipe de passionnés qui me conseille selon mon profil et mes envies</p>
                     </div>
                     <div class="d-flex">
                         <div class="icon-md icon-secondary lh-180 mr-3">
-                            <span class="fas fa-check-circle"></span>
+                            <span class="fas fa-check-circle check-green"></span>
                         </div>
                         <p>Je peux choisir mes jeux parmi une vaste ludothèque régulièrement mise à jour</p>
                     </div>
                   </div>
                 <!-- End Content -->
-                <%= link_to "Je m'abonne", new_user_registration_path, class: "btn btn-primary my-2", method: "GET" %>
+                <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-primary mt-3 my-2", method: "GET" %>
             </div>
         </div>
         <!-- End of Pricing Card -->        
@@ -183,7 +184,7 @@
 
 <section class="section section-lg bg-soft line-bottom-light">
                 <div class="container">
-                    <div class="row justify-content-center mb-4 mb-lg-6">
+                    <div class="row justify-content-center ">
                         <div class="col-12 col-lg-8 text-center">
                             <h1 class="display-3 mb-4">Comment ça marche ?</h1>
                         </div>
@@ -238,6 +239,147 @@
                     </div>
                 </div>
         </section>
+
+<section class="section-header bg-soft pb-7">
+            <div class="container">
+                <div class="row justify-content-center mb-6">
+                    <div class="col-12 col-lg-10 text-center">
+                        <h1 class="display-2 mb-3">Notre abonnement</h1>
+                        <p class="lead px-lg-7">Découvrez tout ce que PulpoLudo a à vous offrir </p>
+                    </div>
+                </div>
+
+                <div class="row mb-4 mb-lg-5">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <!-- Pricing Card -->
+                        <div class="pricing-card">
+                            <div class="card border-light p-1 p-lg-2 p-xl-4">
+                                <!-- Header -->
+                                <header class="card-header border-bottom bg-white text-center">
+                                    <span class="d-block">
+                                        <span class="display-1 text-primary font-weight-bold">
+                                            0<span class=" font-medium">€</span>
+                                    </span>
+                                    <span class="font-small">/ mois</span>
+                                    </span>
+                                </header>
+                                <!-- End Header -->
+                                <!-- Content -->
+                                <div class="card-body">
+                                    <h3 class="h6 font-weight-normal text-dark mb-4">En m'inscrivant à PulpoLudo:</h3>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux voir la liste des jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux compléter mon profil joueur</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je peux donner mon avis sur chaque jeu </p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle"></span>
+                                        </div>
+                                        <p>Je reçois un mail personnalisé en début de mois me conseillant 5 jeux</p>
+                                    </div>
+                                    
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-outline-primary btn-block mt-4", method: "GET" %>
+                                </div>
+                                <!-- End Content -->
+                            </div>
+                        </div>
+                        <!-- End of Pricing Card -->
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+                        <!-- Pricing Card -->
+                        <div class="pricing-card">
+                            <div class="card border-light p-1 p-lg-2 p-xl-4">
+                                <!-- Header -->
+                                <header class="card-header border-bottom bg-white text-center">
+                                    <span class="d-block">
+                                        <span class="display-1 text-primary font-weight-bold">
+                                            9,99<span class=" font-medium">€</span>
+                                    </span>
+                                    <span class="font-small">/ mois</span>
+                                    </span>
+                                </header>
+                                <!-- End Header -->
+                                <!-- Content -->
+                                <div class="card-body">
+                                    <h3 class="h6 font-weight-normal text-dark mb-4">En m'abonnant à PulpoLudo:</h3>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux voir la liste des jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux compléter mon profil de joueur</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux donner mon avis sur chaque jeu</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je reçois un mail personnalisé en début de mois me conseillant 5 jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux louer 5 jeux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux les garder autant de temps que je veux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>Je peux les échanger quand je veux</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="icon-md icon-secondary lh-180 mr-3">
+                                            <span class="fas fa-check-circle check-green"></span>
+                                        </div>
+                                        <p>J’ai accès à un coach de jeu</p>
+                                    </div>
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-outline-primary btn-block mt-4", method: "GET" %>
+                                </div>
+                                <!-- End Content -->
+                            </div>
+                           
+                        </div>
+                        <!-- End of Pricing Card -->
+                    </div>
+                     <div class="col-md-2">
+                            </div>
+                </div>
+            
+        </section>
+
 
 <section class="section-header bg-primary pb-9 pb-md-11 mb-4 mb-lg-6 text-white">
             <div class="container">
@@ -364,9 +506,10 @@
                                         <!-- Visit Box -->
                                         <div class="icon-box mb-4">
                                             <div class="icon icon-dark mb-4">
-                                                <span class="fab fa-facebook"></span>
+                                                <a href="https://www.facebook.com/Pulpoludo"><i style="color: var(--primary)" class="fab fa-facebook"></i></a>
                                             </div>
-                                            <h3 class="h5 icon-box-title">Suivez-nous</h3>
+                                            </br>
+                                            <a href="https://www.facebook.com/Pulpoludo" class="h5 icon-box-title">Suivez-nous</a>
                                             
                                         </div>
                                         <!-- End of Visit Box -->
@@ -376,25 +519,33 @@
                                         <!-- Email Box -->
                                         <div class="icon-box mb-4">
                                             <div class="icon icon-dark mb-4">
-                                                <span class="far fa-paper-plane"></span>
+                                                <a href="mailto:pulpoludo@yopmail.com"><i style="color: var(--primary)" class="far fa-paper-plane"></i></a>
                                             </div> </br>                                           
-                                            <a href="#">hello@company.io</a>
+                                             <a href="mailto:pulpoludo@yopmail.com" class="h6 icon-box-title">pulpoludo@yopmail.com</a>
                                         </div>
+
                                         <!-- End of Email Box -->
                                     </div>
+
+                                    <div class="col-sm-12 text-center mt-3"> 
+                                    <%= link_to "Je m'inscris", new_user_registration_path, class: "btn btn-secondary my-2", method: "GET" %>
+                                        
+                                    </div>
+
+                                    
                                 </div>
-                                <div class="row justify-content-center mt-4 mt-lg-5">
-                                    <div class="col-12">
+                                <!-- <div class="row justify-content-center mt-4 mt-lg-5">
+                                    <div class="col-12"> -->
                                         <!-- Email Card -->
-                                        <div class="card border-0 p-0 p-md-5">
+                                    <!--     <div class="card border-0 p-0 p-md-5">
                                             <div class="card-header text-center p-0 pb-5">
                                                 <h4>Tu ne veux rien rater de notre actualité?</h4>
                                                 <p>Laisse nous ton email !</p>
                                             </div>
                                             <div class="card-body p-0">
-                                                <form action="#" method="post">                           
+                                                <form action="#" method="post">    -->                        
                                                     <!-- Form -->
-                                                    <div class="form-group">                              
+                                                   <!--  <div class="form-group">                              
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><span class="far fa-envelope"></span></span>
@@ -404,18 +555,18 @@
                                                     </div>
                                                     <button type="submit" class="btn btn-block rounded btn-light">Envoyer</button>
                                                 </form>
-                                            </div>
-                                        </div>
+                                            </div> -->
+                                        <!-- </div> -->
                                         <!-- Phone Card -->
-                                        <div class="card border-0 p-0 p-md-5">
+                                        <!-- <div class="card border-0 p-0 p-md-5">
                                             <div class="card-header text-center p-0 pb-5">
                                                 <h4>Participation au pré lancement</h4>
                                                 <p>Si tu veux faire partie du pré lancement de notre application au printemps 2021, laisse nous ton numéro de téléphone et nous te recontacterons pour en discuter très prochainement.</p>
                                             </div>
                                             <div class="card-body p-0">
-                                                <form action="#" method="post">                           
+                                                <form action="#" method="post">  -->                         
                                                     <!-- Form -->
-                                                    <div class="form-group">                              
+                                                   <!--  <div class="form-group">                              
                                                         <div class="input-group mb-4">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text"><span class="fas fa-phone-alt"></span></span>
@@ -424,18 +575,21 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <button type="submit" class="btn btn-block rounded btn-light">Envoyer</button>
-                                                </form>
+                                                    <button type="submit" class="btn btn-block rounded btn-light">Envoyer</button> -->
+                                                <!-- </form> 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- End of Contact Card -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    
 
 
