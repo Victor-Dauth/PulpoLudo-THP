@@ -83,7 +83,7 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def build_subscription_error
-    Subscription.create(user: current_user, status: "en attente", price: 9.99, start_date: Time.now, duration: 1)
+    Subscription.create(user: current_user, status: "en attente", price: 9.99, start_date: Time.now)
   end
 
   def failure_subscription_email(subscription)

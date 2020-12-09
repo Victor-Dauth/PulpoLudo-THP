@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   
-  root 'static_pages#landing'
-
-  authenticated :user do
-    root 'game_sheets#index'
-  end
-  
-  resources :game_sheets, only: [:index, :show] do
-    resources :game_pictures, only: [:create]
-  end
+  get 'static_pages/landing'
 
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'game_sheets#index'
+    end
+
+    unauthenticated do
+      root 'static_pages#landing'
+    end
+  end
 
   resources :users do
     resources :avatars, only: [:create]
@@ -21,11 +23,13 @@ Rails.application.routes.draw do
     resources :subscriptions, except: [:index]
   end
 
+  resources :game_sheets, only: [:index, :show] do
+    resources :game_pictures, only: [:create]
+  end
+
   resources :carts, only: [:show, :update]
 
   resources :games, only: [:update]
-
-  get 'static_pages/landing'
 
   namespace :stripe do
     resources :checkouts
