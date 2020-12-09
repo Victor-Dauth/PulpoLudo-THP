@@ -509,9 +509,9 @@
 
 
 
+=begin
 
-
-
+<!---
 <main>
 <div class="section section-lg pt-5">
     <div class="container">
@@ -568,13 +568,13 @@
 
             		</div>
 
-            		<% if user_signed_in? %>
+            		<% #if user_signed_in? %>
 		                <div>
-		                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => @game_sheet.id), method: 'PUT' , class: "btn btn-primary mt-5"%>
+		                  <%= link_to #{}"Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => @game_sheet.id), method: 'PUT' , class: "btn btn-primary mt-5"%>
 		                </div>
-	             	<%else%>
+	             	<% #else%>
 	                	<span class="text-muted font-small d-block">vers page d'inscription</span>
-	             	<% end %>
+	             	<% #end %>
         		</div>
             </aside>
 
@@ -596,9 +596,9 @@
 
 	            <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
 	            <div class="row">
-	              	<!-- Cards-->
+	              
 
-	              	<% @game_sheets_rand.each do |game_sheet| %>
+	              	<% @game_sheets_rand.each #do |game_sheet| %>
 
                   	<div class="col-12 col-sm-6 col-lg-4">
                       	<div class="card border-light mb-4 animate-up-5">
@@ -627,9 +627,9 @@
                       </div>
                     </div>
 
-                    <% end %>
+                    <% #end %>
 
-	              <!-- End of Card -->
+	             
 	            </div>
 	          
 	          </div>
@@ -637,6 +637,10 @@
 	    </div>
 	</div>
 </section>
+
+=end
+--->
+
 
 <div class="section section-lg pt-5">
     <div class="container">
@@ -652,3 +656,4 @@
 		</div>
 	</div>
 </div>
+
