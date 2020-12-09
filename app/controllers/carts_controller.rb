@@ -39,7 +39,7 @@ class CartsController < ApplicationController
     @user = Cart.find(params[:id]).user
     unless @user.already_subscribed?
       flash[:notice] = "Pour pouvoir ajouter un jeu à ton panier tu dois être abonné"
-      redirect_to user_subscription_path(@user)
+      redirect_to user_subscriptions_path(@user)
     end
   end
 
