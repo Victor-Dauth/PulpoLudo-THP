@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
-  
-  #validates :phone_number, length: { in: 2..20 }
-  #validates :last_name
+         :recoverable, :rememberable, :validatable
+
+  after_create :create_cart
+  # + welcome email to replace confirmation email?
 
   has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
@@ -13,8 +13,6 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   
   has_one_attached :avatar, dependent: :destroy
-
-  after_create :create_cart
 
   def thumbnail
     return self.avatar.variant(resize: '300x300!').processed 
