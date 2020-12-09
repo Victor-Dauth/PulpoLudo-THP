@@ -1,6 +1,7 @@
 class Stripe::CheckoutsController < ApplicationController
-
-  def create
+  skip_before_action :verify_authenticity_token, only: [:webhook]
+  
+  def new
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       mode: 'subscription',
@@ -10,37 +11,38 @@ class Stripe::CheckoutsController < ApplicationController
       line_items: [{
         # For metered billing, do not pass quantity
         quantity: 1,
-        price: 'price_1Hw2XoL1Cw86LE2tOtVVb7TL',
+        price: 'price_1HwQfzL1Cw86LE2tOpplz4z0',
       }],
       customer: current_user.stripe_id,
       client_reference_id: current_user.id,
       success_url: stripe_checkouts_success_url + '?session_id={CHECKOUT_SESSION_ID}',
       cancel_url: stripe_checkouts_cancel_url
     )
+
     respond_to do |format|
-      format.js # renders create.js.erb
+      format.js # renders new.js.erb
     end
   end
 
+  def webhook
+    sig_header = request.env['HTTP_STRIPE_SIGNATURE']
+
+    begin
+      event = Stripe::Webhook.construct_event(request.body.read, sig_header, ENV['STRIPE_ENDPOINT_SECRET'])
+    rescue JSON::ParserError
+      return head :bad_request
+    rescue Stripe::SignatureVerificationError
+      return head :bad_request
+    end
+
+    webhook_checkout_session_completed(event) if event['type'] == 'checkout.session.completed'
+
+    head :ok
+  end
+
   def success
-    #Retrieve the relevant info following a successful Checkout session
-    @session = Stripe::Checkout::Session.retrieve(params[:session_id])
-    @customer = Stripe::Customer.retrieve(@session.customer)
-    @stripe_subscription = Stripe::Subscription.retrieve(@session.subscription)
-
-    subscriber = User.find_by(id: @session.client_reference_id)
-
-    #Build the real subscription after a successful payment with the relevant references
-    @paid_subscription = build_subscription(@stripe_subscription, subscriber)
-
-    #Update Stripe ID on the User side
-    subscriber.update!(stripe_id: @customer.id)
-
-    #Launch confirmation email process
-    new_subscription_email(@paid_subscription)
-
-    #Provide an invoice directly to the customer
-    @invoice = Stripe::Invoice.list(limit: 3, customer: @customer.id).first.invoice_pdf
+    flash[:success] = "You subscribed to our plan!"
+    redirect_to root_path
   end
 
   def cancel
@@ -50,8 +52,25 @@ class Stripe::CheckoutsController < ApplicationController
 
   private
   
+  def webhook_checkout_session_completed(event)
+    #Retrieve the relevant info following a successful Checkout session
+    object = event['data']['object']
+    customer = Stripe::Customer.retrieve(object['customer'])
+    stripe_subscription = Stripe::Subscription.retrieve(object['subscription'])
+    subscriber = User.find_by(id: object['client_reference_id'])
+
+    #Build a subscription in DB after a successful payment with the relevant references
+    @paid_subscription = build_subscription(stripe_subscription, subscriber)
+
+    #Update Stripe ID on the User side
+    subscriber.update!(stripe_id: customer.id)
+    
+    #Launch confirmation email process
+    new_subscription_email(@paid_subscription)
+  end
+
   def build_subscription(stripe_subscription, subscriber)
-    Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now, duration: 1)
+    Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now)
   end
 
   def build_subscription_error
