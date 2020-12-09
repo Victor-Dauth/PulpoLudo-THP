@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     authenticated :user do
       root 'game_sheets#index'
     end
-
     unauthenticated do
       root 'static_pages#landing'
     end
@@ -36,6 +35,9 @@ Rails.application.routes.draw do
     get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
     get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
     post 'checkout/webhook', to: 'checkouts#webhook'
+    resources :checkoutorders
+    get 'checkoutorder/success', to: 'checkoutorders#success', as: 'checkoutorders_success'
+    get 'checkoutorder/cancel', to: 'checkoutorders#cancel', as: 'checkoutorders_cancel'
   end
   
 end
