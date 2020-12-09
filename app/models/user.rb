@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
-  has_many :subscriptions, dependent: :destroy
+  has_one :subscription, dependent: :destroy
   has_many :orders, dependent: :destroy
   
   has_one_attached :avatar, dependent: :destroy
@@ -32,8 +32,8 @@ class User < ApplicationRecord
   end
 
   def already_subscribed?
-    self.subscriptions.each do |subscription|
-      return true if subscription.active?
+    if self.subscription != nil && self.subscription.status == 'active'
+      return true
     end
     return false
   end

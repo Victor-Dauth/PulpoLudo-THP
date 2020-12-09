@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create, :update] do
       resources :shippings, only: [:show, :update]
     end
-    resources :subscriptions, only: [:index, :new, :create, :update]
+    resources :subscriptions, except: [:index]
   end
 
   resources :carts, only: [:show, :update]
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :checkouts
     get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
     get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
-    post 'checkout/webhook', to: "checkouts#webhook", as: 'checkouts_webhook'
+    post 'checkout/webhook', to: 'checkouts#webhook'
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

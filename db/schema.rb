@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(version: 2020_12_07_100433) do
     t.string "status"
     t.decimal "price", null: false
     t.datetime "start_date", null: false
-    t.integer "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"

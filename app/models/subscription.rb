@@ -12,20 +12,14 @@ class Subscription < ApplicationRecord
     presence: true,
     numericality: {greater_than_or_equal_to: 1}
 
-  validates :duration,
-    presence: true,
-    numericality: {only_integer: true, greater_than_or_equal_to: 1}
-
-  def end_date
-    self.start_date + duration.month
-  end
-
   def clean_start_date
     self.start_date.strftime("%d/%m/%Y")
   end
 
-  def clean_end_date
-    (self.start_date + duration.month).strftime("%d/%m/%Y")
+  def interrupt
+    Stripe::Subscription.delete(stripe_id)
+    self.status = "terminé"
+    save
   end
 
 end
