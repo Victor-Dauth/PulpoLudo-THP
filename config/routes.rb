@@ -26,6 +26,13 @@ Rails.application.routes.draw do
     resources :game_pictures, only: [:create]
   end
 
+  namespace :admin do
+    root to: 'admins#index'
+    resources :games, only: [:index, :create, :update, :destroy]
+    resources :game_sheets, only: [:index, :create, :update, :destroy]
+    resources :users, only: [:index, :create, :update, :destroy]
+  end
+
   resources :carts, only: [:show, :update]
 
   resources :games, only: [:update]

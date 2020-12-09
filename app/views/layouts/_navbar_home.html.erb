@@ -13,6 +13,9 @@
 
 
       <% if user_signed_in? %>
+        <% if current_user.is_admin? == true %>
+          <a class="btn btn-primary" href="<%= admin_root_path %>">Site Admin</a>
+        <% end %>
         <% if current_user.carts %>
           <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
         <%end%>
