@@ -10,20 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery.min
-//= require bootstrap.bundle.min
-//= require jquery.dataTables.min
-//= require dataTables.bootstrap4.min
-//= require dataTables.responsive.min
-//= require responsive.bootstrap4.min
-//= require dataTables.buttons.min
-//= require buttons.bootstrap4.min
-//= require jszip.min
-//= require pdfmake.min
-//= require vfs_fonts
-//= require buttons.html5.min
-//= require buttons.print.min
-//= require buttons.colVis.min
-//= require adminlte.min
-//= require demo
+//= require admin/jquery.min
+//= require admin/bootstrap.bundle.min
+//= require admin/jquery.dataTables.min
+//= require admin/dataTables.bootstrap4.min
+//= require admin/dataTables.responsive.min
+//= require admin/responsive.bootstrap4.min
+//= require admin/dataTables.buttons.min
+//= require admin/buttons.bootstrap4.min
+//= require admin/jszip.min
+//= require admin/pdfmake.min
+//= require admin/vfs_fonts
+//= require admin/buttons.html5.min
+//= require admin/buttons.print.min
+//= require admin/buttons.colVis.min
+//= require admin/adminlte.min
+//= require admin/demo
 
