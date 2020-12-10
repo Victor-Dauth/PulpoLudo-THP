@@ -40,4 +40,12 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: "Oups!")
   end
+
+  def welcome_email(user)
+    @user = user
+
+    @url = "http://dev-pulpoludo-thp.herokuapp.com/users/5/subscriptions"
+
+    mail(to: @user.eamil, subject: "Bienvenu chez PulpoLudo!")
+  end
 end

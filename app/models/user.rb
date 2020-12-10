@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   after_create :create_cart
+  after_create :send_welcome_email
   # + welcome email to replace confirmation email?
 
   has_many :addresses, dependent: :destroy
@@ -49,4 +50,7 @@ class User < ApplicationRecord
     self.carts.create
   end
 
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
 end
