@@ -19,6 +19,9 @@
                 <% end %>
                 <% n += 1%>
               <% end %>
+              <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="display: none;">
+                Action
+              </th>
             </tr>
           </thead>
 
@@ -39,6 +42,12 @@
                     <% end %>
                     <% m += 1 %>
                   <% end %>
+                  <td style="display: none;">
+                    <%= link_to urls_e[index], class: "nav-link" do%>
+                      <i class="far fa-edit text-info"></i>
+                    <% end %>
+                    <%= link_to ('<i class="far fa-times-circle text-danger"></i>').html_safe, urls_d[index], class: "nav-link", method: :DELETE, data: { confirm: "Est-ce que vous êtes sûr de votre choix ?"}%>
+                  </td>
                 </tr>
               <% else %>
                 <tr role="row" class="even">
@@ -55,6 +64,12 @@
                     <% end %>
                     <% m += 1 %>
                   <% end %>
+                  <td style="display: none;">
+                    <%= link_to urls_e[index], class: "nav-link" do%>
+                      <i class="far fa-edit text-info"></i>
+                    <% end %>
+                    <%= link_to ('<i class="far fa-times-circle text-danger"></i>').html_safe, urls_d[index], class: "nav-link", method: :DELETE, data: { confirm: "Est-ce que vous êtes sûr de votre choix ?"}%>
+                  </td>
                 </tr>
               <% end %>
             <% end %>
@@ -75,6 +90,9 @@
                 <%end%>
                 <% l += 1 %>
               <% end %>
+              <th rowspan="1" colspan="1" style="display: none;">
+                Action
+              </th>
             </tr>
           </tfoot>
         </table>

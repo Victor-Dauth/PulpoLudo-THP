@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8" style="margin-left: 15%;">
+      <div class="card card-primary">
+        <div class="card-header">
+          <div class="row">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+              <i class="fas fa-bars"></i>
+            </a>
+            <h3 class="card-title my-auto">Utilisateur n°<%= @user.id %></h3>
+          </div>
+        </div>
+        <form>
+          <%= render 'admin/users/form', item: @user%>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

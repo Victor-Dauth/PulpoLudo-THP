@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:success] = "Bien joué ! Ton profil a été modifié 🎉"
+      flash[:notice] = "Bien joué ! Ton profil a été modifié 🎉"
       redirect_to(user_path(@user))
     else
       flash.now[:alert] = "Oups ! On ne peut pas modifier ton profil pour les raisons suivantes :"
