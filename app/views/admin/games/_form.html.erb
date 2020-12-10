@@ -44,12 +44,12 @@
 
     <div class="form-group">
       <%= f.label "Fiche de jeu", class: "mb-2" %>
-      <%= f.collection_select(:post, :game_sheet_id, GameSheet.all, :id, :title) %>
+      <%= f.collection_select :game_sheet_id, game_sheets, :id, :title, prompt: true %>
     </div>
   </div>
 
   <div class="card-footer">
-    <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 
 <% end %>

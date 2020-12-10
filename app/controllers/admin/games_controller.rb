@@ -18,6 +18,7 @@ class Admin::GamesController < Admin::BaseController
 
   def new
     @game = Game.new
+    @game_sheets = GameSheet.all
   end
 
   def create
@@ -35,6 +36,7 @@ class Admin::GamesController < Admin::BaseController
 
   def edit
     @game = Game.find(params[:id])
+    @game_sheets = GameSheet.all
   end
 
   def update

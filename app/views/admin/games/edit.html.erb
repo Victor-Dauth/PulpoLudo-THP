@@ -10,7 +10,7 @@
             <h3 class="card-title my-auto">Jeu n°<%= @game.id %></h3>
           </div>
         </div>
-        <%= render 'admin/games/form', item: @game%>
+        <%= render 'admin/games/form', item: @game, game_sheets: @game_sheets%>
       </div>
     </div>
   </div>
