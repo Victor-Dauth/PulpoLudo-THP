@@ -46,6 +46,6 @@ class UserMailer < ApplicationMailer
 
     @url = "http://dev-pulpoludo-thp.herokuapp.com/users/5/subscriptions"
 
-    mail(to: @user.eamil, subject: "Bienvenu chez PulpoLudo!")
+    mail(to: @user.email, subject: "Bienvenu chez PulpoLudo!")
   end
 end
