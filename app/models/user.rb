@@ -14,6 +14,10 @@ class User < ApplicationRecord
   
   has_one_attached :avatar, dependent: :destroy
 
+  def remember_me
+    true
+  end
+
   def thumbnail
     return self.avatar.variant(resize: '300x300!').processed 
   end
