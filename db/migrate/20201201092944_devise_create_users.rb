@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.date :date_of_birth    
-      t.integer :phone_number   
+      t.string :phone_number   
       t.string :gender          
       t.string :stripe_id
 
