@@ -174,19 +174,22 @@
                                 </div>
                             </div>-->
                             <!-- End of Video Tab -->
-                            <!-- Amenities Tab -->
+                            <!-- Details Tab -->
                             <div class="tab-pane fade" id="nav-amenities" role="tabpanel" aria-labelledby="nav-amenities-tab">
                                 <div class="row">
                                     <div class="col-12 col-md-6">
                                         <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Éditeur</h2>
+                                            <h2 class="h5">Artiste</h2>
                                             <ul class="list-unstyled mb-0">
+                                              <% @game_sheet.artists.each do |artist| %>
                                                 <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.editors %></span>
+                                                  <span class="icon icon-xs icon-primary">
+                                                    <span class="fas fa-circle mr-2"></span>
+                                                  </span>
+                                                  <span><%= artist.first_name %> <%=artist.last_name %>
+                                                  </span>
                                                 </li>
+                                              <% end %>
                                             </ul>
                                         </div>
                                     </div>
@@ -194,12 +197,15 @@
                                         <div class="card border-bottom rounded-0 p-4">
                                             <h2 class="h5">Auteur</h2>
                                             <ul class="list-unstyled mb-0">
+                                                <% @game_sheet.authors.each do |author| %>
                                                 <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.authors %></span>
+                                                  <span class="icon icon-xs icon-primary">
+                                                    <span class="fas fa-circle mr-2"></span>
+                                                  </span>
+                                                  <span><%= author.first_name %> <%=author.last_name %>
+                                                  </span>
                                                 </li>
+                                              <% end %>
                                             </ul>
                                         </div>
                                     </div>
@@ -207,12 +213,15 @@
                                         <div class="card border-bottom rounded-0 p-4">
                                             <h2 class="h5">Thèmes</h2>
                                             <ul class="list-unstyled mb-0">
+                                                <% @game_sheet.themes.each do |theme| %>
                                                 <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.themes %></span>
+                                                  <span class="icon icon-xs icon-primary">
+                                                    <span class="fas fa-circle mr-2"></span>
+                                                  </span>
+                                                  <span><%= theme.name %>
+                                                  </span>
                                                 </li>
+                                              <% end %>
                                             </ul>
                                         </div>
                                     </div>
@@ -220,108 +229,37 @@
                                         <div class="card border-bottom rounded-0 p-4">
                                             <h2 class="h5">Méchanique</h2>
                                             <ul class="list-unstyled mb-0">
+                                                <% @game_sheet.mechanisms.each do |mechanism| %>
                                                 <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-
-                                                    <span><%= @game_sheet.mechanisms %></span>
-
+                                                  <span class="icon icon-xs icon-primary">
+                                                    <span class="fas fa-circle mr-2"></span>
+                                                  </span>
+                                                  <span><%= mechanism.name %>
+                                                  </span>
                                                 </li>
+                                              <% end %>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Equipment</h2>
-                                        <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Printer</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>3D Printer</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Projector</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Transportation</h2>
-                                        <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>5 Minute Walk From Public Transit</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>10 Minute Walk From Metro Station</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Bike Parking</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Relax Zones</h2>
-                                        <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Outdoor Terrace</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Lounge / Chill-out Area</span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Caffeine Fix</h2>
-                                        <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Free Tea</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Free Coffee</span>
-                                          </li>
-                                        </ul>
-                                      </div>
+                                        <div class="card border-bottom rounded-0 p-4">
+                                            <h2 class="h5">Éditeur</h2>
+                                            <ul class="list-unstyled mb-0">
+                                              <% @game_sheet.editors.each do |editor| %>
+                                                <li class="d-flex py-1">
+                                                  <span class="icon icon-xs icon-primary">
+                                                    <span class="fas fa-circle mr-2"></span>
+                                                  </span>
+                                                  <span><%= editor.name %>
+                                                  </span>
+                                                </li>
+                                              <% end %>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End of Amenities Tab -->
+                            <!-- End of Details Tab -->
                             <!-- Reviews Tab -->
                             <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                 <div class="card bg-white border border-light p-4 mb-4">
@@ -509,8 +447,8 @@
 
 
 <div class="section section-lg pt-5">
-    <div class="container">
-        <div class="row">
+  <div class="container">
+    <div class="row">
 
 			<h3>ESPACE ADMIN - Changer l'image de couverture du jeu ?</h3>
 
@@ -518,7 +456,6 @@
 			  <%= file_field_tag :game_picture %>
 			  <%= submit_tag "mettre à jour" %>
 			<% end %>
-
 		</div>
 	</div>
 </div>
