@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-7 mb-5">
   <div class="card border-light p-4 p-md-5">
     <div class="mb-6 d-flex align-items-center justify-content-center">
       <h2 class="h1 mb-0"><i class="fas fa-cart-arrow-down"></i> Mon panier</h2>
@@ -7,9 +7,9 @@
     <div class="row">
       <div class="col-12">
         <%if @cart.send_cart?%>
-          <h6 class="text-center"> Tu as déjà commander 5 jeux. Si tu veux en recomander 5 nouveau il te faut d'abore nous renvoyer les 5 que tu as chez toi. <br>
-          Lorsque que nous les ressevrois nous t'enverons un mails pour te signaler que tu peux en commnder 5 nouveaux. </h6>
-          <%= link_to "Ma commande acutel", user_order_path(current_user, current_order), :class => "ml-3 col-auto btn btn-primary my-auto" %>
+          <h6 class="text-center"> Tu as déjà commandé 5 jeux. Si tu veux en recomander 5 nouveaux il te faut d'abord nous renvoyer les 5 que tu as chez toi. <br>
+          Lorsque que nous les reçevrons nous t'enverons un mail pour te signaler que tu peux en commander 5 nouveaux. </h6>
+          <%= link_to "Ma commande actuelle", user_order_path(current_user, current_order), :class => "ml-3 col-auto btn btn-primary my-auto" %>
         <% else %>
           <% unless @cart.games.empty? %>  
             <div class="table-responsive align-middle">                            

@@ -1,7 +1,4 @@
 <div class=" p-0 p-md-4">
-  <div class="card-body px-0 pt-0">
-    <%= link_to "Retourner mes jeux", user_order_path(current_user, order), method: 'PATCH' , :class => "ml-3 col-auto btn btn-primary my-auto" %>
-  </div>
   <div class="card-header border-bottom p-3">
     <p class="small pr-lg-10">Voici les jeux que tu as chez toi :</p>
   </div>
@@ -24,5 +21,8 @@
         </li>
       <% end %>
     </ul>
+  </div>
+    <div class="card-body px-0 pt-0">
+    <%= link_to "Retourner mes jeux", user_order_path(current_user, order), method: 'PATCH' , :class => "ml-3 col-auto btn btn-primary my-auto" %>
   </div>
 </div>

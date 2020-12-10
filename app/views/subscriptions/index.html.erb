@@ -4,9 +4,9 @@
 
       <!-- Profile menu with recurring paths -->
 
-      <div class="col-12 col-md-4 d-none d-lg-block">
+      
         <%= render "shared/menu_profil" %>
-      </div>
+     
 
       <!-- Customized part with user info regarding subscription -->
 
@@ -25,14 +25,17 @@
               </div>
 
             <% else %>
-              <div class="text-center my-1">
-                <h4 class="my-4 font-weight-normal">Voici ton abonnement en cours :</h4>
-                <p>Paiement réalisé : <%= @subscription.price %> €.</p>
-                <p>Début de l'abonnement : <%= @subscription.clean_start_date %>.</p>
-                <p>Statut de l'abonnement : <%= @subscription.status %>.</p>
-                <p>Votre ID Stripe de référence est : <%= @user.stripe_id %>.</p>
-                <p>L'ID Stripe de votre abonnement est : <%= @subscription.stripe_id %>.</p>
-              </div>
+
+              <% @subscriptions.active.each do |subscription| %>
+                <div class="text-center my-1">
+                  <h4 class="my-4 font-weight-normal">Voici ton abonnement en cours :</h4>
+                  <p>Paiement réalisé : <%= subscription.price %> €.</p>
+                  <p>Début de l'abonnement : <%= subscription.clean_start_date %>.</p>
+                  <p>Statut de l'abonnement : <%= subscription.status %>.</p>
+                  <p>Votre ID Stripe de référence est : <%= @user.stripe_id %>.</p>
+                  <p>L'ID Stripe de votre abonnement est : <%= subscription.stripe_id %>.</p>
+                </div>
+              <% end %>
 
             <% end %>
           </div>
