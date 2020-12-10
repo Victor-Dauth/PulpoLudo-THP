@@ -79,3 +79,18 @@
 .card-founder {
   height : 400px;
 }
+
+
+
+
+a.cart .cart-basket {
+  font-size: .6rem;
+  position: absolute;
+  top: 3px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: var(--secondary);
+  border-radius: 50%;
+}

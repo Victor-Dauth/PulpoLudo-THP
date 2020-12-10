@@ -4,9 +4,8 @@
 
       <!-- Profile menu with recurring paths -->
 
-      <div class="col-12 col-md-4 d-none d-lg-block">
         <%= render "shared/menu_profil" %>
-      </div>
+  
 
       <!-- Customized part with user info regarding address -->
 
@@ -18,7 +17,7 @@
 
               <div class="text-center my-1">
                 <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
-                <h4 class="my-2 font-weight-normal">Tu n'ai pas encore abonné :</h4>
+                <h4 class="my-2 font-weight-normal">Tu n'es pas encore abonné :</h4>
                 <%= active_link_to "M'abonner", user_subscriptions_path(current_user), class: "btn btn-primary my-2" %>
               </div>
 
@@ -26,7 +25,7 @@
 
               <div class="text-center my-1">
                 <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
-                <h4 class="my-2 font-weight-normal">Ta première commande est toujour en cours. Vas sur : </h4>
+                <h4 class="my-2 font-weight-normal">Ta première commande est toujours en cours. </br> Tu peux la consulter ici : </h4>
                 <%= active_link_to "Ma commande en cours", user_order_path(current_user, current_order), class: "btn btn-primary my-2" %>
               </div>
 
@@ -38,7 +37,7 @@
 
                 <h3>Commande n°<%= index + 1%> :</h3>
 
-                <h5> Liste des jeux louer : </h5>
+                <h5> Liste des jeux loués : </h5>
 
                 <ul>
                   <li><%= order.games[0].title %></li>

@@ -14,7 +14,12 @@
 
       <% if user_signed_in? %>
         <% if current_user.carts %>
-          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
+
+          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2 cart position-relative d-inline-flex"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i>
+          <span class="cart-basket d-flex align-items-center justify-content-center">
+            0
+          </span>
+        </a>
         <%end%>
       <% else %>
         <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
