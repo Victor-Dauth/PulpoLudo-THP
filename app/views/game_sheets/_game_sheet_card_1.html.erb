@@ -24,30 +24,23 @@
                 <i class="star fas fa-star text-warning"></i>
                 <span class="badge badge-pill badge-primary ml-2">5.0</span>
             </div> 
-            <div class="list-group mb-3">
+            <div class="list-group">
                 <p class="list-group-item small p-0"><%= game_sheet.description %></p>
             </div> 
         </div>
         
         <div class="card-footer bg-soft border-top">
             <div class="d-flex justify-content-between">
-                <div class="col pl-0">
-                    <span class="text-muted font-small d-block mb-2">Joueurs</span>
-                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.nb_players %></span>
-                </div>
-                <div class="col">
-                    <span class="text-muted font-small d-block mb-2">Âge</span>
-                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.age_min %> + </span>
-                </div>
-                <div class="col pr-0">
-                    <span class="text-muted font-small d-block mb-2">Difficulté</span>
-                    <span class="h5 text-dark font-weight-bold"><%= game_sheet.difficulty %></span>
-                </div>
+                <ul class="list-group mb-1">
+                    <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
+                    <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
+                    <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
+                </ul>
             </div>
             <% if game_in_stock?(game_sheet)%>
               <% if user_signed_in? %>
                 
-                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => game_sheet.id), method: 'PUT' , class: "btn btn-outline-gray animate-up-2 mt-3 btn-block"%>
+                  <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => game_sheet.id), method: 'PUT' , class: "btn btn-outline-gray rounded animate-up-2 mt-3 btn-block"%>
 
               
               <% end %>
