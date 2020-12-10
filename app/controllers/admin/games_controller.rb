@@ -17,22 +17,41 @@ class Admin::GamesController < Admin::BaseController
   end
 
   def new
-    
+    @game = Game.new
   end
 
   def create
+    @game = Game.new(game_params)
+    @game.stock_id = "#{@game.game_sheet.id}_#{@game.game_sheet.games.size + 1}"
 
+    if @game.save
+      flash[:notice] = "le profil de l'ustilisateur n°#{@game.id} a été mis à jour"
+      redirect_to(admin_games_path)
+    else
+      flash.now[:alert] = "Oups ! Les modifications de l'utilistateur n°#{@game.id} n'ont pas put être enregistré"
+      render :new
+    end
   end
 
   def edit
-    
+    @game = Game.find(params[:id])
   end
 
   def update
+    @game = Game.find(params[:id])
 
+    if @game.update(game_params)
+      flash[:notice] = "le profil de l'ustilisateur n°#{@game.id} a été mis à jour"
+      redirect_to(admin_games_path)
+    else
+      flash.now[:alert] = "Oups ! Les modifications de l'utilistateur n°#{@game.id} n'ont pas put être enregistré"
+      render :edit
+    end
   end
 
-  def destroy
-    
+  private
+  
+  def game_params
+    params.require(:game).permit(:status, :condition, :weight, :height, :lenght, :width, :game_sheet_id)
   end
 end

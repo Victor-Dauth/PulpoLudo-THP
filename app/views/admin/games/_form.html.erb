@@ -1,0 +1,55 @@
+<%= form_for item, url: [:admin, item], html: {class: 'form-horizontal'} do |f| %>
+
+  <% if item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% item.errors.full_messages.each do |message|%>
+          <li><% message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="card-body">
+    <div class="form-group">
+      <%= f.label "Statu", class: "mb-2" %>
+      <%= f.select :status, ['en stock', 'en location', 'perdu', 'vendu'], {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Condition", class: "mb-2" %>
+      <%= f.select :condition, ['comme neuf', 'excellent', 'correct', 'abimé', 'incomplet', 'detruit'], {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Poid", class: "mb-2" %>
+      <%= f.number_field :weight, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Hauteur", class: "mb-2" %>
+      <%= f.number_field :height, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Longueur", class: "mb-2" %>
+      <%= f.number_field :length, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Largeur", class: "mb-2" %>
+      <%= f.number_field :width, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Fiche de jeu", class: "mb-2" %>
+      <%= f.collection_select(:post, :game_sheet_id, GameSheet.all, :id, :title) %>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

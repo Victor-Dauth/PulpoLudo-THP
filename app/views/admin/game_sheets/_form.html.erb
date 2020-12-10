@@ -1,0 +1,71 @@
+<%= form_for item, url: [:admin, item], html: {class: 'form-horizontal'} do |f| %>
+
+  <% if item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% item.errors.full_messages.each do |message|%>
+          <li><% message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="card-body">
+
+    <div class="form-group">
+      <%= f.label "Titre", class: "mb-2" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Déscription", class: "mb-2" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Nombre de joueur min", class: "mb-2" %>
+      <%= f.number_field :nb_players_min, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Nombre de joueur max", class: "mb-2" %>
+      <%= f.number_field :nb_players_max, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Duré de la partie (en min)", class: "mb-2" %>
+      <%= f.number_field :playing_time, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Age minimum", class: "mb-2" %>
+      <%= f.number_field :age_min, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Langue", class: "mb-2" %>
+      <%= f.select :language, ['Français', 'Anglais'], {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Date de publication", class: "mb-2" %>
+      <%= f.date_field :publication_date, class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Difficulté (entre 1 et 5)", class: "mb-2" %>
+      <%= f.number_field :difficulty, class:"form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "Photo du jeu", class: "mb-2 font-italic" %>
+      <%= f.file_field :game_picture, class: "form-control overflow-hidden" %>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

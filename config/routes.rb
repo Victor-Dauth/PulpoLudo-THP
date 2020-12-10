@@ -28,9 +28,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'admins#index'
-    resources :games, except: [:show]
-    resources :game_sheets, except: [:show]
-    resources :users, except: [:show]
+    resources :games, except: [:show, :destroy]
+    resources :game_sheets, except: [:show, :destroy]
+    resources :users, except: [:show, :new, :create]
   end
 
   resources :carts, only: [:show, :update]

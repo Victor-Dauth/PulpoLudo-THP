@@ -1,4 +1,15 @@
-<%= form_for [:admin, item] do |f| %>
+<%= form_for item, url: [:admin, item], html: {class: 'form-horizontal'} do |f| %>
+
+  <% if item.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% item.errors.full_messages.each do |message|%>
+          <li><% message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 
   <div class="card-body">
     <div class="form-group">
