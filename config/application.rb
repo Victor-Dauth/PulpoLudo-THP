@@ -13,7 +13,11 @@ module PulpoludoThp
     config.generators.helper = false
     config.generators.assets = false
 
-    config.action_mailer.delivery_method = :mailjet 
+
+    config.action_mailer.delivery_method = :mailjet
+
+    #By default is fr translation
+    config.i18n.default_locale = :fr
 
 
     # Settings in config/environments/* take precedence over those specified here.

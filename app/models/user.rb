@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   after_create :create_cart
-  # + welcome email to replace confirmation email?
+  after_create :send_welcome_email
 
   has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   
   has_one_attached :avatar, dependent: :destroy
+
+  def remember_me
+    true
+  end
 
   def thumbnail
     return self.avatar.variant(resize: '300x300!').processed 
@@ -49,4 +53,7 @@ class User < ApplicationRecord
     self.carts.create
   end
 
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
 end
