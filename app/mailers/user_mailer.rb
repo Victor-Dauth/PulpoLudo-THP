@@ -40,4 +40,10 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: "Oups!")
   end
+
+  def welcome_email(user)
+    @user = user
+
+    mail(to: @user.email, subject: "Bienvenu chez PulpoLudo!")
+  end
 end

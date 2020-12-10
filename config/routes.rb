@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
   
+  get 'static_pages/landing'
+  get 'static_pages/team'
+  get 'static_pages/contact'
 
-  
-  authenticated :user do
-    root 'game_sheets#index'
-    end
-    root 'static_pages#landing'
-
-
-  
-  resources :game_sheets, only: [:index, :show] do
-    resources :game_pictures, only: [:create]
-  end
 
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'game_sheets#index'
+    end
+    unauthenticated do
+      root 'static_pages#landing'
+    end
+  end
 
   resources :users do
     resources :avatars, only: [:create]
@@ -21,24 +22,32 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :create, :update] do
       resources :shippings, only: [:show, :update]
     end
-    resources :subscriptions, only: [:index, :new, :create, :update]
+    resources :subscriptions, except: [:show]
+  end
+
+  resources :game_sheets, only: [:index, :show] do
+    resources :game_pictures, only: [:create]
+  end
+
+  namespace :admin do
+    root to: 'admins#index'
+    resources :games, only: [:index, :create, :update, :destroy]
+    resources :game_sheets, only: [:index, :create, :update, :destroy]
+    resources :users, only: [:index, :create, :update, :destroy]
   end
 
   resources :carts, only: [:show, :update]
 
   resources :games, only: [:update]
 
-  get 'static_pages/landing'
-  
-
   namespace :stripe do
     resources :checkouts
     get 'checkout/success', to: 'checkouts#success', as: 'checkouts_success'
     get 'checkout/cancel', to: 'checkouts#cancel', as: 'checkouts_cancel'
-    post 'checkout/webhook', to: "checkouts#webhook", as: 'checkouts_webhook'
-
-
+    post 'checkout/webhook', to: 'checkouts#webhook'
+    resources :checkoutorders
+    get 'checkoutorder/success', to: 'checkoutorders#success', as: 'checkoutorders_success'
+    get 'checkoutorder/cancel', to: 'checkoutorders#cancel', as: 'checkoutorders_cancel'
   end
   
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

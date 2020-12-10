@@ -25,7 +25,18 @@
 
               <div class="text-center my-1">
                 <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
-                <h4 class="my-2 font-weight-normal">Ta première commande est toujours en cours. </br> Tu peux la consulter ici : </h4>
+
+                <h4 class="my-2 font-weight-normal">Tu n'a pas encore fait ta première commande !!! </h4>
+                <%= active_link_to "Choisir mes jeux", root_path, class: "btn btn-primary my-2" %>
+              </div>
+
+            <% elsif @orders.size == 1 %>
+
+              <div class="text-center my-1">
+                <%= image_tag "", class: "my-2 rounded", style: "max-height:300px" %>
+              <h4 class="my-2 font-weight-normal">Ta première commande est toujours en cours. </br> Tu peux la consulter ici : </h4>
+
+
                 <%= active_link_to "Ma commande en cours", user_order_path(current_user, current_order), class: "btn btn-primary my-2" %>
               </div>
 
