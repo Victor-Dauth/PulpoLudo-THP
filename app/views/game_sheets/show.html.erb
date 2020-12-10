@@ -1,507 +1,449 @@
 
-    <main>
-        <!-- Hero -->
-        <div class="section section-header section-image bg-primary overlay-primary text-white overflow-hidden pb-9" style="background-image: url(<%= asset_path "game-index-background3.jpg" =%>);" data-background="../assets/img/team-hero.jpg">
-            <div class="container z-2">
-                <div class="row justify-content-center pt-3">
-                    <div class="col-12 text-center">
-                      <!--- ((pourrait être utile plus tard pour savoir où on est sur l'appli))
-                        <nav aria-label="breadcrumb">
-                          <ol class="breadcrumb breadcrumb-transparent justify-content-center mb-4">
-                            <li class="breadcrumb-item text-secondary"><a href="../index.html">Home</a></li>
-                            <li class="breadcrumb-item text-secondary"><a href="./all-spaces.html">United States</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">L'atelier Vancouver Coworking</li>
-                          </ol>
-                        </nav>
-                      -->
-                      <h1 class="mb-4"><%= @game_sheet.title %></h1>
-                    </div>
+<main>
+    <!-- Hero -->
+    <div class="section section-header section-image bg-primary overlay-primary text-white overflow-hidden pb-9" style="background-image: url(<%= asset_path "game-index-background3.jpg" =%>);" data-background="../assets/img/team-hero.jpg">
+        <div class="container z-2">
+            <div class="row justify-content-center pt-3">
+                <div class="col-12 text-center">
+                  <!--- ((pourrait être utile plus tard pour savoir où on est sur l'appli))
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb breadcrumb-transparent justify-content-center mb-4">
+                        <li class="breadcrumb-item text-secondary"><a href="../index.html">Home</a></li>
+                        <li class="breadcrumb-item text-secondary"><a href="./all-spaces.html">United States</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">L'atelier Vancouver Coworking</li>
+                      </ol>
+                    </nav>
+                  -->
+                  <h1 class="mb-4"><%= @game_sheet.title %></h1>
                 </div>
             </div>
         </div>
-        <div class="section section-lg pt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <!-- Tab -->
-                        <nav>
-                            <div class="nav nav-tabs flex-column flex-md-row border-light mb-3" id="nav-tab"
-                                role="tablist">
-                                <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                    role="tab" aria-controls="nav-about" aria-selected="true"><span class="fas fa-eye mr-2"></span>à propos</a>
-                                <!--<a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video"
-                                    role="tab" aria-controls="nav-video" aria-selected="false"><span class="far fa-play-circle mr-2"></span>vidéo</a>-->
-                                <a class="nav-item nav-link" id="nav-amenities-tab" data-toggle="tab" href="#nav-amenities"
-                                    role="tab" aria-controls="nav-amenities" aria-selected="false"><span class="fas fa-cubes mr-2"></span>détails</a>
-                                <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews"
-                                    role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="fas fa-star mr-2"></span>avis</a>
-                            </div>
-                        </nav>
-                        <!-- About Tab -->
-                        <div class="tab-content mt-5 mb-3" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <div class="fancy-gallery mb-5">
-                                          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                            <ol class="carousel-indicators">
-                                              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                              <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                                              <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
-                                            </ol>
-                                            <div class="carousel-inner">
-                                              <div class="carousel-item active">
-                                                <a href="<%= game_sheet_path(@game_sheet.id) %>">
-                                                  <%if @game_sheet.game_picture.attached?%>
-                                                      <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                                                  <%else%>
-                                                      <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
-                                                  <% end %>
-                                                </a>
-                                              </div>
-                                              <div class="carousel-item">
-                                                <a href="<%= game_sheet_path(@game_sheet.id) %>">
-                                                  <%if @game_sheet.game_picture.attached?%>
-                                                      <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                                                  <%else%>
-                                                      
-                                                      <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
-                                                  <% end %>
-                                                </a>
-                                              </div>
-                                              <div class="carousel-item">
-                                                <a href="<%= game_sheet_path(@game_sheet.id) %>">
-                                                  <%if @game_sheet.game_picture.attached?%>
-                                                      <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                                                  <%else%>
-                                                      
-                                                      <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
-                                                  <% end %>
-                                                </a>
-                                              </div>
-                                            </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                              <span class="sr-only">Précédent</span>
+    </div>
+    <div class="section section-lg pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <!-- Tab -->
+                    <nav>
+                        <div class="nav nav-tabs flex-column flex-md-row border-light mb-3" id="nav-tab"
+                            role="tablist">
+                            <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about"
+                                role="tab" aria-controls="nav-about" aria-selected="true"><span class="fas fa-eye mr-2"></span>à propos</a>
+                            <!--<a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video"
+                                role="tab" aria-controls="nav-video" aria-selected="false"><span class="far fa-play-circle mr-2"></span>vidéo</a>-->
+                            <a class="nav-item nav-link" id="nav-amenities-tab" data-toggle="tab" href="#nav-amenities"
+                                role="tab" aria-controls="nav-amenities" aria-selected="false"><span class="fas fa-cubes mr-2"></span>détails</a>
+                            <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews"
+                                role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="fas fa-star mr-2"></span>avis</a>
+                        </div>
+                    </nav>
+                    <!-- About Tab -->
+                    <div class="tab-content mt-5 mb-3" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                            <div class="row mb-5">
+                                <div class="col-12">
+                                    <div class="fancy-gallery mb-5">
+                                      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                          <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+                                          <li data-target="#carouselExampleIndicators" data-slide-to="2" class="active"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
+                                              <%if @game_sheet.game_picture.attached?%>
+                                                  <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                                              <%else%>
+                                                  <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
+                                              <% end %>
                                             </a>
-                                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                              <span class="sr-only">Prochain</span>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
+                                              <%if @game_sheet.game_picture.attached?%>
+                                                  <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                                              <%else%>
+                                                  
+                                                  <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
+                                              <% end %>
+                                            </a>
+                                          </div>
+                                          <div class="carousel-item">
+                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
+                                              <%if @game_sheet.game_picture.attached?%>
+                                                  <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                                              <%else%>
+                                                  
+                                                  <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
+                                              <% end %>
                                             </a>
                                           </div>
                                         </div>
-                                        <p><span class="font-weight-bold">Description</span> Il y aura une description plus longue et détaillé du jeu, il faut encore trouver comment faire en sorte qu'elle soit mise en page automatiquement et ajouter une long_description au modèle.
-                                        </p>
+                                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="sr-only">Précédent</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="sr-only">Prochain</span>
+                                        </a>
+                                      </div>
                                     </div>
+                                    <p><span class="font-weight-bold">Description</span> Il y aura une description plus longue et détaillé du jeu, il faut encore trouver comment faire en sorte qu'elle soit mise en page automatiquement et ajouter une long_description au modèle.
+                                    </p>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card card-body bg-soft border-light p-2">
-                                            <div class="card-group bg-soft">
-                                                <div class="card mb-0">
-                                                    <div class="card-body text-center px-0 px-md-3">
-                                                        <div class="icon icon-secondary">
-                                                            <span class="fas fa-car-battery"></span>
-                                                        </div>
-                                                        <!-- Heading -->
-                                                        <div class="h5 mt-3 mb-0">
-                                                            <%= @game_sheet.difficulty %>
-                                                        </div>
-                                                        <!-- Text -->
-                                                        <span class="text-muted h6 font-weight-normal mb-0">
-                                                            Difficulté
-                                                        </span>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card card-body bg-soft border-light p-2">
+                                        <div class="card-group bg-soft">
+                                            <div class="card mb-0">
+                                                <div class="card-body text-center px-0 px-md-3">
+                                                    <div class="icon icon-secondary">
+                                                        <span class="fas fa-car-battery"></span>
                                                     </div>
+                                                    <!-- Heading -->
+                                                    <div class="h5 mt-3 mb-0">
+                                                        <%= @game_sheet.difficulty %>
+                                                    </div>
+                                                    <!-- Text -->
+                                                    <span class="text-muted h6 font-weight-normal mb-0">
+                                                        Difficulté
+                                                    </span>
                                                 </div>
-                                                <div class="card mb-0 border-left">
-                                                    <div class="card-body text-center px-0 px-md-3">
-                                                        <div class="icon icon-secondary">
-                                                            <span class="fas fa-birthday-cake"></span>
-                                                        </div>
-                                                        <!-- Heading -->
-                                                        <div class="h5 mt-3 mb-0">
-                                                            <%= @game_sheet.age_min %>+
-                                                        </div>
-                                                        <!-- Text -->
-                                                        <span class="text-muted h6 font-weight-normal mb-0">
-                                                            Ans
-                                                        </span>
+                                            </div>
+                                            <div class="card mb-0 border-left">
+                                                <div class="card-body text-center px-0 px-md-3">
+                                                    <div class="icon icon-secondary">
+                                                        <span class="fas fa-birthday-cake"></span>
                                                     </div>
+                                                    <!-- Heading -->
+                                                    <div class="h5 mt-3 mb-0">
+                                                        <%= @game_sheet.age_min %>+
+                                                    </div>
+                                                    <!-- Text -->
+                                                    <span class="text-muted h6 font-weight-normal mb-0">
+                                                        Ans
+                                                    </span>
                                                 </div>
-                                                <div class="card mb-0 border-left">
-                                                    <div class="card-body text-center px-0 px-md-3">
-                                                        <div class="icon icon-secondary">
-                                                            <span class="fas fa-users"></span>
-                                                        </div>
-                                                        <!-- Heading -->
-                                                        <div class="h5 mt-3 mb-0">
-                                                            <%= @game_sheet.nb_players %>
-                                                        </div>
-                                                        <!-- Text -->
-                                                        <span class="text-muted h6 font-weight-normal mb-0">
-                                                            Joueurs
-                                                        </span>
+                                            </div>
+                                            <div class="card mb-0 border-left">
+                                                <div class="card-body text-center px-0 px-md-3">
+                                                    <div class="icon icon-secondary">
+                                                        <span class="fas fa-users"></span>
                                                     </div>
+                                                    <!-- Heading -->
+                                                    <div class="h5 mt-3 mb-0">
+                                                        <%= @game_sheet.nb_players %>
+                                                    </div>
+                                                    <!-- Text -->
+                                                    <span class="text-muted h6 font-weight-normal mb-0">
+                                                        Joueurs
+                                                    </span>
                                                 </div>
-                                                <div class="card mb-0 border-left">
-                                                    <div class="card-body text-center px-0 px-md-3">
-                                                        <div class="icon icon-secondary">
-                                                            <span class="fas fa-stopwatch"></span>
-                                                        </div>
-                                                        <!-- Heading -->
-                                                        <div class="h5 mt-3 mb-0">
-                                                            <%= @game_sheet.playing_time %> min
-                                                        </div>
-                                                        <!-- Text -->
-                                                        <span class="text-muted h6 font-weight-normal mb-0">
-                                                            par partie
-                                                        </span>
+                                            </div>
+                                            <div class="card mb-0 border-left">
+                                                <div class="card-body text-center px-0 px-md-3">
+                                                    <div class="icon icon-secondary">
+                                                        <span class="fas fa-stopwatch"></span>
                                                     </div>
+                                                    <!-- Heading -->
+                                                    <div class="h5 mt-3 mb-0">
+                                                        <%= @game_sheet.playing_time %> min
+                                                    </div>
+                                                    <!-- Text -->
+                                                    <span class="text-muted h6 font-weight-normal mb-0">
+                                                        par partie
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End of About Tab -->
-                            <!-- Video Tab (provided videos shall be added in the future) -->
-                            <!-- <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
-                                <div class="video-poster overlay-dark position-relative rounded">
-                                    <a data-fancybox href="https://vimeo.com/40842620">
-                                        <span class="icon icon-white icon-xl"><span class="fas fa-play-circle"></span></span>
-                                    </a>
-                                    <img src="../assets/img/lifestyle-office.jpg" alt="Image">
+                        </div>
+                        <!-- End of About Tab -->
+                        <!-- Video Tab (provided videos shall be added in the future) -->
+                        <!-- <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
+                            <div class="video-poster overlay-dark position-relative rounded">
+                                <a data-fancybox href="https://vimeo.com/40842620">
+                                    <span class="icon icon-white icon-xl"><span class="fas fa-play-circle"></span></span>
+                                </a>
+                                <img src="../assets/img/lifestyle-office.jpg" alt="Image">
+                            </div>
+                        </div>-->
+                        <!-- End of Video Tab -->
+                        <!-- Details Tab -->
+                        <div class="tab-pane fade" id="nav-amenities" role="tabpanel" aria-labelledby="nav-amenities-tab">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="card border-bottom rounded-0 p-4">
+                                        <h2 class="h5">Artiste</h2>
+                                        <ul class="list-unstyled mb-0">
+                                          <% @game_sheet.artists.each do |artist| %>
+                                            <li class="d-flex py-1">
+                                              <span class="icon icon-xs icon-primary">
+                                                <span class="fas fa-circle mr-2"></span>
+                                              </span>
+                                              <span><%= artist.first_name %> <%=artist.last_name %>
+                                              </span>
+                                            </li>
+                                          <% end %>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>-->
-                            <!-- End of Video Tab -->
-                            <!-- Amenities Tab -->
-                            <div class="tab-pane fade" id="nav-amenities" role="tabpanel" aria-labelledby="nav-amenities-tab">
-                                <div class="row">
-                                    <div class="col-12 col-md-6">
-                                        <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Éditeur</h2>
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.editors %></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Auteur</h2>
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.authors %></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Thèmes</h2>
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-                                                    <span><%= @game_sheet.themes %></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="card border-bottom rounded-0 p-4">
-                                            <h2 class="h5">Méchanique</h2>
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="d-flex py-1">
-                                                    <span class="icon icon-xs icon-primary">
-                                                        <span class="fas fa-circle mr-2"></span>
-                                                    </span>
-
-                                                    <span><%= @game_sheet.mechanisms %></span>
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Equipment</h2>
+                                <div class="col-12 col-md-6">
+                                    <div class="card border-bottom rounded-0 p-4">
+                                        <h2 class="h5">Auteur</h2>
                                         <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Printer</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>3D Printer</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                                <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Projector</span>
-                                          </li>
+                                            <% @game_sheet.authors.each do |author| %>
+                                            <li class="d-flex py-1">
+                                              <span class="icon icon-xs icon-primary">
+                                                <span class="fas fa-circle mr-2"></span>
+                                              </span>
+                                              <span><%= author.first_name %> <%=author.last_name %>
+                                              </span>
+                                            </li>
+                                          <% end %>
                                         </ul>
-                                      </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Transportation</h2>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="card border-bottom rounded-0 p-4">
+                                        <h2 class="h5">Thèmes</h2>
                                         <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>5 Minute Walk From Public Transit</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>10 Minute Walk From Metro Station</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Bike Parking</span>
-                                          </li>
+                                            <% @game_sheet.themes.each do |theme| %>
+                                            <li class="d-flex py-1">
+                                              <span class="icon icon-xs icon-primary">
+                                                <span class="fas fa-circle mr-2"></span>
+                                              </span>
+                                              <span><%= theme.name %>
+                                              </span>
+                                            </li>
+                                          <% end %>
                                         </ul>
-                                      </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Relax Zones</h2>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="card border-bottom rounded-0 p-4">
+                                        <h2 class="h5">Méchanique</h2>
                                         <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Outdoor Terrace</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Lounge / Chill-out Area</span>
-                                          </li>
+                                            <% @game_sheet.mechanisms.each do |mechanism| %>
+                                            <li class="d-flex py-1">
+                                              <span class="icon icon-xs icon-primary">
+                                                <span class="fas fa-circle mr-2"></span>
+                                              </span>
+                                              <span><%= mechanism.name %>
+                                              </span>
+                                            </li>
+                                          <% end %>
                                         </ul>
-                                      </div>
                                     </div>
-                                    <div class="col-12 col-md-6">
-                                      <div class="card border-bottom rounded-0 p-4">
-                                        <h2 class="h5">Caffeine Fix</h2>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="card border-bottom rounded-0 p-4">
+                                        <h2 class="h5">Éditeur</h2>
                                         <ul class="list-unstyled mb-0">
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Free Tea</span>
-                                          </li>
-                                          <li class="d-flex py-1">
-                                            <span class="icon icon-xs icon-primary">
-                                              <span class="fas fa-check-circle mr-2"></span>
-                                            </span>
-                                            <span>Free Coffee</span>
-                                          </li>
+                                          <% @game_sheet.editors.each do |editor| %>
+                                            <li class="d-flex py-1">
+                                              <span class="icon icon-xs icon-primary">
+                                                <span class="fas fa-circle mr-2"></span>
+                                              </span>
+                                              <span><%= editor.name %>
+                                              </span>
+                                            </li>
+                                          <% end %>
                                         </ul>
-                                      </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End of Amenities Tab -->
-                            <!-- Reviews Tab -->
-                            <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
-                                <div class="card bg-white border border-light p-4 mb-4">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                            <a href="./profile.html" class="h5">Awesome place</a>
-                                            <ul class="list-unstyled d-flex mt-1 mb-0">
-                                                <li class="list-item small mr-3">by Margaret Mead</li>
-                                                <li class="list-item small">2 weeks ago</li>
-                                            </ul>
-                                        </div>
-                                        <div class="d-flex justify-content-end"> 
-                                            <span class="d-flex justify-content-center">
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star  fas text-warning  mr-2"></i>
-                                                <i class="star far fa-star text-gray"></i>
-                                            </span>
-                                        </div>
+                        </div>
+                        <!-- End of Details Tab -->
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
+                            <div class="card bg-white border border-light p-4 mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <a href="./profile.html" class="h5">Awesome place</a>
+                                        <ul class="list-unstyled d-flex mt-1 mb-0">
+                                            <li class="list-item small mr-3">by Margaret Mead</li>
+                                            <li class="list-item small">2 weeks ago</li>
+                                        </ul>
                                     </div>
-                                    <p class="m-0">Always remember that you are absolutely unique. Just like everyone else.</p>
-                                </div>
-                                <div class="card bg-white border border-light p-4 mb-4">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                            <a href="./profile.html" class="h5">Great working environment</a>
-                                            <ul class="list-unstyled d-flex mt-1 mb-0">
-                                                <li class="list-item small mr-3">by Neil Sims</li>
-                                                <li class="list-item small">2 weeks ago</li>
-                                            </ul>
-                                        </div>
-                                        <div class="d-flex justify-content-end"> 
-                                            <span class="d-flex justify-content-center">
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star  fas text-warning  mr-2"></i>
-                                                <i class="star far fa-star text-gray"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <p class="m-0">Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma -- which is living with the results of other people's thinking.</p>
-                                </div>
-                                <div class="card bg-white border border-light p-4 mb-4">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                            <a href="./profile.html" class="h5">Not only a place to work, but also to connect!</a>
-                                            <ul class="list-unstyled d-flex mt-1 mb-0">
-                                                <li class="list-item small mr-3">by Jose Leos</li>
-                                                <li class="list-item small">2 weeks ago</li>
-                                            </ul>
-                                        </div>
-                                        <div class="d-flex justify-content-end"> 
-                                            <span class="d-flex justify-content-center">
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star fas text-warning mr-2"></i>
-                                                <i class="star fa-star  fas text-warning  mr-2"></i>
-                                                <i class="star far fa-star text-gray"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <p class="m-0">The future belongs to those who believe in the beauty of their dreams.</p>
-                                </div>
-                                <form method="post">
-                                    <div class="d-flex justify-content-between align-items-center mb-3 mt-5">
-                                        <h2 class="h5 m-0">Add a review</h2> 
-                                        <span class="d-flex justify-content-center stars-rating">
-                                            <i class="star far fa-star text-gray mr-2" data-rating-value="1"></i>
-                                            <i class="star far fa-star text-gray mr-2" data-rating-value="2"></i>
-                                            <i class="star far fa-star text-gray mr-2" data-rating-value="3"></i>
-                                            <i class="star far fa-star text-gray mr-2" data-rating-value="4"></i>
-                                            <i class="star far fa-star text-gray" data-rating-value="5"></i>
+                                    <div class="d-flex justify-content-end"> 
+                                        <span class="d-flex justify-content-center">
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star  fas text-warning  mr-2"></i>
+                                            <i class="star far fa-star text-gray"></i>
                                         </span>
                                     </div>
-                                    <textarea name="description" class="form-control border" placeholder="Add a review" rows="6" data-bind-characters-target="#charactersRemaining" maxlength="1000" required></textarea>
-                                    <div class="d-flex justify-content-between mt-3">
-                                        <small class="font-weight-light">
-                                            <span id="charactersRemaining">1000</span> characters remaining</small>
-                                        <button type="submit" class="btn btn-primary animate-up-2">Add review</button>
-                                    </div> 
-                                </form>
-                            </div>
-                            <!-- End of Reviews Tab -->
-                        </div>
-                        <!-- End of tab -->
-                    </div>
-                    <aside class="col-12 col-lg-4 mt-3 mt-lg-0 mb-5 pt-6">
-                        <div class="card bg-soft border-light">
-                          <!--<div class="d-flex justify-content-between">
-                              <div class="col pl-0">
-                                <span class="text-muted font-small d-block mb-2">Nombre de joueurs</span>
-                                <span class="h5 text-dark font-weight-bold"><%= @game_sheet.nb_players %></span>
-                              </div>
-
-                              <div class="col pl-0">
-                                <span class="text-muted font-small d-block mb-2">à partir de</span>
-                                <span class="h5 text-dark font-weight-bold"><%= @game_sheet.age_min %> ans</span>
-                              </div>
-
-                              <div class="col pl-0">
-                                <span class="text-muted font-small d-block mb-2">Difficulté</span>
-                                <span class="h5 text-dark font-weight-bold"><%= @game_sheet.difficulty %></span>
-                              </div>
-                          </div>-->
-                          <% if user_signed_in? %>
-                            <div>
-                              <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => @game_sheet.id), method: 'PUT' , class: "btn btn-secondary mt-4 mb-5"%>
-                            </div>
-                          <%else%>
-                            <span class="text-muted font-small d-block">rediriger vers page d'inscription</span>
-                          <% end %>
-                        </div>
-
-                        <div class="d-flex my-4">
-                          <span class="star fas fa-star text-warning"></span> 
-                          <span class="star fas fa-star text-warning"></span> 
-                          <span class="star fas fa-star text-warning"></span> 
-                          <span class="star fas fa-star text-warning"></span> 
-                          <span class="star fas fa-star text-warning"></span>
-                          <span class="badge badge-pill badge-primary ml-2">5.0</span>
-                      </div> 
-                      <p class="mt-5"> <%= @game_sheet.description %></p>
-                    </aside>
-                </div>
-            </div>
-        </div>
-        <section class="section bg-soft">
-          <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="mb-5 font-weight-bold">Jeux que tu pourrais aimer aussi</h4>
-                </div>
-
-                    <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
-                    <div class="row">
-                        <!-- Cards-->
-
-                        <% @game_sheets_rand.each do |game_sheet| %>
-
-                          <div class="col-12 col-sm-6 col-lg-4">
-                              <div class="card border-light mb-4 animate-up-5">
-                                <a href="<%= game_sheets_path(@game_sheets) %>" class="position-relative">
-                                  <img class="rounded" src="https://picsum.photos/600" > 
-                              </a>
-
-                              <div class="card-body">
-                                  <a href="<%= game_sheets_path(@game_sheets) %>">
-                                    <h4 class="h5"><%= game_sheet.title %></h4>
-                                  </a>
-                                <div class="d-flex my-4">
-                                    <span class="star fas fa-star text-warning"></span> 
-                                    <span class="star fas fa-star text-warning"></span> 
-                                    <span class="star fas fa-star text-warning"></span> 
-                                    <span class="star fas fa-star text-warning"></span> 
-                                    <span class="star fas fa-star text-warning"></span>
-                                    <span class="badge badge-pill badge-primary ml-2">5.0</span>
                                 </div>
-                                  <ul class="list-group mb-3">
-                                    <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
-                                    <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
-                                    <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
-                                  </ul>
-                              </div>
+                                <p class="m-0">Always remember that you are absolutely unique. Just like everyone else.</p>
                             </div>
+                            <div class="card bg-white border border-light p-4 mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <a href="./profile.html" class="h5">Great working environment</a>
+                                        <ul class="list-unstyled d-flex mt-1 mb-0">
+                                            <li class="list-item small mr-3">by Neil Sims</li>
+                                            <li class="list-item small">2 weeks ago</li>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex justify-content-end"> 
+                                        <span class="d-flex justify-content-center">
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star  fas text-warning  mr-2"></i>
+                                            <i class="star far fa-star text-gray"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="m-0">Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma -- which is living with the results of other people's thinking.</p>
+                            </div>
+                            <div class="card bg-white border border-light p-4 mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <a href="./profile.html" class="h5">Not only a place to work, but also to connect!</a>
+                                        <ul class="list-unstyled d-flex mt-1 mb-0">
+                                            <li class="list-item small mr-3">by Jose Leos</li>
+                                            <li class="list-item small">2 weeks ago</li>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex justify-content-end"> 
+                                        <span class="d-flex justify-content-center">
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star fas text-warning mr-2"></i>
+                                            <i class="star fa-star  fas text-warning  mr-2"></i>
+                                            <i class="star far fa-star text-gray"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="m-0">The future belongs to those who believe in the beauty of their dreams.</p>
+                            </div>
+                            <form method="post">
+                                <div class="d-flex justify-content-between align-items-center mb-3 mt-5">
+                                    <h2 class="h5 m-0">Add a review</h2> 
+                                    <span class="d-flex justify-content-center stars-rating">
+                                        <i class="star far fa-star text-gray mr-2" data-rating-value="1"></i>
+                                        <i class="star far fa-star text-gray mr-2" data-rating-value="2"></i>
+                                        <i class="star far fa-star text-gray mr-2" data-rating-value="3"></i>
+                                        <i class="star far fa-star text-gray mr-2" data-rating-value="4"></i>
+                                        <i class="star far fa-star text-gray" data-rating-value="5"></i>
+                                    </span>
+                                </div>
+                                <textarea name="description" class="form-control border" placeholder="Add a review" rows="6" data-bind-characters-target="#charactersRemaining" maxlength="1000" required></textarea>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <small class="font-weight-light">
+                                        <span id="charactersRemaining">1000</span> characters remaining</small>
+                                    <button type="submit" class="btn btn-primary animate-up-2">Add review</button>
+                                </div> 
+                            </form>
+                        </div>
+                        <!-- End of Reviews Tab -->
+                    </div>
+                    <!-- End of tab -->
+                </div>
+                <aside class="col-12 col-lg-4 mt-3 mt-lg-0 mb-5 pt-6">
+                    <div class="card bg-soft border-light">
+                      <!--<div class="d-flex justify-content-between">
+                          <div class="col pl-0">
+                            <span class="text-muted font-small d-block mb-2">Nombre de joueurs</span>
+                            <span class="h5 text-dark font-weight-bold"><%= @game_sheet.nb_players %></span>
                           </div>
 
-                          <% end %>
+                          <div class="col pl-0">
+                            <span class="text-muted font-small d-block mb-2">à partir de</span>
+                            <span class="h5 text-dark font-weight-bold"><%= @game_sheet.age_min %> ans</span>
+                          </div>
 
-                      <!-- End of Card -->
+                          <div class="col pl-0">
+                            <span class="text-muted font-small d-block mb-2">Difficulté</span>
+                            <span class="h5 text-dark font-weight-bold"><%= @game_sheet.difficulty %></span>
+                          </div>
+                      </div>-->
+                      <% if user_signed_in? %>
+                        <div>
+                          <%= link_to "Ajouter au panier", cart_path(current_cart.id, :game_sheet_id => @game_sheet.id), method: 'PUT' , class: "btn btn-secondary mt-4 mb-5"%>
+                        </div>
+                      <%else%>
+                        <span class="text-muted font-small d-block">rediriger vers page d'inscription</span>
+                      <% end %>
                     </div>
-                  
-                  </div>
 
+                    <div class="d-flex my-4">
+                      <span class="star fas fa-star text-warning"></span> 
+                      <span class="star fas fa-star text-warning"></span> 
+                      <span class="star fas fa-star text-warning"></span> 
+                      <span class="star fas fa-star text-warning"></span> 
+                      <span class="star fas fa-star text-warning"></span>
+                      <span class="badge badge-pill badge-primary ml-2">5.0</span>
+                  </div> 
+                  <p class="mt-5"> <%= @game_sheet.description %></p>
+                </aside>
             </div>
-          </div>
-        </section>
-        <!-- End of section -->
-    </main>
+        </div>
+    </div>
+    <section class="section bg-soft">
+      <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-5 font-weight-bold">Jeux que tu pourrais aimer aussi</h4>
+            </div>
+
+                <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
+                <div class="row">
+                    <!-- Cards-->
+
+                    <% @game_sheets_rand.each do |game_sheet| %>
+
+                      <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="card border-light mb-4 animate-up-5">
+                          <a href="<%= game_sheet_path(game_sheet.id) %>">
+                            <%if game_sheet.game_picture.attached?%>
+                                <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                            <%else%>
+                                <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                            <% end %>
+                          </a>
+
+                          <div class="card-body">
+                              <a href="<%= game_sheets_path(@game_sheets) %>">
+                                <h4 class="h5"><%= game_sheet.title %></h4>
+                              </a>
+                            <div class="d-flex my-4">
+                                <span class="star fas fa-star text-warning"></span> 
+                                <span class="star fas fa-star text-warning"></span> 
+                                <span class="star fas fa-star text-warning"></span> 
+                                <span class="star fas fa-star text-warning"></span> 
+                                <span class="star fas fa-star text-warning"></span>
+                                <span class="badge badge-pill badge-primary ml-2">5.0</span>
+                            </div>
+                              <ul class="list-group mb-3">
+                                <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
+                                <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
+                                <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
+                              </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <% end %>
+
+                  <!-- End of Card -->
+                </div>
+              
+              </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End of section -->
+</main>
 
 
 
@@ -509,8 +451,8 @@
 
 
 <div class="section section-lg pt-5">
-    <div class="container">
-        <div class="row">
+  <div class="container">
+    <div class="row">
 
 			<h3>ESPACE ADMIN - Changer l'image de couverture du jeu ?</h3>
 
@@ -518,7 +460,6 @@
 			  <%= file_field_tag :game_picture %>
 			  <%= submit_tag "mettre à jour" %>
 			<% end %>
-
 		</div>
 	</div>
 </div>
