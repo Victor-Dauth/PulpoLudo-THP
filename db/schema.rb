@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(version: 2020_12_08_153204) do
     t.string "status"
     t.decimal "price", null: false
     t.datetime "start_date", null: false
-    t.integer "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
@@ -194,20 +193,15 @@ ActiveRecord::Schema.define(version: 2020_12_08_153204) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "gender"
     t.string "stripe_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_admin?", default: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
