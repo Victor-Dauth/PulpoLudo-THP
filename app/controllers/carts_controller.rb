@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   include CurrentCart
   before_action :authenticate_user!
   before_action :good_user?
-  before_action :subscribed?, only: [:update]
+  before_action :subscribed?
 
   def show
     @cart = Cart.find(params[:id])
@@ -39,7 +39,7 @@ class CartsController < ApplicationController
     @user = Cart.find(params[:id]).user
     unless @user.already_subscribed?
       flash[:notice] = "Pour pouvoir ajouter un jeu à ton panier tu dois être abonné"
-      redirect_to user_subscription_path(@user)
+      redirect_to user_subscriptions_path(@user)
     end
   end
 

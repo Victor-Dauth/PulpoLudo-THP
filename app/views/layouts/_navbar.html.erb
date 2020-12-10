@@ -2,13 +2,34 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-theme-primary navbar-expand-lg headroom py-lg-2 px-lg-6 navbar-dark  navbar-theme-primary border-bottom" style="box-shadow: 0 0.5rem 1rem rgba(13, 27, 72, 0.15)">
 
   
-  <div class="mr-auto">
-    <a class="@@logo_classes" href="<%= root_path %>" >
-      <%= image_tag 'logo/NAVBAR/logo-entier-couleur-recentre.png', class: "logo-navbar" %>
-    </a>
-  </div>
-    
+    <div class="mr-auto">
+      <a class="@@logo_classes" href="<%= root_path %>" >
+        <%= image_tag 'logo/NAVBAR/logo-entier-couleur-recentre.png', class: "logo-navbar" %>
+      </a>
+    </div>
+      
 
+     <div class="d-lg-block @@cta_button_classes">
+
+
+      <% if user_signed_in? %>
+        <% if current_user.carts %>
+          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2 cart position-relative d-inline-flex"><i style="color: var(--primary)" class="fas fa-lg fa-shopping-cart mr-2"></i>
+          <span class="cart-basket d-flex align-items-center justify-content-center">
+            0
+          </span>
+        </a>
+        <%end%>
+      <% else %>
+        <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
+          <span class="d-xl-inline">Se connecter</span>
+        </a>
+        <a href="<%= new_user_registration_path %>" class="btn btn-md btn-outline-white animate-up-2 mr-3">
+          <span class="d-xl-inline">S'inscrire</span>
+        </a>
+      <% end %>
+
+    </div>
 
   <div class="d-lg-block @@cta_button_classes">
     <% if user_signed_in? %>
@@ -26,6 +47,7 @@
         <span class="d-xl-inline">S'inscrire</span>
       </a>
     <% end %>
+
   </div>
 
   <% if user_signed_in? %>

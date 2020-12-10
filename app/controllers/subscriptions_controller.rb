@@ -5,7 +5,7 @@ class SubscriptionsController < ApplicationController
   
   #ecrire un before action update uniquement accessible a l'admin(probablement plutot metre update dans un namespace admin)
   
-  def show
+  def index
     @user = current_user
     @subscription = @user.subscription
   end

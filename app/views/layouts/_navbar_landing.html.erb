@@ -4,7 +4,7 @@
   
     <div class="mr-auto">
       <a class="@@logo_classes" href="<%= root_path %>" >
-        <%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', class: "logo-navbar" %>
+        <%= image_tag 'logo/NAVBAR/logo-entier-fond-sombre.png', class: "logo-navbar-landing" %>
       </a>
     </div>
       
@@ -17,15 +17,10 @@
           <a class="btn btn-primary" href="<%= admin_root_path %>">Site Admin</a>
         <% end %>
         <% if current_user.carts %>
-
-          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2 cart position-relative d-inline-flex"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i>
-          <span class="cart-basket d-flex align-items-center justify-content-center">
-            0
-          </span>
-        </a>
+          <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
         <%end%>
       <% else %>
-        <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
+        <a href="<%= new_user_session_path %>" class="mr-4">
           <span class="d-xl-inline">Se connecter</span>
         </a>
         <a href="<%= new_user_registration_path %>" class="btn btn-md btn-outline-white animate-up-2 mr-3">

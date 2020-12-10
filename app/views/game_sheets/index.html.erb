@@ -19,24 +19,34 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card border-light p-md-2">
-                            <%= render 'shared/cta_profile_completion(main_index)' %>
+                            <%= render 'shared/cta_subscription(main_index)' %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-          <%= render 'filtre' %>
+        <div class="section">
+  <div class="container mt-n6">
+    <div class="row">
+        <div class="row">
+          <% @game_sheets.each do |game_sheet| %>
+            <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+          <%end%>
         </div>
+      </div>
+  </div>
+</div>
+
   <%else %>
     <div class="section section-md pt-0">
-          <div class="container mt-n7">
+          <div class="container mt-n5">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card border-light p-md-2">
-                        
-                            <%= render 'filtre' %>
-                        </div>
+                          <div class="row">
+                            <% @game_sheets.each do |game_sheet| %>
+                              <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
+                            <%end%>
+                          </div>
                     </div>
                 </div>
           </div>
@@ -47,32 +57,4 @@
 
 
 
-<div class="section">
-  <div class="container">
 
-    <div class="row">
-
-        <div class="row">
-          <!-- Card 2-->
-          <% @game_sheets.each do |game_sheet| %>
-            <%= render 'game_sheet_card_1', game_sheet: game_sheet %>
-          <%end%>
-          <!-- End of Card -->
-        </div>
-
-        <!-- <div class="col mt-3 d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item disabled"><a class="page-link" tabindex="-1" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav>
-        </div> -->
-      </div>
-</div>
-</div>
