@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   after_create :create_cart
   after_create :send_welcome_email
-  # + welcome email to replace confirmation email?
 
   has_many :addresses, dependent: :destroy
   has_many :carts, dependent: :destroy
