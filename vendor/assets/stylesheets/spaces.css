@@ -11642,7 +11642,7 @@ button.bg-github:focus {
     border-radius: 0.45rem !important;
 }
 
-.rounded-circle {
+{
     border-radius: 50% !important;
 }
 
@@ -36210,10 +36210,7 @@ textarea[resize="horizontal"] {
     z-index: 3;
 }
 
-.logo-navbar {
-    height: 50px;
 
-}
 
 .search-map {
     position: absolute;
