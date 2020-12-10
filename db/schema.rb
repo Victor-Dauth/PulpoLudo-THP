@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_153204) do
     t.string "first_name"
     t.string "last_name"
     t.date "date_of_birth"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "gender"
     t.string "stripe_id"
     t.datetime "created_at", null: false
