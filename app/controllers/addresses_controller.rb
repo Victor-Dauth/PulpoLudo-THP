@@ -19,7 +19,7 @@ class AddressesController < ApplicationController
 
     if @address.save
       flash[:notice] = "Cool, ton adresse a bien été sauvegardée 😁"
-      redirect_to(user_addresses_path(@user))
+      redirect_to(user_path(@user))
     else
       puts @address.errors.messages
     end
