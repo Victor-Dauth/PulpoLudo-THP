@@ -11642,7 +11642,7 @@ button.bg-github:focus {
     border-radius: 0.45rem !important;
 }
 
-{
+.rounded-circle {
     border-radius: 50% !important;
 }
 
