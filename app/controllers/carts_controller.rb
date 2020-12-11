@@ -28,6 +28,7 @@ class CartsController < ApplicationController
     end
   end
 
+
   private
 
   def good_user?

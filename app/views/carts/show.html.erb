@@ -72,12 +72,11 @@
             <%else%>
               <div class="d-flex justify-content-end text-right mb-4 py-4">
                 <div class="mt-4">
-                  <h6 class="text-center"> Ajoute 5 jeux pour pouvoir les commander </h6>
-                </div>
+                  <h7 class="text-center">Rajoute encore <strong> <%= 5- @cart.games.count(:all) %> jeux</strong> à ton panier pour pouvoir commander</h7>
               </div>
             <%end%>
           <% else %>
-            <h6 class="text-center"> Ton panier est vide </h6>
+            <h6 class="text-center"> Ton panier est vide. Ajoute 5 jeux pour pouvoir les commander ! </h6>
           <%end%>
         <%end%>
       </div>

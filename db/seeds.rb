@@ -240,3 +240,4 @@ GameSheet.create(title: "The Mind",
 end
 
 user = User.create(email: 'pulpoludo@yopmail.com', first_name: 'Pulpo', last_name: 'Ludo', password: 'mdp123', is_admin?: true)
+
