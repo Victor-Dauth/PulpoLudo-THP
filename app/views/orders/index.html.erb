@@ -42,13 +42,13 @@
 
             <% else %>
 
-              <h1> Voici la liste de tes anciennes commandes :</h1>
+              <h4> Mes anciennes commandes</h4>
 
               <% @orders.each_with_index do |order, index| %>
 
-                <h3>Commande n°<%= index + 1%> :</h3>
+                <h5>Commande <%= index + 1%> :</h5>
 
-                <h5> Liste des jeux loués : </h5>
+                <h6> Liste des jeux loués : </h6>
 
                 <ul>
                   <li><%= order.games[0].game_sheet.title %></li>
@@ -58,7 +58,7 @@
                   <li><%= order.games[4].game_sheet.title %></li>
                 </ul>
 
-                <h5> Facture : PDF</h5>
+                <p> Facture : PDF</p>
               <% end %>
             <% end %>
           </div>
