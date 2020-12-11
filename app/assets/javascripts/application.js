@@ -13,7 +13,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery.min
-//= require popper
 //= require bootstrap.min
 //= require headroom.min
 //= require on-screen.umd.min
