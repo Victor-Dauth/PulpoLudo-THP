@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: 'admins#index'
+    root to: 'games#index'
     resources :games, except: [:show, :destroy]
     resources :game_sheets, except: [:show, :destroy]
     resources :users, except: [:show, :new, :create]
