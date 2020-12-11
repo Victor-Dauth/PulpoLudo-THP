@@ -6,15 +6,6 @@
         <div class="container z-2">
             <div class="row justify-content-center pt-3">
                 <div class="col-12 text-center">
-                  <!--- ((pourrait être utile plus tard pour savoir où on est sur l'appli))
-                    <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb breadcrumb-transparent justify-content-center mb-4">
-                        <li class="breadcrumb-item text-secondary"><a href="../index.html">Home</a></li>
-                        <li class="breadcrumb-item text-secondary"><a href="./all-spaces.html">United States</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">L'atelier Vancouver Coworking</li>
-                      </ol>
-                    </nav>
-                  -->
                   <h1 class="mb-4"><%= @game_sheet.title %></h1>
                 </div>
             </div>
@@ -29,13 +20,11 @@
                         <div class="nav nav-tabs flex-column flex-md-row border-light mb-3" id="nav-tab"
                             role="tablist">
                             <a class="nav-item nav-link active" id="nav-about-tab" data-toggle="tab" href="#nav-about"
-                                role="tab" aria-controls="nav-about" aria-selected="true"><span class="fas fa-eye mr-2"></span>à propos</a>
-                            <!--<a class="nav-item nav-link" id="nav-video-tab" data-toggle="tab" href="#nav-video"
-                                role="tab" aria-controls="nav-video" aria-selected="false"><span class="far fa-play-circle mr-2"></span>vidéo</a>-->
+                                role="tab" aria-controls="nav-about" aria-selected="true"><span class="fas fa-eye mr-2"></span>À propos</a>
                             <a class="nav-item nav-link" id="nav-amenities-tab" data-toggle="tab" href="#nav-amenities"
-                                role="tab" aria-controls="nav-amenities" aria-selected="false"><span class="fas fa-cubes mr-2"></span>détails</a>
+                                role="tab" aria-controls="nav-amenities" aria-selected="false"><span class="fas fa-cubes mr-2"></span>Détails</a>
                             <a class="nav-item nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews"
-                                role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="fas fa-star mr-2"></span>avis</a>
+                                role="tab" aria-controls="nav-reviews" aria-selected="false"><span class="fas fa-star mr-2"></span>Avis</a>
                         </div>
                     </nav>
                     <!-- About Tab -->
@@ -52,33 +41,25 @@
                                         </ol>
                                         <div class="carousel-inner">
                                           <div class="carousel-item active">
-                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
                                               <%if @game_sheet.game_picture.attached?%>
                                                   <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
                                               <%else%>
                                                   <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
-                                              <% end %>
-                                            </a>
+                                              <% end %>                                      
                                           </div>
                                           <div class="carousel-item">
-                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
                                               <%if @game_sheet.game_picture.attached?%>
                                                   <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                                              <%else%>
-                                                  
+                                              <%else%>   
                                                   <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
                                               <% end %>
-                                            </a>
                                           </div>
                                           <div class="carousel-item">
-                                            <a href="<%= game_sheet_path(@game_sheet.id) %>">
                                               <%if @game_sheet.game_picture.attached?%>
                                                   <%= image_tag @game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                                              <%else%>
-                                                  
+                                              <%else%>                                                  
                                                   <img src="<%= asset_path( 'game-index-background4.jpg' ) %>" class="rounded"/>
                                               <% end %>
-                                            </a>
                                           </div>
                                         </div>
                                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -165,16 +146,7 @@
                             </div>
                         </div>
                         <!-- End of About Tab -->
-                        <!-- Video Tab (provided videos shall be added in the future) -->
-                        <!-- <div class="tab-pane fade" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
-                            <div class="video-poster overlay-dark position-relative rounded">
-                                <a data-fancybox href="https://vimeo.com/40842620">
-                                    <span class="icon icon-white icon-xl"><span class="fas fa-play-circle"></span></span>
-                                </a>
-                                <img src="../assets/img/lifestyle-office.jpg" alt="Image">
-                            </div>
-                        </div>-->
-                        <!-- End of Video Tab -->
+                        
                         <!-- Details Tab -->
                         <div class="tab-pane fade" id="nav-amenities" role="tabpanel" aria-labelledby="nav-amenities-tab">
                             <div class="row">
@@ -266,7 +238,7 @@
                             <div class="card bg-white border border-light p-4 mb-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <a href="./profile.html" class="h5">Super jeu</a>
+                                        <h5>Super jeu</h5>
                                         <ul class="list-unstyled d-flex mt-1 mb-0">
                                             <li class="list-item small mr-3">de BB</li>
                                             <li class="list-item small">il y a deux semaines</li>
@@ -287,7 +259,7 @@
                             <div class="card bg-white border border-light p-4 mb-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <a href="./profile.html" class="h5">20/20</a>
+                                        <h5>20/20</h5>
                                         <ul class="list-unstyled d-flex mt-1 mb-0">
                                             <li class="list-item small mr-3">de Victor D</li>
                                             <li class="list-item small">il y a un mois</li>
@@ -308,7 +280,7 @@
                             <div class="card bg-white border border-light p-4 mb-4">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div>
-                                        <a href="./profile.html" class="h5">Je peux le garder ?</a>
+                                        <h5>Je peux le garder ?</h5>
                                         <ul class="list-unstyled d-flex mt-1 mb-0">
                                             <li class="list-item small mr-3">de Quentin</li>
                                             <li class="list-item small">il y a deux semaines</li>
@@ -399,7 +371,7 @@
                       </a>
 
                       <div class="card-body">
-                        <a href="<%= game_sheets_path(@game_sheets) %>">
+                        <a href="<%= game_sheet_path(game_sheet.id) %>">
                           <h4 class="h5"><%= game_sheet.title %></h4>
                         </a>
                         <div class="d-flex my-4">
