@@ -16,11 +16,11 @@
         <% if current_user.is_admin? == true %>
           <a class="btn btn-primary" href="<%= admin_root_path %>">Site Admin</a>
         <% end %>
+        
         <% if current_user.carts %>
-
           <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2 cart position-relative d-inline-flex"><i style="color: white" class="fas fa-lg fa-shopping-cart mr-2"></i>
           <span class="cart-basket d-flex align-items-center justify-content-center">
-            0
+            <%= current_user.carts.last.games.count(:all) %>
           </span>
         </a>
         <%end%>
@@ -50,9 +50,7 @@
   </div>
 
 
-
   <div class="dropdown-menu dropdown-menu-right text-left mr-3" aria-labelledby="dropdownMenuButton">
-
     <div class="link_personal_profile">
       <%= link_to user_path(current_user.id), class:"btn btn-light rounded d-flex mx-2 align-items-center", style:"height: 80px"  do %>
         <%if current_user.avatar.attached?%>

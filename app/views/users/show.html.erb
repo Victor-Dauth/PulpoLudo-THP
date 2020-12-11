@@ -11,6 +11,9 @@
             <h2>Bienvenue sur PulpoLudo !</h2> 
             <%= render 'progress_user_profile_completion' %>
             <%= render 'shared/cta_profile_completion(user_profile)' %>
+            <% if @user.already_subscribed? && @user.already_has_an_address? && @user.already_completed_profile? %>
+              <%= link_to "Aller sur mon panier", cart_path(@user), class: "btn btn-primary my-3 text-center" %>
+            <% end %>
           </div>
         </div>
       </div>

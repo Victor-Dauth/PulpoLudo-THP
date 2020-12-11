@@ -1,8 +1,6 @@
-<div class="container mt-7 mb-5">
-  <div class="card border-light p-4 p-md-5">
-    <div class="mb-6 d-flex align-items-center justify-content-center">
-      <h2 class="h1 mb-0"><i class="fas fa-cart-arrow-down"></i> Mon panier</h2>
-    </div>
+<div class="section section-lg bg-soft">
+  <div class="container">
+    <h1 class="pt-5 pt-md-0 my-5 text-center"><i class="fas fa-cart-arrow-down"></i> Mon panier</h1>
                           
     <div class="row">
       <div class="col-12">
@@ -13,71 +11,75 @@
         <% else %>
           <% unless @cart.games.empty? %>  
             <div class="table-responsive align-middle">                            
-            <table class="table mb-0 align-middle">
-              <thead class="bg-light border-top">
-                <tr>
-                  <th scope="row" class="border-0 text-left">
-                    Image du jeu
-                  </th>
-                  <th scope="row" class="border-0">
-                    Nom du jeu
-                  </th>                                         
-                  
-                  <th scope="row" class="border-0">
-                    
-                  </th>
-                </tr>
-              </thead>
-              <% @cart.games.each do |game| %>
-                <tbody>
+              <table class="table mb-0 align-middle">
+                <thead class="bg-light border-top">
                   <tr>
-                    <td>
-                      <%if game.game_sheet.game_picture.attached?%>
-                        <%= image_tag game.game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                      <%else%>
-                        <img style= "height: 100px; width: auto" src="<%= asset_path( 'game-index-background4.jpg' ) %>" />
-                      <% end %>
-                    </td>
-                    <td class="align-middle"> 
-                      <%= game.game_sheet.title %>
-                    </td>                          
-                    <td class="align-middle">
-                      <a href="<%= game_path(game.id) %>" class="btn btn-light" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
-                    </td>                                        
-                  </tr>                  
-                </tbody>
-              <%end%>  
-            </table>
+                    <th scope="row" class="border-0 text-left">
+                      Image du jeu
+                    </th>
+                    <th scope="row" class="border-0">
+                      Nom du jeu
+                    </th>                                         
+            
+                    <th scope="row" class="border-0">
+                      
+                    </th>
+                  </tr>
+                </thead>
+                <% @cart.games.each do |game| %>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <%if game.game_sheet.game_picture.attached?%>
+                          <%= image_tag game.game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                        <%else%>
+                          <img style= "height: 100px; width: auto" src="<%= asset_path( 'game-index-background4.jpg' ) %>" />
+                        <% end %>
+                      </td>
+                      <td class="align-middle"> 
+                        <%= game.game_sheet.title %>
+                      </td>                          
+                      <td class="align-middle">
+                        <a href="<%= game_path(game.id) %>" class="btn btn-light" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
+                      </td>                                        
+                    </tr>                  
+                  </tbody>
+                <%end%>  
+              </table>
             </div>
             <%if @cart.full_cart?%>
-              <div class="d-flex justify-content-end text-right mb-4 py-4">
-                <div class="mt-4">
-                  <table class="d-flex justify-content-end table table-clear text-center">
-                    <tbody>
-                      <tr>
-                        <td class="left">
-                          <strong>Frais de port</strong>
-                        </td>
-                        <td class="right">10€</td>
-                      </tr>
-                      <tr>
-                        <td colspan="2" class="right"> 
-                          <%= link_to "Passer commande", new_stripe_checkoutorder_path(total: 10), class: "btn btn-primary my-3", remote: true %>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <% unless @user.already_has_an_address? && @user.already_completed_profile? %>
+                <%= render 'shared/cta_info_missing(user_cart)' %>
+              <%else%>  
+                <div class="d-flex justify-content-end text-right mb-4 py-4">
+                  <div class="mt-4">
+                    <table class="d-flex justify-content-end table table-clear text-center">
+                      <tbody>
+                        <tr>
+                          <td class="left">
+                            <strong>Frais de port</strong>
+                          </td>
+                          <td class="right">10€</td>
+                        </tr>
+                        
+                        <tr>
+                          <td colspan="2" class="right"> 
+                            <%= link_to "Passer commande", new_stripe_checkoutorder_path(total: 10), class: "btn btn-primary my-3", remote: true %>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
+              <%end%>
             <%else%>
               <div class="d-flex justify-content-end text-right mb-4 py-4">
                 <div class="mt-4">
-                  <h6 class="text-center"> Ajoute 5 jeux pour pouvoir les commander </h6>
-                </div>
+                  <h7 class="text-center">Rajoute encore <strong> <%= 5- @cart.games.count(:all) %> jeux</strong> à ton panier pour pouvoir commander</h7>
               </div>
             <%end%>
           <% else %>
-            <h6 class="text-center"> Ton panier est vide </h6>
+            <h6 class="text-center"> Ton panier est vide. Ajoute 5 jeux pour pouvoir les commander ! </h6>
           <%end%>
         <%end%>
       </div>

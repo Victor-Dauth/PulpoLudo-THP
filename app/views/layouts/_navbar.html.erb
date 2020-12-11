@@ -16,8 +16,8 @@
         <% if current_user.carts %>
           <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2 cart position-relative d-inline-flex"><i style="color: var(--primary)" class="fas fa-lg fa-shopping-cart mr-2"></i>
           <span class="cart-basket d-flex align-items-center justify-content-center">
-            0
-          </span>
+           <%= current_user.carts.last.games.count(:all) %>
+           </span>
         </a>
         <%end%>
       <% else %>
@@ -31,24 +31,6 @@
 
     </div>
 
-  <div class="d-lg-block @@cta_button_classes">
-    <% if user_signed_in? %>
-      <% if current_user.is_admin? == true %>
-        <a class="btn btn-primary" href="<%= admin_root_path %>">Site Admin</a>
-      <% end %>
-      <% if current_user.carts %>
-        <a href="<%= cart_path(current_cart.id)%>" class="btn animate-up-2"><i style="color: var(--primary)" class="fas fa-lg fa-shopping-cart mr-2"></i></a>
-      <%end%>
-    <% else %>
-      <a href="<%= new_user_session_path %>" class="btn btn-md btn-outline-white animate-up-2">
-        <span class="d-xl-inline">Se connecter</span>
-      </a>
-      <a href="<%= new_user_registration_path %>" class="btn btn-md btn-outline-white animate-up-2 mr-3">
-        <span class="d-xl-inline">S'inscrire</span>
-      </a>
-    <% end %>
-
-  </div>
 
   <% if user_signed_in? %>
     <div class="link_personal_profile mr-2 btn btn-md align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

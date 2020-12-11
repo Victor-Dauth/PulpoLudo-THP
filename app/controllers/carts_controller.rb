@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   before_action :subscribed?
 
   def show
+    @user = current_user
     @cart = Cart.find(params[:id])
   end
 
@@ -27,6 +28,7 @@ class CartsController < ApplicationController
       redirect_to root_path
     end
   end
+
 
   private
 

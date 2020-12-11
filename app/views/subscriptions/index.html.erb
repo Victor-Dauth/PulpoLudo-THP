@@ -31,9 +31,10 @@
                   <h4 class="my-4 font-weight-normal">Voici ton abonnement en cours :</h4>
                   <p>Paiement réalisé : <%= subscription.price %> €.</p>
                   <p>Début de l'abonnement : <%= subscription.clean_start_date %>.</p>
-                  <p>Statut de l'abonnement : <%= subscription.status %>.</p>
-                  <p>Votre ID Stripe de référence est : <%= @user.stripe_id %>.</p>
-                  <p>L'ID Stripe de votre abonnement est : <%= subscription.stripe_id %>.</p>
+                  <p>Durée de l'abonnement : <%= subscription.duration %> mois.</p>
+                  <p>Fin de l'abonnement : <%= subscription.clean_end_date %>.</p>
+                  <p>Facture :  <%= @invoice %>.</p>
+
                 </div>
               <% end %>
 

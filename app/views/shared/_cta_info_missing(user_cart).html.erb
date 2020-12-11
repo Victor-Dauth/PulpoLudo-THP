@@ -1,0 +1,19 @@
+<div class="text-center my-4">
+  <h5>Il nous manque quelques infos pour que vous puissiez passer commande des 5 jeux 😬</h5>
+  <h5>Vous pourrez revenir sur votre panier juste après !</h5>
+</div>
+
+<div class="container d-flex justify-content-center my-3">
+  <% unless current_user.already_completed_profile? %>
+    <div class="col-12 col-sm-6 col-md-4 text-center mb-4 mb-md-0 px-lg-4">
+      <%= image_tag "illustrations/user_profile.png", class: "my-2", style: "max-height:100px" %>
+      <%= active_link_to "Compléter mon profil →", edit_user_path(current_user), class: "btn btn-primary my-2" %>
+    </div>
+  <% end %>
+  <% unless current_user.already_has_an_address? %>
+    <div class="col-12 col-sm-6 col-md-4 text-center mb-4 mb-md-0 px-lg-4">
+      <%= image_tag "illustrations/feature-1.png", class: "my-2", style: "max-height:100px" %>
+      <%= active_link_to "Ajouter mon adresse →", new_user_address_path(current_user), class: "btn btn-primary my-2" %>
+    </div>
+  <% end %>
+</div>
