@@ -52,7 +52,7 @@ class AddressesController < ApplicationController
 
   private
   def post_params
-    post_params = params.require(:address).permit(:street, :zipcode, :city, :country)
+    post_params = params.require(:address).permit(:street, :zipcode, :city, :country, :title)
   end
 
   def good_user?
