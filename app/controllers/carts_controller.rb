@@ -8,6 +8,11 @@ class CartsController < ApplicationController
   def show
     @user = current_user
     @cart = Cart.find(params[:id])
+    @games_in_cart = @cart.games
+
+    game_sheets_in_cart = []
+    @games_in_cart.each {|g| game_sheets_in_cart << g.game_sheet}
+    @game_sheets_rand = GameSheet.all.reject {|game_sheet| game_sheets_in_cart.include?(game_sheet) }.sample(3)
   end
 
   def update

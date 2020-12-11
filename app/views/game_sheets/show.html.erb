@@ -354,47 +354,46 @@
             <h4 class="mb-5 font-weight-bold">Jeux que tu pourrais aimer aussi</h4>
           </div>
 
-            <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
-              <div class="row">
-                <!-- Cards-->
+          <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
+            <div class="row">
+              <!-- Cards-->
 
-                <% @game_sheets_rand.each do |game_sheet| %>
+              <% @game_sheets_rand.each do |game_sheet| %>
 
-                  <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="card border-light mb-4 animate-up-5">
+                <div class="col-12 col-sm-6 col-lg-4">
+                  <div class="card border-light mb-4 animate-up-5">
+                    <a href="<%= game_sheet_path(game_sheet.id) %>">
+                      <%if game_sheet.game_picture.attached?%>
+                        <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                      <%else%>
+                        <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                      <% end %>
+                    </a>
+
+                    <div class="card-body">
                       <a href="<%= game_sheet_path(game_sheet.id) %>">
-                        <%if game_sheet.game_picture.attached?%>
-                          <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                        <%else%>
-                          <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
-                        <% end %>
+                        <h4 class="h5"><%= game_sheet.title %></h4>
                       </a>
-
-                      <div class="card-body">
-                        <a href="<%= game_sheet_path(game_sheet.id) %>">
-                          <h4 class="h5"><%= game_sheet.title %></h4>
-                        </a>
-                        <div class="d-flex my-4">
-                            <span class="star fas fa-star text-warning"></span> 
-                            <span class="star fas fa-star text-warning"></span> 
-                            <span class="star fas fa-star text-warning"></span> 
-                            <span class="star fas fa-star text-warning"></span> 
-                            <span class="star fas fa-star text-warning"></span>
-                            <span class="badge badge-pill badge-primary ml-2">5.0</span>
-                        </div>
-                          <ul class="list-group mb-3">
-                            <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
-                            <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
-                            <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
-                          </ul>
+                      <div class="d-flex my-4">
+                          <span class="star fas fa-star text-warning"></span> 
+                          <span class="star fas fa-star text-warning"></span> 
+                          <span class="star fas fa-star text-warning"></span> 
+                          <span class="star fas fa-star text-warning"></span> 
+                          <span class="star fas fa-star text-warning"></span>
+                          <span class="badge badge-pill badge-primary ml-2">5.0</span>
                       </div>
+                        <ul class="list-group mb-3">
+                          <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
+                          <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
+                          <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
+                        </ul>
                     </div>
                   </div>
-                <% end %>
-              <!-- End of Card -->
+                </div>
+              <% end %>
+            <!-- End of Card -->
             </div>
           </div>
-
         </div>
       </div>
     </section>

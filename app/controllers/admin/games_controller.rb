@@ -43,6 +43,7 @@ class Admin::GamesController < Admin::BaseController
     @game = Game.find(params[:id])
 
     if @game.update(game_params)
+      @game.update(stock_id: "#{@game.game_sheet.id}_#{@game.game_sheet.games.size}")
       flash[:notice] = "le profil de l'ustilisateur n°#{@game.id} a été mis à jour"
       redirect_to(admin_games_path)
     else

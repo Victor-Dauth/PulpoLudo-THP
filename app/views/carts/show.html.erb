@@ -2,14 +2,19 @@
   <div class="container">
     <h1 class="pt-5 pt-md-0 my-5 text-center"><i class="fas fa-cart-arrow-down"></i> Mon panier</h1>
                           
-    <div class="row">
-      <div class="col-12">
-        <%if @cart.send_cart?%>
+
+    <%if @cart.send_cart?%>
+      <div class="row">
+        <div class="col-12">
           <h6 class="text-center"> Tu as déjà commandé 5 jeux. Si tu veux en recomander 5 nouveaux il te faut d'abord nous renvoyer les 5 que tu as chez toi. <br>
           Lorsque que nous les reçevrons nous t'enverons un mail pour te signaler que tu peux en commander 5 nouveaux. </h6>
           <%= link_to "Ma commande actuelle", user_order_path(current_user, current_order), :class => "ml-3 col-auto btn btn-primary my-auto" %>
-        <% else %>
-          <% unless @cart.games.empty? %>  
+        </div>
+      </div>
+    <% else %>
+      <% unless @cart.games.empty? %>  
+        <div class="row">
+          <div class="col-12">
             <div class="table-responsive align-middle">                            
               <table class="table mb-0 align-middle">
                 <thead class="bg-light border-top">
@@ -39,7 +44,7 @@
                       <td class="align-middle"> 
                         <%= game.game_sheet.title %>
                       </td>                          
-                      <td class="align-middle">
+                      <td class="align-middle text-right">
                         <a href="<%= game_path(game.id) %>" class="btn btn-light" data-confirm="êtes-vous sur?" data-method="PATCH">Supprimer du panier</a>
                       </td>                                        
                     </tr>                  
@@ -47,7 +52,11 @@
                 <%end%>  
               </table>
             </div>
-            <%if @cart.full_cart?%>
+          </div>
+        </div>
+        <%if @cart.full_cart?%>
+          <div class="row">
+            <div class="col-12">
               <% unless @user.already_has_an_address? && @user.already_completed_profile? %>
                 <%= render 'shared/cta_info_missing(user_cart)' %>
               <%else%>  
@@ -72,17 +81,74 @@
                   </div>
                 </div>
               <%end%>
-            <%else%>
-              <div class="d-flex justify-content-end text-right mb-4 py-4">
-                <div class="mt-4">
-                  <h7 class="text-center">Rajoute encore <strong> <%= 5- @cart.games.count(:all) %> jeux</strong> à ton panier pour pouvoir commander</h7>
+            </div>
+          </div>
+        <%else%>
+          <div class="d-flex justify-content-end text-right mb-4 py-4">
+            <div class="mt-4">
+              <br>
+              <br>
+              <p class="text-center">Rajoute encore <strong> <%= 5- @games_in_cart.size %> jeux</strong> à ton panier pour pouvoir commander</p>
+              <br>
+              <br>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-12">
+              <h4 class="mb-5 font-weight-bold">Voici une liste de jeux qui pourrais t'intéresser :</h4>
+            </div>
+
+            <div class="tab-pane fade show active pl-3" id="link-example-14" role="tabpanel" aria-labelledby="tab-link-example-14">
+              <div class="row">
+                <!-- Cards-->
+
+                <% @game_sheets_rand.each do |game_sheet| %>
+
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card border-light mb-4 animate-up-5">
+                      <a href="<%= game_sheet_path(game_sheet.id) %>">
+                        <%if game_sheet.game_picture.attached?%>
+                          <%= image_tag game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                        <%else%>
+                          <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 300px; width: auto" %>
+                        <% end %>
+                      </a>
+
+                      <div class="card-body">
+                        <a href="<%= game_sheets_path(@game_sheets) %>">
+                          <h4 class="h5"><%= game_sheet.title %></h4>
+                        </a>
+                        <div class="d-flex my-4">
+                            <span class="star fas fa-star text-warning"></span> 
+                            <span class="star fas fa-star text-warning"></span> 
+                            <span class="star fas fa-star text-warning"></span> 
+                            <span class="star fas fa-star text-warning"></span> 
+                            <span class="star fas fa-star text-warning"></span>
+                            <span class="badge badge-pill badge-primary ml-2">5.0</span>
+                        </div>
+                          <ul class="list-group mb-3">
+                            <li class="list-group-item small p-0"><span class="fas fa-users mr-2"></span><%= game_sheet.nb_players %> joueurs</li>
+                            <li class="list-group-item small p-0"><span class="fas fa-birthday-cake mr-2"></span><%= game_sheet.age_min %>+ ans</li>
+                            <li class="list-group-item small p-0"><span class="fas fa-car-battery mr-2"></span>difficulté <%= game_sheet.difficulty %></li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <!-- End of Card -->
               </div>
-            <%end%>
-          <% else %>
-            <h6 class="text-center"> Ton panier est vide. Ajoute 5 jeux pour pouvoir les commander ! </h6>
-          <%end%>
+            </div>
+          </div>
+
         <%end%>
-      </div>
-    </div>
+      <% else %>
+        <div class="row">
+          <div class="col-12">
+            <h6 class="text-center"> Ton panier est vide. Ajoute 5 jeux pour pouvoir les commander ! </h6>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
   </div>
 </div>

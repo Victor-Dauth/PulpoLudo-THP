@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
     @order.finished!
 
     finish_order_email(@order)
+
+    flash[:notice] = "Super dés que tu aurons reçu tes jeux, nous t'enverons un mail pour te signaler que tu peux en relouer d'autre"
+    redirect_to(root_path)
   end
 
   private
