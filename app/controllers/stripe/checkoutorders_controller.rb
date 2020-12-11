@@ -60,25 +60,8 @@ class Stripe::CheckoutordersController < ApplicationController
 
   def failure_new_shipping_email(order, shipping_send, shipping_back)
     user = order.user
-
     UserMailer.issue_order_email(order).deliver_now
     AdminMailer.issue_shipping_email_admin(shipping_send, shipping_back, user).deliver_now
-  end
-
-  def finish_order_email(order)
-    UserMailer.finish_order_email(order).deliver_now
-  end
-
-  def good_user?
-    user_id = params[:user_id]
-    check_user(user_id)
-  end
-
-  def remove_all_game(cart)
-    cart.games.each do |game|
-      game.in_stock!
-    end
-    cart.games.delete_all
   end
 
 end

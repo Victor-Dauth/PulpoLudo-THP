@@ -44,7 +44,7 @@ class Stripe::CheckoutsController < ApplicationController
     #TO DO - Pass the retrieved elements of webhook method ; redirection to user profile for now
     @user = current_user
     redirect_to(user_path(@user))
-    flash[:success] = "Bien joué ! Tu as souscrit à ton abonnement PulpoLudo 🎉"
+    flash[:notice] = "Bien joué ! Tu as souscrit à ton abonnement PulpoLudo 🎉"
   end
 
   def cancel
