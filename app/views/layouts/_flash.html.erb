@@ -1,22 +1,22 @@
 <% flash.each do |name, msg|%>
 
   <% if name == "notice" %>
-  <div class="alert alert-success text-center" role="alert">
+  <div class="alert alert-success text-center navbar-main p-0" style="margin-top: 6em;" role="alert">
     <%= msg %>
   </div>
 
   <% elsif name == "alert" %>
-    <div class="alert alert-danger text-center" role="alert">
+    <div class="alert alert-danger text-center navbar-main p-0" style="margin-top: 6em;" role="alert">
       <%= msg %>
     </div>
 
   <% elsif name == "info" %>
-    <div class="alert alert-info text-center" role="alert">
+    <div class="alert alert-info text-center navbar-main p-0" style="margin-top: 6em;" role="alert">
       <%= msg %>
     </div>
 
   <% elsif name == "warning" %>
-    <div class="alert alert-warning text-center mb-0" role="alert">
+    <div class="alert alert-warning text-center navbar-main p-0" style="margin-top: 6em;" role="alert">
       <%= msg %>
     </div>
 
