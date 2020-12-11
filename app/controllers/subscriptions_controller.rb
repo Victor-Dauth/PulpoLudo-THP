@@ -7,11 +7,7 @@ class SubscriptionsController < ApplicationController
   
   def index
     @user = current_user
-    @subscription = @user.subscription
-  end
-
-  def interrupt
-    current_user.subscription.interrupt
+    @subscriptions = @user.subscriptions
   end
 
   private

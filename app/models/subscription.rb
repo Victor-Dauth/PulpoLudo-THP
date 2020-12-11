@@ -16,10 +16,4 @@ class Subscription < ApplicationRecord
     self.start_date.strftime("%d/%m/%Y")
   end
 
-  def interrupt
-    Stripe::Subscription.delete(stripe_id)
-    self.status = "terminé"
-    save
-  end
-
 end

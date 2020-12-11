@@ -46,7 +46,6 @@
                     <%= link_to urls_e[index], class: "nav-link" do%>
                       <i class="far fa-edit text-info"></i>
                     <% end %>
-                    <%= link_to ('<i class="far fa-times-circle text-danger"></i>').html_safe, urls_d[index], class: "nav-link", method: :DELETE, data: { confirm: "Est-ce que vous êtes sûr de votre choix ?"}%>
                   </td>
                 </tr>
               <% else %>
@@ -68,7 +67,6 @@
                     <%= link_to urls_e[index], class: "nav-link" do%>
                       <i class="far fa-edit text-info"></i>
                     <% end %>
-                    <%= link_to ('<i class="far fa-times-circle text-danger"></i>').html_safe, urls_d[index], class: "nav-link", method: :DELETE, data: { confirm: "Est-ce que vous êtes sûr de votre choix ?"}%>
                   </td>
                 </tr>
               <% end %>

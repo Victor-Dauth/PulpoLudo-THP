@@ -55,49 +55,86 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <%= link_to admin_root_path, class: "nav-link" do%>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
+                <% end %>
               </li>
             </ul>
           </li>
           <li class="nav-header">Gestion de la Base de Donnée</li>
           <li class="nav-item">
-            <%= link_to admin_games_path, class:"nav-link" do %>
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Games
+                <i class="right fas fa-angle-left"></i>
               </p>
-            <% end %>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to admin_games_path, class:"nav-link" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Liste des jeux
+                  </p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_admin_game_path, class:"nav-link" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Nouveau jeu
+                  </p>
+                <% end %>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <%= link_to admin_game_sheets_path, class:"nav-link" do %>
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Games Sheets
+                <i class="right fas fa-angle-left"></i>
               </p>
-            <% end %>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to admin_game_sheets_path, class:"nav-link" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Liste des fiches de jeux
+                  </p>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_admin_game_sheet_path, class:"nav-link" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Nouvelle fiche de jeu
+                  </p>
+                <% end %>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <%= link_to admin_users_path, class:"nav-link" do %>
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Users
+                <i class="right fas fa-angle-left"></i>
               </p>
-            <% end %>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <%= link_to admin_users_path, class:"nav-link" do %>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Liste des utilisateurs
+                  </p>
+                <% end %>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
