@@ -27,7 +27,7 @@
 
               <% @addresses.each_with_index do |address, index| %>
 
-                <h5>Adresse n°<%= index + 1%> :</h5>
+                <h5><%= address.title%> :</h5>
                   <p class="py-0 my-0"><%= address.street %></p>
                   <p class="py-0 my-0"><%= address.zipcode %> <%= address.city %></p>
                   <p class="py-0 my-0"><%= address.country %></p>
