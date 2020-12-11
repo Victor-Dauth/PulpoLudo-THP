@@ -6,8 +6,9 @@
     
         <div class="row justify-content-center ">
             <div class="col-lg-5 pl-6 text-center ">                
-                <p class="align-middle" style="font-size: 40px">Chaque mois, </br> loue 5 jeux de société pour <strong>9,99€</strong></p></br>
-                <%= link_to "Je m'abonne !", new_user_registration_path, class: "btn btn-light btn-lg mt-0 mb-3", style: "font-size: 20px;" , method: "GET" %>
+                <p class="align-middle" style="font-size: 40px">Loue 5 jeux de société pour <strong>9,99€</strong> par mois</p>
+                <a href="#taxes"><small>+ frais de port</small></br></a>
+                <%= link_to "Je m'abonne !", new_user_registration_path, class: "btn btn-light btn-lg mt-1 mb-3", style: "font-size: 20px;" , method: "GET" %>
             </div>
             <div class="col-lg-7 text-center" style="height: 400px">
                 <%= video_tag "video-landing.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, :height => "100%", :style => "border-radius: 10px;" %>
@@ -203,9 +204,11 @@
 <section class="section-header bg-soft pb-7">
             <div class="container">
                 <div class="row justify-content-center mb-6">
-                    <div class="col-12 col-lg-10 text-center">
+                    <div id="taxes" class="col-12 col-lg-10 text-center">
+
                         <h1 class="display-2 mb-3">Notre abonnement</h1>
                         <p class="lead px-lg-7">5 jeux en accès illimité pour 9,99€/mois </p>
+                        <p><small>+ frais de port de 10€ pour chaque nouvel envoi</small></p>
                     </div>
                 </div>
 
@@ -223,7 +226,7 @@
                                         <span class="display-1 text-primary font-weight-bold">
                                             9,99<span class=" font-medium">€</span>
                                     </span>
-                                    <span class="font-small">/ mois</span>
+                                    <span class="font-small">/ mois </br>+ frais de port</span>
                                     </span>
                                 </header>
                                 <!-- End Header -->
