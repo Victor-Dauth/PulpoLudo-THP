@@ -52,7 +52,7 @@ Author.create(first_name: "Oleksandr", last_name: "Nevskiy")
 
 Artist.create(first_name: "Daniel", last_name: "Goll")
 Artist.create(first_name: "Johannes", last_name: "Sich")
-Artist.create(first_name: "a", last_name: "Legruth")
+Artist.create(first_name: "", last_name: "Legruth")
 Artist.create(first_name: "Cyrille", last_name: "Bertin")
 Artist.create(first_name: "Pierre", last_name: "Santamaria")
 Artist.create(first_name: "Olivier", last_name: "Deroutteau")
@@ -61,6 +61,7 @@ Artist.create(first_name: "Marco", last_name: "Armbruster")
 Artist.create(first_name: "Xavier", last_name: "Collette")
 Artist.create(first_name: "Tomáš", last_name: "Kučerovský")
 Artist.create(first_name: "Rémy", last_name: "Tornior")
+Artist.create(first_name: "n/", last_name: "a")
 
 Editor.create(name: "Blackrock")
 Editor.create(name: "Space Cowboys")
@@ -105,7 +106,7 @@ GameSheet.create(title: "Unlock ! Mythic Adventures",
 		Author.find_by(first_name: "Jéremy", last_name: "Fraile"), 
 		Author.find_by(first_name: "Vincent", last_name: "Goyat"), 
 		Author.find_by(first_name: "Yohann", last_name: "Servais")], 
-	artists: [Artist.find_by(first_name: "a", last_name: "Legruth"), 
+	artists: [Artist.find_by(first_name: "", last_name: "Legruth"), 
 		Artist.find_by(first_name: "Cyrille", last_name: "Bertin"), 
 		Artist.find_by(first_name: "Pierre", last_name: "Santamaria")], 
 	editors: [Editor.find_by(name: "Space Cowboys")])
@@ -152,6 +153,7 @@ GameSheet.create(title: "7 Wonders Duel",
 	difficulty: 4, themes: [Theme.find_by(name: "Antiquité")], 
 	mechanisms: [Mechanism.find_by(name: "cartes")], 
 	authors: [Author.find_by(first_name: "Antoine", last_name: "Bauza")], 
+	artists: [Artist.find_by(first_name: "n/", last_name: "a")],
 	editors: [Editor.find_by(name: "Repos Production")])
 
 GameSheet.create(title: "Mysterium Park", 
@@ -210,6 +212,7 @@ GameSheet.create(title: "Terraforming Mars",
 	themes: [Theme.find_by(name: "sciences")], 
 	mechanisms: [Mechanism.find_by(name: "draft")], 
 	authors: [Author.find_by(first_name:"Jacob", last_name: "Fryxelius")], 
+	artists: [Artist.find_by(first_name: "n/", last_name: "a")],
 	editors: [Editor.find_by(name: "Intrafin")])
 
 GameSheet.create(title: "The Mind", 
@@ -224,6 +227,7 @@ GameSheet.create(title: "The Mind",
 	themes: [Theme.find_by(name: "abstrait")],
 	mechanisms: [Mechanism.find_by(name: "combinaison")], 
 	authors: [Author.find_by(first_name: "Wolfgang", last_name: "Warsch")], 
+	artists: [Artist.find_by(first_name: "n/", last_name: "a")],
 	editors: [Editor.find_by(name: "Oya")])
 
 

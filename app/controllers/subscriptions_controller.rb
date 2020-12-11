@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
   def index
     @user = current_user
     @subscriptions = @user.subscriptions
-    @invoice = Stripe::Invoice.list(limit: 3, customer: @user.stripe_id).first.invoice_pdf
+    #@invoice = Stripe::Invoice.list(limit: 3, customer: @user.stripe_id).first.invoice_pdf
   end
 
   private
