@@ -11,8 +11,8 @@ class Address < ApplicationRecord
     presence: true
 
   validates :city,
-    presence: true,
+    presence: true
 
   validates :country,
-    presence: true,
+    presence: true
 end
