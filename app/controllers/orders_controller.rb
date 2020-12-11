@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @cart = User.find(params[:user_id]).carts.last
 
-    remove_all_game(@cart)
+    remove_all_games(@cart)
     @cart.current_cart!
     @order.finished!
 
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
     check_user(user_id)
   end
 
-  def remove_all_game(cart)
+  def remove_all_games(cart)
     cart.games.each do |game|
       game.in_stock!
     end
