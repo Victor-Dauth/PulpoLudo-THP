@@ -41,15 +41,17 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def success
-    #TO DO - Pass the retrieved elements of webhook method ; redirection to user profile for now
-    @user = current_user
-    redirect_to(user_path(@user))
-    flash[:notice] = "Bien joué ! Tu as souscrit à ton abonnement PulpoLudo 🎉"
+    @invoice = Stripe::Invoice.list(limit: 3, customer: current_user.stripe_id).first.invoice_pdf
   end
 
   def cancel
-    @not_paid_subscription = build_subscription_error
-    failure_subscription_email(@not_paid_subscription)
+    #TO DO - Rework the 2 program launches herunder if cancel event, as "cancel" also means that a user just clicked on "back".
+    #@not_paid_subscription = build_subscription_error
+    #failure_subscription_email(@not_paid_subscription)
+
+    #For now redirection to root_path with flash
+    flash[:alert] = "Le paiement de l'abonnement n'a pas été finalisé."
+    redirect_to root_path
   end
 
   private
@@ -69,13 +71,10 @@ class Stripe::CheckoutsController < ApplicationController
     
     #Launch confirmation email process
     new_subscription_email(@paid_subscription)
-
-    #Provide an invoice directly to the customer
-    @invoice = Stripe::Invoice.list(limit: 3, customer: @customer.id).first.invoice_pdf
   end
 
   def build_subscription(stripe_subscription, subscriber)
-    Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now)
+    Subscription.create(user: subscriber, stripe_id: stripe_subscription.id, status: 'actif', price: 9.99, start_date: Time.now, duration: 1)
   end
 
   def new_subscription_email(subscription)
@@ -83,7 +82,7 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def build_subscription_error
-    Subscription.create(user: current_user, status: "en attente", price: 9.99, start_date: Time.now)
+    Subscription.create(user: current_user, status: "en attente", price: 9.99, start_date: Time.now, duration: 1)
   end
 
   def failure_subscription_email(subscription)

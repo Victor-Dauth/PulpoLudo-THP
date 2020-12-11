@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :good_user?
   
-  
   def index
     @orders = current_user.orders.finished
   end

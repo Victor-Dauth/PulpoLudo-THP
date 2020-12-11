@@ -6,6 +6,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.2]
       t.string :status
       t.decimal :price, null:false
       t.datetime :start_date, null:false
+      t.integer :duration, null:false
       t.timestamps
     end
   end

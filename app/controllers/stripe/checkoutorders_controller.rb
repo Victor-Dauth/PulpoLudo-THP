@@ -38,17 +38,21 @@ class Stripe::CheckoutordersController < ApplicationController
           game.leased!
         end
         current_cart.send_cart!
-        flash[:notice] = "Vos jeux vous ont bien été envoyés."
+        flash[:notice] = "Nous avons bien reçu votre commande. Vous recevrez vos jeux très prochainement !"
         redirect_to(user_path(@user))
       else
         failure_new_shipping_email(@order, @shipping_send, @shipping_back)
       end
     else
       failure_new_order_email(@order)
+      flash[:alert] = "Une erreur s'est produite dans le traitement de votre commande."
+      redirect_to root_path
     end
   end
 
   def cancel
+    flash[:alert] = "Le paiement des frais de port n'a pas été finalisé."
+    redirect_to root_path
   end
 
   private
