@@ -232,7 +232,7 @@ GameSheet.create(title: "The Mind",
 
 
 
-20.times do |id|
+50.times do |id|
   gs = GameSheet.all.sample
   if gs.games.empty?
     n = 1
