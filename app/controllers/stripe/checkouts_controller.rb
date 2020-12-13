@@ -41,7 +41,6 @@ class Stripe::CheckoutsController < ApplicationController
   end
 
   def success
-    @invoice = Stripe::Invoice.list(limit: 3, customer: current_user.stripe_id).first.invoice_pdf
   end
 
   def cancel
