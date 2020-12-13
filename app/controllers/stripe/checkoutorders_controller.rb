@@ -38,6 +38,7 @@ class Stripe::CheckoutordersController < ApplicationController
           game.leased!
         end
         current_cart.send_cart!
+        send_order_create_email(@order)
         flash[:notice] = "Nous avons bien reçu votre commande. Vous recevrez vos jeux très prochainement !"
         redirect_to(user_path(@user))
       else
@@ -66,6 +67,10 @@ class Stripe::CheckoutordersController < ApplicationController
     user = order.user
     UserMailer.issue_order_email(order).deliver_now
     AdminMailer.issue_shipping_email_admin(shipping_send, shipping_back, user).deliver_now
+  end
+
+  def send_order_create_email(order)
+    UserMailer.create_order_email(order).deliver_now
   end
 
 end
