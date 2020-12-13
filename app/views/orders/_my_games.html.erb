@@ -7,8 +7,11 @@
       <% order.games.each do |game|%>
         <li class="list-group-item border-bottom">
           <div class="col-auto row align-items-center">
-            <div class="image-cover" style="height: 100px; width: 100px; background-image: url(<%= game.game_sheet.game_picture%>);">
-            </div>
+            <%if game.game_sheet.game_picture.attached?%>
+                <%= image_tag game.game_sheet.game_picture, :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 100px; width: 100px;" %>
+            <%else%>
+                <%= image_tag asset_path( 'game-index-background4.jpg' ), :alt => "game img", class:"card-img p-2 rounded-xl", style: "height: 100px; width: 100px;" %>
+            <% end %>
             <div class="col">
               <h3 class="h6 mb-1">
                 <a href="./invoice.html"><%= game.game_sheet.title%></a>
