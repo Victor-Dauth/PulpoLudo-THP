@@ -44,7 +44,7 @@ Merci infiniment à notre mentor [Anthony Amar](https://github.com/anthonyamar) 
 
 ### EQUIPE PROJET 
 
-- [Victor Hauteville](https://github.com/Victor-Dauth/PulpoLudo-THP).
+- [Victor Dautheville](https://github.com/Victor-Dauth/PulpoLudo-THP).
 - [Bénédicte Bouclon](https://github.com/benedictebcl).
 - [Vera Turan](https://github.com/VeraTuran).
 - [Bérangère Hermann](https://github.com/Berangereh).
